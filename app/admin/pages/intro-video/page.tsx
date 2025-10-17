@@ -11,7 +11,7 @@ import { supabase } from '@/lib/supabase/client'
 export default function IntroVideoSettingsPage() {
   const router = useRouter()
   const [saving, setSaving] = useState(false)
-  const { settings: dbSettings, loading } = useSiteSettings()
+  const { settings: dbSettings, loading, updateSettings } = useSiteSettings()
 
   const [settings, setSettings] = useState({
     intro_video_enabled: false,
@@ -49,12 +49,12 @@ export default function IntroVideoSettingsPage() {
 
       // Update intro video settings in site_settings
       const updates = [
-        { setting_key: 'intro_video_enabled', setting_value: settings.intro_video_enabled },
-        { setting_key: 'intro_video_url', setting_value: settings.intro_video_url },
-        { setting_key: 'intro_video_can_skip', setting_value: settings.intro_video_can_skip },
-        { setting_key: 'intro_video_autoplay', setting_value: settings.intro_video_autoplay },
-        { setting_key: 'intro_video_show_once', setting_value: settings.intro_video_show_once },
-        { setting_key: 'intro_video_skip_delay', setting_value: settings.intro_video_skip_delay },
+        { key: 'intro_video_enabled', value: settings.intro_video_enabled },
+        { key: 'intro_video_url', value: settings.intro_video_url },
+        { key: 'intro_video_can_skip', value: settings.intro_video_can_skip },
+        { key: 'intro_video_autoplay', value: settings.intro_video_autoplay },
+        { key: 'intro_video_show_once', value: settings.intro_video_show_once },
+        { key: 'intro_video_skip_delay', value: settings.intro_video_skip_delay },
       ]
 
       for (const update of updates) {
@@ -62,14 +62,17 @@ export default function IntroVideoSettingsPage() {
           .from('site_settings')
           .upsert(
             {
-              setting_key: update.setting_key,
-              setting_value: update.setting_value,
+              key: update.key,
+              value: update.value,
               updated_by: user.id,
               updated_at: new Date().toISOString()
             },
-            { onConflict: 'setting_key' }
+            { onConflict: 'key' }
           )
       }
+
+      // Update local state immediately
+      updateSettings(settings)
 
       toast.success('تم حفظ إعدادات الفيديو في قاعدة البيانات بنجاح! ✅')
     } catch (error) {

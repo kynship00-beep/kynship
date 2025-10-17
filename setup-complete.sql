@@ -86,6 +86,16 @@ INSERT INTO public.site_settings (key, value, category) VALUES
 ('contact_info', '{"phone": "+20 100 123 4567", "email": "info@kynship.com", "address": "القاهرة، مصر"}', 'contact'),
 ('intro_video', '{"url": "", "thumbnail": "", "autoplay": true, "can_skip": true, "enabled": false}', 'homepage');
 
+-- إدراج إعدادات فيديو الترحيب الافتراضية
+INSERT INTO public.site_settings (key, value) VALUES
+('intro_video_enabled', false),
+('intro_video_url', ''),
+('intro_video_can_skip', true),
+('intro_video_autoplay', true),
+('intro_video_show_once', true),
+('intro_video_skip_delay', 3)
+ON CONFLICT (key) DO NOTHING;
+
 -- ============================================
 -- 4. PRODUCTS
 -- ============================================

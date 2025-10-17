@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { Link as LinkIcon, X, Play } from 'lucide-react'
+import { useState, useRef } from 'react'
+import { Upload, Link as LinkIcon, Loader2, X, Play } from 'lucide-react'
+import { uploadVideo } from '@/lib/upload'
 import toast from 'react-hot-toast'
 
 interface VideoUploadProps {
@@ -10,8 +11,56 @@ interface VideoUploadProps {
 }
 
 export default function VideoUpload({ value, onChange }: VideoUploadProps) {
+  const [uploading, setUploading] = useState(false)
   const [url, setUrl] = useState(value || '')
   const [preview, setPreview] = useState<string | null>(value || null)
+  const [uploadMethod, setUploadMethod] = useState<'supabase' | 'url'>('url')
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  // رفع على Supabase
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    if (!file.type.startsWith('video/')) {
+      toast.error('يرجى اختيار فيديو فقط')
+      return
+    }
+
+    if (file.size > 100 * 1024 * 1024) {
+      toast.error('حجم الفيديو يجب أن يكون أقل من 100 ميجابايت')
+      return
+    }
+
+    setUploading(true)
+
+    try {
+      // Show preview
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setPreview(reader.result as string)
+      }
+      reader.readAsDataURL(file)
+
+      // Upload to Supabase
+      const uploadedUrl = await uploadVideo(file)
+
+      if (uploadedUrl) {
+        onChange(uploadedUrl)
+        setUrl(uploadedUrl)
+        toast.success('تم رفع الفيديو بنجاح على Supabase! ✅')
+      } else {
+        toast.error('فشل رفع الفيديو - تأكد من إعداد Supabase Storage')
+        setPreview(null)
+      }
+    } catch (error) {
+      console.error('Upload error:', error)
+      toast.error('حدث خطأ أثناء رفع الفيديو')
+      setPreview(null)
+    } finally {
+      setUploading(false)
+    }
+  }
 
   const handleUrlChange = (newUrl: string) => {
     setUrl(newUrl)
@@ -26,40 +75,126 @@ export default function VideoUpload({ value, onChange }: VideoUploadProps) {
     setUrl('')
     setPreview(null)
     onChange('')
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
   }
 
   return (
     <div className="space-y-4">
-      {/* رابط الفيديو */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          رابط الفيديو (YouTube أو رابط مباشر)
-        </label>
-        <div className="flex gap-2">
-          <div className="relative flex-1">
-            <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-            <input
-              type="url"
-              value={url}
-              onChange={(e) => handleUrlChange(e.target.value)}
-              className="input pl-10"
-              placeholder="https://www.youtube.com/watch?v=..."
-            />
-          </div>
-          {url && (
+      {/* اختيار طريقة الرفع */}
+      <div className="flex gap-2 p-1 bg-gray-100 rounded-lg">
+        <button
+          type="button"
+          onClick={() => setUploadMethod('supabase')}
+          className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
+            uploadMethod === 'supabase'
+              ? 'bg-white text-primary-600 shadow-sm'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          📤 رفع على Supabase
+        </button>
+        <button
+          type="button"
+          onClick={() => setUploadMethod('url')}
+          className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
+            uploadMethod === 'url'
+              ? 'bg-white text-primary-600 shadow-sm'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          🔗 استخدام رابط
+        </button>
+      </div>
+
+      {/* رفع على Supabase */}
+      {uploadMethod === 'supabase' && (
+        <div>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="video/*"
+            onChange={handleFileUpload}
+            className="hidden"
+            disabled={uploading}
+          />
+
+          {preview ? (
+            <div className="relative group">
+              <div className="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-gray-200 bg-black">
+                <video
+                  src={preview}
+                  controls
+                  className="w-full h-full"
+                  preload="metadata"
+                />
+              </div>
+              <button
+                type="button"
+                onClick={handleRemove}
+                className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors opacity-0 group-hover:opacity-100"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          ) : (
             <button
               type="button"
-              onClick={handleRemove}
-              className="btn btn-outline text-red-600 hover:bg-red-50"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={uploading}
+              className="w-full aspect-video border-2 border-dashed border-gray-300 rounded-lg hover:border-primary-500 transition-colors flex flex-col items-center justify-center gap-3 text-gray-500 hover:text-primary-500"
             >
-              <X className="h-5 w-5" />
+              {uploading ? (
+                <>
+                  <Loader2 className="h-10 w-10 animate-spin" />
+                  <span>جاري الرفع على Supabase...</span>
+                </>
+              ) : (
+                <>
+                  <Upload className="h-10 w-10" />
+                  <span className="text-sm font-medium">اضغط لرفع فيديو</span>
+                  <span className="text-xs text-gray-400">MP4, WebM, MOV حتى 100MB</span>
+                  <span className="text-xs text-green-600 font-medium">✅ سيتم الرفع على Supabase Storage</span>
+                </>
+              )}
             </button>
           )}
         </div>
-        <p className="text-xs text-gray-500 mt-1">
-          استخدم رابط YouTube (الأفضل) أو رابط فيديو مباشر
-        </p>
-      </div>
+      )}
+
+      {/* استخدام رابط */}
+      {uploadMethod === 'url' && (
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            رابط الفيديو (YouTube أو رابط مباشر)
+          </label>
+          <div className="flex gap-2">
+            <div className="relative flex-1">
+              <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <input
+                type="url"
+                value={url}
+                onChange={(e) => handleUrlChange(e.target.value)}
+                className="input pl-10"
+                placeholder="https://www.youtube.com/watch?v=... أو رابط مباشر"
+              />
+            </div>
+            {url && (
+              <button
+                type="button"
+                onClick={handleRemove}
+                className="btn btn-outline text-red-600 hover:bg-red-50"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            )}
+          </div>
+          <p className="text-xs text-gray-500 mt-1">
+            استخدم رابط YouTube (الأفضل) أو رابط فيديو مباشر
+          </p>
+        </div>
+      )}
 
       {/* روابط سريعة */}
       <div className="bg-gray-50 rounded-lg p-3">
@@ -115,22 +250,9 @@ export default function VideoUpload({ value, onChange }: VideoUploadProps) {
           </a>
         </div>
         <p className="text-xs text-gray-500 mt-2">
-          💡 بعد الرفع، انسخ الرابط والصقه في الحقل أعلاه
+          💡 بعد الرفع، انسخ الرابط المباشر للفيديو والصقه في الحقل أعلاه
         </p>
       </div>
-
-      {/* معاينة */}
-      {preview && (
-        <div className="relative">
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden border-2 border-gray-200 bg-black">
-            <video
-              src={preview}
-              controls
-              className="w-full h-full"
-            />
-          </div>
-        </div>
-      )}
 
       {/* نصائح */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-800">
@@ -143,39 +265,6 @@ export default function VideoUpload({ value, onChange }: VideoUploadProps) {
           <li>• <strong>الجودة:</strong> استخدم 1080p أو أعلى للوضوح</li>
         </ul>
       </div>
-      
-      {/* روابط من السوشيال ميديا */}
-      <details className="text-sm">
-        <summary className="cursor-pointer text-gray-600 hover:text-gray-900 font-medium">
-          📱 استخدام فيديو من السوشيال ميديا
-        </summary>
-        <div className="mt-3 bg-gray-50 rounded-lg p-3 space-y-2 text-xs">
-          <div>
-            <p className="font-semibold text-gray-700 mb-1">Facebook:</p>
-            <ol className="list-decimal list-inside space-y-1 text-gray-600">
-              <li>افتح الفيديو على Facebook</li>
-              <li>اضغط على "Share" → "Copy Link"</li>
-              <li>الصق الرابط هنا</li>
-            </ol>
-          </div>
-          <div>
-            <p className="font-semibold text-gray-700 mb-1">Instagram:</p>
-            <ol className="list-decimal list-inside space-y-1 text-gray-600">
-              <li>افتح الفيديو على Instagram</li>
-              <li>اضغط على "..." → "Copy Link"</li>
-              <li>الصق الرابط هنا</li>
-            </ol>
-          </div>
-          <div>
-            <p className="font-semibold text-gray-700 mb-1">TikTok:</p>
-            <ol className="list-decimal list-inside space-y-1 text-gray-600">
-              <li>افتح الفيديو على TikTok</li>
-              <li>اضغط على "Share" → "Copy Link"</li>
-              <li>الصق الرابط هنا</li>
-            </ol>
-          </div>
-        </div>
-      </details>
     </div>
   )
 }
