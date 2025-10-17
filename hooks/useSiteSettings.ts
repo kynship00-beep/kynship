@@ -167,9 +167,10 @@ export function useSiteSettings() {
               break
 
             default:
-              // For other settings, ensure they are strings for React
+              // For other settings, keep objects as objects, but ensure strings for React compatibility
               if (typeof value === 'object' && value !== null) {
-                settingsObj[item.key] = JSON.stringify(value)
+                // Keep JSON objects as objects for proper handling
+                settingsObj[item.key] = value
               } else {
                 settingsObj[item.key] = value
               }
@@ -199,6 +200,17 @@ export function useSiteSettings() {
       const saved = localStorage.getItem('site_settings')
       if (saved) {
         const parsed = JSON.parse(saved)
+        // Ensure objects remain as objects, not strings
+        Object.keys(parsed).forEach(key => {
+          if (typeof parsed[key] === 'string') {
+            try {
+              // Try to parse as JSON in case it was stored as a JSON string
+              parsed[key] = JSON.parse(parsed[key])
+            } catch {
+              // If parsing fails, keep as string
+            }
+          }
+        })
         setSettings({ ...defaultSettings, ...parsed })
       }
     } catch (error) {

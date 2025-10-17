@@ -242,19 +242,26 @@ npm run build
 - فعّل RLS على جميع الجداول
 - فعّل الـ Storage Buckets
 
-#### مشكلة: خطأ في Functions Runtime
+#### مشكلة: خطأ في API Routes - Invalid Route Export
 **الحل**:
-1. اذهب إلى Vercel Dashboard → Settings → Functions
-2. اختر Node.js 20.x كـ Runtime
-3. أعد نشر المشروع
+1. تأكد من أن ملف `route.ts` يحتوي فقط على HTTP methods (`GET`, `POST`, `PUT`, `DELETE`)
+2. انقل أي دوال مساعدة إلى ملف منفصل في مجلد `lib/`
+3. لا تصدر أي شيء غير HTTP methods من ملف `route.ts`
 
-**ملاحظة**: إذا واجهت مشاكل في runtime، يمكنك تعديل ملف `vercel.json` وإضافة:
-```json
-"functions": {
-  "app/api/**/*.ts": {
-    "runtime": "nodejs20.x"
-  }
-}
+**مثال خاطئ:**
+```typescript
+// app/api/send-email/route.ts
+export function getOrderConfirmationEmail() { ... } // ❌ خطأ!
+```
+
+**مثال صحيح:**
+```typescript
+// lib/email-templates.ts
+export function getOrderConfirmationEmail() { ... } // ✅ صحيح
+
+// app/api/send-email/route.ts
+import { getOrderConfirmationEmail } from '@/lib/email-templates'
+export async function POST() { ... } // ✅ صحيح
 ```
 
 ### فحص النشر:
@@ -263,8 +270,53 @@ npm run build
 3. تأكد من عدم وجود أخطاء في Logs
 4. اختبر جميع الصفحات والوظائف
 
----
-**🎉 مبروك! مشروعك جاهز للنشر على Vercel بدون مشاكل!**
+### 📋 قواعد مهمة لـ API Routes في Next.js 13+:
+
+#### ✅ **البنية الصحيحة لـ API Routes:**
+```typescript
+// app/api/example/route.ts
+export async function GET(request: NextRequest) {
+  // فقط HTTP methods مسموحة هنا
+}
+
+export async function POST(request: NextRequest) {
+  // فقط HTTP methods مسموحة هنا
+}
+
+// لا تضع دوال مساعدة هنا!
+```
+
+#### ❌ **الأخطاء الشائعة:**
+```typescript
+// خطأ: تصدير دوال مساعدة في route file
+export function helperFunction() { ... } // ❌ ممنوع!
+
+// خطأ: استخدام exports غير HTTP methods
+export const config = { ... } // ❌ فقط في pages router
+```
+
+#### ✅ **الحل الصحيح:**
+```typescript
+// 1. انقل الدوال المساعدة إلى ملف منفصل
+// lib/email-templates.ts
+export function getOrderConfirmationEmail(order: any) {
+  // منطق الـ email هنا
+}
+
+// 2. استخدمها في الـ route
+import { getOrderConfirmationEmail } from '@/lib/email-templates'
+```
+
+#### 📁 **هيكل المجلدات الصحيح:**
+```
+app/api/
+  ├── send-email/
+  │   └── route.ts          # فقط HTTP methods
+  └── products/
+      ├── route.ts          # GET /api/products
+      └── [id]/
+          └── route.ts      # GET, PUT, DELETE /api/products/[id]
+```
 
 ## 📚 التوثيق
 

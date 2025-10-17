@@ -45,10 +45,38 @@ export default function Header() {
             )}
             <div className="flex flex-col">
               <span className="text-xl font-bold" style={{ color: settings.primary_color || '#1a365d' }}>
-                {typeof settings.site_name === 'string' ? settings.site_name : 'ألوميتال برو'}
+                {(() => {
+                  try {
+                    if (typeof settings.site_name === 'string') {
+                      // If it's already a string, use it directly
+                      return settings.site_name
+                    } else if (settings.site_name && typeof settings.site_name === 'object') {
+                      // If it's a JSON object, try to get Arabic value
+                      const nameObj = settings.site_name as { ar?: string; en?: string }
+                      return nameObj.ar || nameObj.en || 'kynship'
+                    }
+                    return 'kynship'
+                  } catch {
+                    return 'kynship'
+                  }
+                })()}
               </span>
               <span className="text-xs" style={{ color: settings.secondary_color || '#2d3748' }}>
-                {typeof settings.site_tagline === 'string' ? settings.site_tagline : 'الجودة والأناقة'}
+                {(() => {
+                  try {
+                    if (typeof settings.site_tagline === 'string') {
+                      // If it's already a string, use it directly
+                      return settings.site_tagline
+                    } else if (settings.site_tagline && typeof settings.site_tagline === 'object') {
+                      // If it's a JSON object, try to get Arabic value
+                      const taglineObj = settings.site_tagline as { ar?: string; en?: string }
+                      return taglineObj.ar || taglineObj.en || 'الجودة والأناقة'
+                    }
+                    return 'الجودة والأناقة'
+                  } catch {
+                    return 'الجودة والأناقة'
+                  }
+                })()}
               </span>
             </div>
           </Link>

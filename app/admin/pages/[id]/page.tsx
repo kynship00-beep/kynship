@@ -13,7 +13,11 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
   const { getPageContent, updatePageContent, getPageName } = usePagesContent()
 
   const [pageData, setPageData] = useState(() => {
-    return getPageContent(params.id) || {}
+    const content = getPageContent(params.id) || {}
+    return {
+      sections: content.sections || {},
+      ...content
+    }
   })
 
   const handleSave = async () => {
@@ -41,9 +45,9 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
     setPageData({
       ...pageData,
       sections: {
-        ...pageData.sections,
+        ...(pageData.sections || {}),
         [sectionKey]: {
-          ...pageData.sections[sectionKey],
+          ...(pageData.sections?.[sectionKey] || {}),
           [field]: value,
         },
       },
@@ -89,57 +93,63 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left: Editor */}
         <div className="space-y-6">
-          {Object.entries(pageData.sections).map(([sectionKey, sectionData]: [string, any]) => (
-            <div key={sectionKey} className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-bold text-lg mb-4 capitalize">{sectionKey}</h3>
-              
-              <div className="space-y-4">
-                {Object.entries(sectionData).map(([field, value]: [string, any]) => (
-                  <div key={field}>
-                    <label className="label capitalize">{field}</label>
-                    
-                    {field.includes('Image') || field.includes('image') ? (
-                      <ImageUpload
-                        value={value as string}
-                        onChange={(url) => updateSection(sectionKey, field, url)}
-                        bucket="pages"
-                      />
-                    ) : Array.isArray(value) ? (
-                      <div className="space-y-2">
-                        {value.map((item, index) => (
-                          <input
-                            key={index}
-                            type="text"
-                            value={item}
-                            onChange={(e) => {
-                              const newArray = [...value]
-                              newArray[index] = e.target.value
-                              updateSection(sectionKey, field, newArray)
-                            }}
-                            className="input"
-                          />
-                        ))}
-                      </div>
-                    ) : typeof value === 'string' && value.length > 50 ? (
-                      <textarea
-                        value={value}
-                        onChange={(e) => updateSection(sectionKey, field, e.target.value)}
-                        className="input"
-                        rows={4}
-                      />
-                    ) : (
-                      <input
-                        type="text"
-                        value={value as string}
-                        onChange={(e) => updateSection(sectionKey, field, e.target.value)}
-                        className="input"
-                      />
-                    )}
-                  </div>
-                ))}
+          {pageData.sections && Object.keys(pageData.sections).length > 0 ? (
+            Object.entries(pageData.sections).map(([sectionKey, sectionData]: [string, any]) => (
+              <div key={sectionKey} className="bg-white rounded-xl p-6 shadow-sm">
+                <h3 className="font-bold text-lg mb-4 capitalize">{sectionKey}</h3>
+                
+                <div className="space-y-4">
+                  {Object.entries(sectionData).map(([field, value]: [string, any]) => (
+                    <div key={field}>
+                      <label className="label capitalize">{field}</label>
+                      
+                      {field.includes('Image') || field.includes('image') ? (
+                        <ImageUpload
+                          value={value as string}
+                          onChange={(url) => updateSection(sectionKey, field, url)}
+                          bucket="pages"
+                        />
+                      ) : Array.isArray(value) ? (
+                        <div className="space-y-2">
+                          {value.map((item, index) => (
+                            <input
+                              key={index}
+                              type="text"
+                              value={item}
+                              onChange={(e) => {
+                                const newArray = [...value]
+                                newArray[index] = e.target.value
+                                updateSection(sectionKey, field, newArray)
+                              }}
+                              className="input"
+                            />
+                          ))}
+                        </div>
+                      ) : typeof value === 'string' && value.length > 50 ? (
+                        <textarea
+                          value={value}
+                          onChange={(e) => updateSection(sectionKey, field, e.target.value)}
+                          className="input"
+                          rows={4}
+                        />
+                      ) : (
+                        <input
+                          type="text"
+                          value={value as string}
+                          onChange={(e) => updateSection(sectionKey, field, e.target.value)}
+                          className="input"
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
+            ))
+          ) : (
+            <div className="bg-white rounded-xl p-6 shadow-sm text-center text-gray-500">
+              <p>لا توجد أقسام متاحة لهذه الصفحة</p>
             </div>
-          ))}
+          )}
         </div>
 
         {/* Right: Preview */}
@@ -148,7 +158,7 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
             <h3 className="font-bold text-lg mb-4">معاينة مباشرة</h3>
             <div className="border rounded-lg p-4 bg-gray-50 min-h-[400px] space-y-4">
               {/* Preview Hero Section */}
-              {pageData.sections.hero && (
+              {pageData.sections?.hero && (
                 <div className="bg-primary-500 text-white p-6 rounded-lg">
                   <h2 className="text-2xl font-bold mb-2">
                     {pageData.sections.hero.title}
@@ -167,7 +177,7 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
               )}
 
               {/* Preview About Section */}
-              {pageData.sections.about && (
+              {pageData.sections?.about && (
                 <div className="bg-white p-4 rounded-lg border">
                   <h3 className="font-bold text-lg mb-2">
                     {pageData.sections.about.title}
@@ -186,7 +196,7 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
               )}
 
               {/* Preview Stats */}
-              {pageData.sections.stats && (
+              {pageData.sections?.stats && (
                 <div className="grid grid-cols-2 gap-2">
                   {Object.entries(pageData.sections.stats).map(([key, value]) => (
                     <div key={key} className="bg-white p-3 rounded-lg border text-center">
@@ -198,7 +208,7 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
               )}
 
               {/* Preview Content */}
-              {pageData.sections.content && (
+              {pageData.sections?.content && (
                 <div className="bg-white p-4 rounded-lg border">
                   <p className="text-sm text-gray-700">
                     {pageData.sections.content.text}
@@ -207,7 +217,7 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
               )}
 
               {/* Preview Info */}
-              {pageData.sections.info && (
+              {pageData.sections?.info && (
                 <div className="bg-white p-4 rounded-lg border space-y-2">
                   {Object.entries(pageData.sections.info).map(([key, value]) => (
                     <div key={key} className="text-sm">
