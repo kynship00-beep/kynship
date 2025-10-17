@@ -94,12 +94,12 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors"
+                className="text-sm font-medium text-gray-700 hover:text-primary-500 transition-colors px-3 py-2 rounded-md hover:bg-gray-50"
               >
                 {link.label}
               </Link>
@@ -107,18 +107,18 @@ export default function Header() {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-4">
-            {/* Search */}
-            <button className="hidden sm:flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm">
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Search - Desktop only */}
+            <button className="hidden sm:flex items-center gap-2 rounded-lg bg-gray-100 px-3 sm:px-4 py-2 text-sm hover:bg-gray-200 transition-colors">
               <Search className="h-4 w-4" />
-              <span>بحث...</span>
+              <span className="hidden md:inline">بحث...</span>
             </button>
 
             {/* Cart */}
-            <Link href="/cart" className="relative">
-              <ShoppingCart className="h-6 w-6 text-gray-700" />
+            <Link href="/cart" className="relative p-2 hover:bg-gray-100 rounded-lg transition-colors">
+              <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700" />
               {itemsCount > 0 && (
-                <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-accent-500 text-xs text-white">
+                <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-accent-500 text-xs text-white">
                   {itemsCount}
                 </span>
               )}
@@ -128,43 +128,52 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="flex items-center gap-2 rounded-lg bg-gray-100 px-3 py-2"
+                className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 sm:px-3 py-2 hover:bg-gray-200 transition-colors"
               >
-                <User className="h-5 w-5" />
+                <User className="h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="hidden sm:inline text-sm font-medium">
+                  {profile?.full_name ? profile.full_name.split(' ')[0] : 'الحساب'}
+                </span>
               </button>
 
               {userMenuOpen && (
-                <div className="absolute left-0 mt-2 w-48 rounded-lg bg-white shadow-lg border">
+                <div className="absolute left-0 mt-2 w-56 sm:w-64 rounded-lg bg-white shadow-lg border z-50">
                   {user ? (
                     <>
                       <div className="border-b px-4 py-3">
-                        <p className="text-sm font-medium">{profile?.full_name || 'مستخدم'}</p>
-                        <p className="text-xs text-gray-500">{user.email}</p>
+                        <p className="text-sm font-medium truncate">{profile?.full_name || 'مستخدم'}</p>
+                        <p className="text-xs text-gray-500 truncate">{user.email}</p>
                       </div>
                       <Link
                         href="/account"
-                        className="block px-4 py-2 text-sm hover:bg-gray-50"
+                        className="block px-4 py-2 text-sm hover:bg-gray-50 transition-colors"
+                        onClick={() => setUserMenuOpen(false)}
                       >
                         حسابي
                       </Link>
                       <Link
                         href="/account/orders"
-                        className="block px-4 py-2 text-sm hover:bg-gray-50"
+                        className="block px-4 py-2 text-sm hover:bg-gray-50 transition-colors"
+                        onClick={() => setUserMenuOpen(false)}
                       >
                         طلباتي
                       </Link>
                       {isAdmin() && (
                         <Link
                           href="/admin"
-                          className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 border-t"
+                          className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50 border-t transition-colors"
+                          onClick={() => setUserMenuOpen(false)}
                         >
                           <Settings className="h-4 w-4" />
                           لوحة التحكم
                         </Link>
                       )}
                       <button
-                        onClick={() => signOut()}
-                        className="w-full text-right px-4 py-2 text-sm text-red-600 hover:bg-gray-50 border-t"
+                        onClick={() => {
+                          signOut()
+                          setUserMenuOpen(false)
+                        }}
+                        className="w-full text-right px-4 py-2 text-sm text-red-600 hover:bg-gray-50 border-t transition-colors"
                       >
                         تسجيل الخروج
                       </button>
@@ -173,13 +182,15 @@ export default function Header() {
                     <>
                       <Link
                         href="/auth/login"
-                        className="block px-4 py-2 text-sm hover:bg-gray-50"
+                        className="block px-4 py-2 text-sm hover:bg-gray-50 transition-colors"
+                        onClick={() => setUserMenuOpen(false)}
                       >
                         تسجيل الدخول
                       </Link>
                       <Link
                         href="/auth/register"
-                        className="block px-4 py-2 text-sm hover:bg-gray-50"
+                        className="block px-4 py-2 text-sm hover:bg-gray-50 transition-colors"
+                        onClick={() => setUserMenuOpen(false)}
                       >
                         إنشاء حساب
                       </Link>
@@ -192,7 +203,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden"
+              className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -205,17 +216,27 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <nav className="md:hidden border-t py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block py-2 text-sm font-medium text-gray-700 hover:text-primary-500"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav className="lg:hidden border-t py-4 bg-white">
+            <div className="space-y-1 px-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="block py-3 text-base font-medium text-gray-700 hover:text-primary-500 hover:bg-gray-50 rounded-lg px-3 transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Mobile Search */}
+            <div className="px-4 py-3 border-t mt-4">
+              <button className="w-full flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-sm hover:bg-gray-200 transition-colors">
+                <Search className="h-5 w-5" />
+                <span>البحث في المنتجات...</span>
+              </button>
+            </div>
           </nav>
         )}
       </div>

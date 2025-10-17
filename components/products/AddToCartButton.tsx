@@ -28,10 +28,10 @@ export default function AddToCartButton({ product, quantity = 1 }: AddToCartButt
   return (
     <button
       onClick={handleAddToCart}
-      className="btn btn-primary w-full"
+      className="btn bg-primary-500 hover:bg-primary-600 text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 w-full"
     >
-      <ShoppingCart className="h-5 w-5" />
-      أضف للسلة
+      <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5" />
+      <span>أضف للسلة</span>
     </button>
   )
 }

@@ -27,7 +27,7 @@ export default function HeroSection() {
   }, [getPageContent])
 
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center bg-gradient-to-br from-primary-500 to-primary-700 text-white overflow-hidden">
+    <section className="relative min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-gradient-to-br from-primary-500 to-primary-700 text-white overflow-hidden">
       {/* Background Image */}
       {settings.hero_background && (
         <div className="absolute inset-0">
@@ -47,19 +47,25 @@ export default function HeroSection() {
         }} />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 lg:mb-8 animate-fade-in leading-tight">
             {content.title}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 animate-fade-in-delay">
+          <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 sm:mb-8 lg:mb-10 text-white/90 animate-fade-in-delay max-w-4xl mx-auto leading-relaxed">
             {content.subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
-            <Link href="/products" className="btn bg-white text-primary-500 hover:bg-gray-100">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 justify-center animate-fade-in-delay-2">
+            <Link
+              href="/products"
+              className="btn bg-white text-primary-500 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
               {content.buttonText}
             </Link>
-            <Link href="/contact" className="btn bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white/20">
+            <Link
+              href="/contact"
+              className="btn bg-white/10 backdrop-blur-sm text-white border-2 border-white hover:bg-white/20 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
               اتصل بنا
             </Link>
           </div>

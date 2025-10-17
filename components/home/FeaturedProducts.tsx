@@ -83,26 +83,26 @@ export default async function FeaturedProducts() {
   }
 
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6">
             منتجات مميزة
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             اكتشف أجود المنتجات من مجموعتنا المتميزة
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {products.map((product) => {
             const discount = product.discount_price
               ? calculateDiscount(product.price, product.discount_price)
               : 0
 
             return (
-              <div key={product.id} className="card group">
-                <Link href={`/products/${product.slug}`} className="block relative aspect-square mb-4 overflow-hidden rounded-lg">
+              <div key={product.id} className="card group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
+                <Link href={`/products/${product.slug}`} className="block relative aspect-[4/3] mb-4 overflow-hidden">
                   <Image
                     src={product.images[0] || '/placeholder.jpg'}
                     alt={product.name}
@@ -110,26 +110,29 @@ export default async function FeaturedProducts() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   {discount > 0 && (
-                    <div className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-red-500 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-lg">
                       خصم {discount}%
                     </div>
                   )}
                 </Link>
 
-                <div className="space-y-2">
-                  <span className="text-sm text-gray-500">{product.category}</span>
+                <div className="p-4 sm:p-5 lg:p-6 space-y-3 sm:space-y-4">
+                  <span className="inline-block text-xs sm:text-sm text-primary-600 bg-primary-50 px-2 sm:px-3 py-1 rounded-full font-medium">
+                    {product.category}
+                  </span>
+
                   <Link href={`/products/${product.slug}`}>
-                    <h3 className="font-semibold text-lg hover:text-primary-500 transition-colors">
+                    <h3 className="font-bold text-lg sm:text-xl hover:text-primary-600 transition-colors line-clamp-2 leading-tight">
                       {product.name}
                     </h3>
                   </Link>
 
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl font-bold text-primary-500">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary-600">
                       {formatPrice(product.discount_price || product.price)}
                     </span>
                     {product.discount_price && (
-                      <span className="text-sm text-gray-400 line-through">
+                      <span className="text-sm sm:text-base text-gray-400 line-through">
                         {formatPrice(product.price)}
                       </span>
                     )}
@@ -140,7 +143,7 @@ export default async function FeaturedProducts() {
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`h-4 w-4 ${
+                          className={`h-3 w-3 sm:h-4 sm:w-4 ${
                             i < Math.floor(product.rating)
                               ? 'fill-yellow-400 text-yellow-400'
                               : 'text-gray-300'
@@ -148,7 +151,7 @@ export default async function FeaturedProducts() {
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-xs sm:text-sm text-gray-500">
                       ({product.reviews_count} تقييم)
                     </span>
                   </div>
@@ -160,8 +163,11 @@ export default async function FeaturedProducts() {
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <Link href="/products" className="btn btn-primary">
+        <div className="text-center mt-8 sm:mt-12 lg:mt-16">
+          <Link
+            href="/products"
+            className="btn bg-primary-500 hover:bg-primary-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             عرض جميع المنتجات
           </Link>
         </div>
