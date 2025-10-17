@@ -242,6 +242,21 @@ npm run build
 - فعّل RLS على جميع الجداول
 - فعّل الـ Storage Buckets
 
+#### مشكلة: خطأ في Functions Runtime
+**الحل**:
+1. اذهب إلى Vercel Dashboard → Settings → Functions
+2. اختر Node.js 20.x كـ Runtime
+3. أعد نشر المشروع
+
+**ملاحظة**: إذا واجهت مشاكل في runtime، يمكنك تعديل ملف `vercel.json` وإضافة:
+```json
+"functions": {
+  "app/api/**/*.ts": {
+    "runtime": "nodejs20.x"
+  }
+}
+```
+
 ### فحص النشر:
 1. اذهب إلى لوحة Vercel
 2. انتظر اكتمال البناء
