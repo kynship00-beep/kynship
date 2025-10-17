@@ -179,7 +179,19 @@ export default function EditSettingsPage() {
                 <label className="label">اسم الموقع</label>
                 <input
                   type="text"
-                  value={settings.site_name}
+                  value={(() => {
+                    try {
+                      if (typeof settings.site_name === 'string') {
+                        return settings.site_name
+                      } else if (settings.site_name && typeof settings.site_name === 'object') {
+                        const nameObj = settings.site_name as { ar?: string; en?: string }
+                        return nameObj.ar || nameObj.en || ''
+                      }
+                      return ''
+                    } catch {
+                      return ''
+                    }
+                  })()}
                   onChange={(e) => setSettings({ ...settings, site_name: e.target.value })}
                   className="input"
                 />
@@ -189,7 +201,19 @@ export default function EditSettingsPage() {
                 <label className="label">الشعار</label>
                 <input
                   type="text"
-                  value={settings.site_tagline}
+                  value={(() => {
+                    try {
+                      if (typeof settings.site_tagline === 'string') {
+                        return settings.site_tagline
+                      } else if (settings.site_tagline && typeof settings.site_tagline === 'object') {
+                        const taglineObj = settings.site_tagline as { ar?: string; en?: string }
+                        return taglineObj.ar || taglineObj.en || ''
+                      }
+                      return ''
+                    } catch {
+                      return ''
+                    }
+                  })()}
                   onChange={(e) => setSettings({ ...settings, site_tagline: e.target.value })}
                   className="input"
                 />
@@ -502,8 +526,36 @@ export default function EditSettingsPage() {
                     />
                   )}
                   <div>
-                    <h4 className="font-bold">{settings.site_name}</h4>
-                    <p className="text-sm text-gray-600">{settings.site_tagline}</p>
+                    <h4 className="font-bold">
+                      {(() => {
+                        try {
+                          if (typeof settings.site_name === 'string') {
+                            return settings.site_name
+                          } else if (settings.site_name && typeof settings.site_name === 'object') {
+                            const nameObj = settings.site_name as { ar?: string; en?: string }
+                            return nameObj.ar || nameObj.en || 'kynship'
+                          }
+                          return 'kynship'
+                        } catch {
+                          return 'kynship'
+                        }
+                      })()}
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      {(() => {
+                        try {
+                          if (typeof settings.site_tagline === 'string') {
+                            return settings.site_tagline
+                          } else if (settings.site_tagline && typeof settings.site_tagline === 'object') {
+                            const taglineObj = settings.site_tagline as { ar?: string; en?: string }
+                            return taglineObj.ar || taglineObj.en || 'الجودة والأناقة'
+                          }
+                          return 'الجودة والأناقة'
+                        } catch {
+                          return 'الجودة والأناقة'
+                        }
+                      })()}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -512,9 +564,9 @@ export default function EditSettingsPage() {
               <div className="p-4 bg-gray-50 rounded-lg">
                 <h4 className="font-semibold mb-2">معلومات التواصل:</h4>
                 <div className="text-sm space-y-1">
-                  <p>📞 {settings.contact_phone}</p>
-                  <p>✉️ {settings.contact_email}</p>
-                  <p>📍 {settings.contact_address}</p>
+                  <p>📞 {typeof settings.contact_phone === 'string' ? settings.contact_phone : '+20 100 123 4567'}</p>
+                  <p>✉️ {typeof settings.contact_email === 'string' ? settings.contact_email : 'info@kynship.com'}</p>
+                  <p>📍 {typeof settings.contact_address === 'string' ? settings.contact_address : 'القاهرة، مصر'}</p>
                 </div>
               </div>
 
@@ -537,7 +589,7 @@ export default function EditSettingsPage() {
 
               {/* Footer Preview */}
               <div className="p-4 bg-gray-900 text-white rounded-lg text-center text-sm">
-                {settings.footer_text}
+                {typeof settings.footer_text === 'string' ? settings.footer_text : '© 2024 kynship. جميع الحقوق محفوظة.'}
               </div>
             </div>
           </div>

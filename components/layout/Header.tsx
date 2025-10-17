@@ -31,7 +31,19 @@ export default function Header() {
             {settings.site_logo && settings.site_logo !== '' && settings.site_logo !== '/logo.svg' && (
               <img
                 src={settings.site_logo}
-                alt={settings.site_name || 'ألوميتال برو'}
+                alt={(() => {
+                  try {
+                    if (typeof settings.site_name === 'string') {
+                      return settings.site_name
+                    } else if (settings.site_name && typeof settings.site_name === 'object') {
+                      const nameObj = settings.site_name as { ar?: string; en?: string }
+                      return nameObj.ar || nameObj.en || 'kynship'
+                    }
+                    return 'kynship'
+                  } catch {
+                    return 'kynship'
+                  }
+                })()}
                 className="h-10 w-10 object-contain"
                 onError={(e) => {
                   console.error('Logo image failed to load:', settings.site_logo)

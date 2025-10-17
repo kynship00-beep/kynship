@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Save, Eye, ArrowLeft, Image as ImageIcon, Type, Palette } from 'lucide-react'
 import toast from 'react-hot-toast'
@@ -14,11 +14,20 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
 
   const [pageData, setPageData] = useState(() => {
     const content = getPageContent(params.id) || {}
+    console.log('Initial page data for', params.id, ':', content)
+    console.log('Sections:', content.sections)
     return {
       sections: content.sections || {},
       ...content
     }
   })
+
+  // Debug logging
+  useEffect(() => {
+    console.log('Page data updated:', pageData)
+    console.log('Sections object:', pageData.sections)
+    console.log('Sections keys:', pageData.sections ? Object.keys(pageData.sections) : 'No sections')
+  }, [pageData])
 
   const handleSave = async () => {
     setSaving(true)
@@ -148,6 +157,14 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
           ) : (
             <div className="bg-white rounded-xl p-6 shadow-sm text-center text-gray-500">
               <p>لا توجد أقسام متاحة لهذه الصفحة</p>
+              <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-yellow-800 text-sm">
+                  <strong>💡 لحل هذه المشكلة:</strong><br/>
+                  1. تأكد من تشغيل <code>setup-complete.sql</code> في Supabase<br/>
+                  2. فحص Console في المتصفح للبيانات<br/>
+                  3. تشغيل: <code>.\run-setup.ps1</code> للحصول على تعليمات مفصلة
+                </p>
+              </div>
             </div>
           )}
         </div>
@@ -157,6 +174,8 @@ export default function EditPagePage({ params }: { params: { id: string } }) {
           <div className="bg-white rounded-xl p-6 shadow-sm">
             <h3 className="font-bold text-lg mb-4">معاينة مباشرة</h3>
             <div className="border rounded-lg p-4 bg-gray-50 min-h-[400px] space-y-4">
+              {/* Preview sections will appear here once page data is loaded */}
+              {/* If preview is empty, check Console for debugging information */}
               {/* Preview Hero Section */}
               {pageData.sections?.hero && (
                 <div className="bg-primary-500 text-white p-6 rounded-lg">

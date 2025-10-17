@@ -16,16 +16,52 @@ export default function Footer() {
               {settings.site_logo && (
                 <img
                   src={settings.site_logo}
-                  alt={settings.site_name || 'ألوميتال برو'}
+                  alt={(() => {
+                    try {
+                      if (typeof settings.site_name === 'string') {
+                        return settings.site_name
+                      } else if (settings.site_name && typeof settings.site_name === 'object') {
+                        const nameObj = settings.site_name as { ar?: string; en?: string }
+                        return nameObj.ar || nameObj.en || 'kynship'
+                      }
+                      return 'kynship'
+                    } catch {
+                      return 'kynship'
+                    }
+                  })()}
                   className="h-10 w-10 object-contain"
                 />
               )}
               <div>
                 <h3 className="text-xl font-bold" style={{ color: settings.primary_color || '#1a365d' }}>
-                  {typeof settings.site_name === 'string' ? settings.site_name : 'ألوميتال برو'}
+                  {(() => {
+                    try {
+                      if (typeof settings.site_name === 'string') {
+                        return settings.site_name
+                      } else if (settings.site_name && typeof settings.site_name === 'object') {
+                        const nameObj = settings.site_name as { ar?: string; en?: string }
+                        return nameObj.ar || nameObj.en || 'kynship'
+                      }
+                      return 'kynship'
+                    } catch {
+                      return 'kynship'
+                    }
+                  })()}
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  {typeof settings.site_tagline === 'string' ? settings.site_tagline : 'الجودة والأناقة'}
+                  {(() => {
+                    try {
+                      if (typeof settings.site_tagline === 'string') {
+                        return settings.site_tagline
+                      } else if (settings.site_tagline && typeof settings.site_tagline === 'object') {
+                        const taglineObj = settings.site_tagline as { ar?: string; en?: string }
+                        return taglineObj.ar || taglineObj.en || 'الجودة والأناقة'
+                      }
+                      return 'الجودة والأناقة'
+                    } catch {
+                      return 'الجودة والأناقة'
+                    }
+                  })()}
                 </p>
               </div>
             </div>
@@ -107,7 +143,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <Mail className="h-4 w-4" />
-                <span>{typeof settings.contact_email === 'string' ? settings.contact_email : 'info@alupro.com'}</span>
+                <span>{typeof settings.contact_email === 'string' ? settings.contact_email : 'info@kynship.com'}</span>
               </li>
               <li className="flex items-center gap-2 text-gray-400">
                 <MapPin className="h-4 w-4" />
@@ -118,7 +154,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>{typeof settings.footer_text === 'string' ? settings.footer_text : '© 2024 ألوميتال برو. جميع الحقوق محفوظة.'}</p>
+          <p>{typeof settings.footer_text === 'string' ? settings.footer_text : '© 2024 kynship. جميع الحقوق محفوظة.'}</p>
         </div>
       </div>
     </footer>
