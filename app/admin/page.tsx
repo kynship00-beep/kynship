@@ -1,3 +1,5 @@
+'use client'
+
 import { Package, ShoppingBag, Users, DollarSign, TrendingUp, Clock } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { getProducts } from '@/lib/supabase/queries'
