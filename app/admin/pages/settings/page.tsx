@@ -11,7 +11,7 @@ import { useSiteSettings } from '@/hooks/useSiteSettings'
 export default function EditSettingsPage() {
   const router = useRouter()
   const [saving, setSaving] = useState(false)
-  const { settings: dbSettings, loading } = useSiteSettings()
+  const { settings: dbSettings, loading, updateSettings } = useSiteSettings()
 
   const [settings, setSettings] = useState({
     // General
@@ -92,11 +92,11 @@ export default function EditSettingsPage() {
         return
       }
 
-      // Convert settings object to array for Supabase
+      // Convert settings object to array for Supabase using correct field names
       const settingsArray = Object.entries(settings).map(([key, value]) => ({
-        setting_key: key,
-        setting_value: value,
-        setting_category: 'general',
+        key: key,
+        value: value,
+        category: 'general',
         updated_by: user.id
       }))
 
@@ -106,21 +106,24 @@ export default function EditSettingsPage() {
           .from('site_settings')
           .upsert(
             {
-              setting_key: setting.setting_key,
-              setting_value: setting.setting_value,
-              setting_category: setting.setting_category,
+              key: setting.key,
+              value: setting.value,
+              category: setting.category,
               updated_by: setting.updated_by,
               updated_at: new Date().toISOString()
             },
             {
-              onConflict: 'setting_key'
+              onConflict: 'key'
             }
           )
 
         if (error) {
-          console.error('Error saving setting:', setting.setting_key, error)
+          console.error('Error saving setting:', setting.key, error)
         }
       }
+
+      // Update local state immediately
+      updateSettings(settings)
 
       // Also save to localStorage as backup
       localStorage.setItem('site_settings', JSON.stringify(settings))

@@ -64,7 +64,6 @@ const defaultSettings: SiteSettings = {
   hero_background: '',
   images_background: '',
 }
-
 export function useSiteSettings() {
   const [settings, setSettings] = useState<SiteSettings>(defaultSettings)
   const [loading, setLoading] = useState(true)
@@ -218,5 +217,9 @@ export function useSiteSettings() {
     }
   }
 
-  return { settings, loading }
+  function updateSettings(newSettings: Record<string, any>) {
+    setSettings(prev => ({ ...prev, ...newSettings }))
+  }
+
+  return { settings, loading, updateSettings }
 }
