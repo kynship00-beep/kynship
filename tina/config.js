@@ -117,7 +117,17 @@ export default defineConfig({
                                 list: true,
                             },
                             { type: 'string', name: 'ctaText', label: 'CTA Text' },
-                            { type: 'string', name: 'ctaLink', label: 'CTA Link' },
+                            {
+                                type: 'string',
+                                name: 'ctaLink',
+                                label: 'CTA Link',
+                            },
+                            {
+                                type: 'image',
+                                name: 'images',
+                                label: 'Grid Images (Max 4 recommended)',
+                                list: true,
+                            },
                         ],
                     },
                     {

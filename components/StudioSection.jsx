@@ -42,15 +42,26 @@ export default function StudioSection({ data = {} }) {
                     </div>
                     <div className={styles.visual}>
                         <div className={styles.visualGrid}>
-                            {[1, 2, 3, 4].map((n) => (
-                                <div
-                                    key={n}
-                                    className={styles.visualItem}
-                                    style={{ animationDelay: `${n * 0.1}s` }}
-                                >
-                                    <div className={styles.visualInner} />
-                                </div>
-                            ))}
+                            {[0, 1, 2, 3].map((index) => {
+                                const imageUrl = content.images?.[index];
+                                return (
+                                    <div
+                                        key={index}
+                                        className={styles.visualItem}
+                                        style={{ animationDelay: `${(index + 1) * 0.1}s` }}
+                                    >
+                                        <div className={styles.visualInner}>
+                                            {imageUrl && (
+                                                <img
+                                                    src={imageUrl}
+                                                    alt=""
+                                                    className={styles.gridImage}
+                                                />
+                                            )}
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
