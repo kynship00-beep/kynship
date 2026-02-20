@@ -64,7 +64,7 @@ function mergeContent(defaultContent, storedContent) {
             ...(storedContent?.categories || {}),
             items:
                 Array.isArray(storedContent?.categories?.items) &&
-                storedContent.categories.items.length > 0
+                    storedContent.categories.items.length > 0
                     ? storedContent.categories.items
                     : defaultContent.categories.items,
         },
@@ -81,9 +81,10 @@ function mergeContent(defaultContent, storedContent) {
             ...(storedContent?.studio || {}),
             features:
                 Array.isArray(storedContent?.studio?.features) &&
-                storedContent.studio.features.length > 0
+                    storedContent.studio.features.length > 0
                     ? storedContent.studio.features
                     : defaultContent.studio.features,
+            images: Array.isArray(storedContent?.studio?.images) ? storedContent.studio.images : [],
         },
         cta: { ...defaultContent.cta, ...(storedContent?.cta || {}) },
     };
