@@ -1,0 +1,25 @@
+{
+    "name": "kynship",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "tinacms dev -c \"next dev\"",
+        "build": "tinacms build --skip-cloud-checks && next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "next": "14.2.3",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "tinacms": "^2.2.4",
+        "@tinacms/cli": "^1.6.2",
+        "framer-motion": "^11.2.10",
+        "react-icons": "^5.2.1",
+        "gray-matter": "^4.0.3"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "eslint-config-next": "14.2.3"
+    }
+}

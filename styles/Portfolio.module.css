@@ -1,0 +1,41 @@
+.pageHeader {
+    background: linear-gradient(180deg, rgba(35, 74, 104, 0.12), rgba(35, 74, 104, 0.04));
+    padding: 120px 0 64px;
+    border-bottom: 1px solid rgba(35, 74, 104, 0.16);
+}
+
+.pageTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 16px;
+}
+
+.pageSub {
+    color: var(--text-body);
+    font-size: 1rem;
+    max-width: 500px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.empty {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
