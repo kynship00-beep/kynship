@@ -222,31 +222,26 @@ export type DocumentNode = Homepage | Project | Review | Settings | Folder;
 export type HomepageHero = {
   __typename?: 'HomepageHero';
   badge?: Maybe<Scalars['String']['output']>;
+  headline?: Maybe<Scalars['String']['output']>;
+  accent?: Maybe<Scalars['String']['output']>;
+  subtext?: Maybe<Scalars['String']['output']>;
+  backgroundImage?: Maybe<Scalars['String']['output']>;
+  primaryCtaText?: Maybe<Scalars['String']['output']>;
+  primaryCtaLink?: Maybe<Scalars['String']['output']>;
+  secondaryCtaText?: Maybe<Scalars['String']['output']>;
+  secondaryCtaLink?: Maybe<Scalars['String']['output']>;
   badgeBg?: Maybe<Scalars['String']['output']>;
   badgeText?: Maybe<Scalars['String']['output']>;
   badgeSize?: Maybe<Scalars['Float']['output']>;
-  badgeFont?: Maybe<Scalars['String']['output']>;
-  headline?: Maybe<Scalars['String']['output']>;
   headlineColor?: Maybe<Scalars['String']['output']>;
   headlineSize?: Maybe<Scalars['Float']['output']>;
-  headlineFont?: Maybe<Scalars['String']['output']>;
-  accent?: Maybe<Scalars['String']['output']>;
   accentColor?: Maybe<Scalars['String']['output']>;
-  subtext?: Maybe<Scalars['String']['output']>;
   subtextColor?: Maybe<Scalars['String']['output']>;
   subtextSize?: Maybe<Scalars['Float']['output']>;
-  subtextFont?: Maybe<Scalars['String']['output']>;
-  primaryCtaText?: Maybe<Scalars['String']['output']>;
-  primaryCtaLink?: Maybe<Scalars['String']['output']>;
   primaryBtnBg?: Maybe<Scalars['String']['output']>;
   primaryBtnText?: Maybe<Scalars['String']['output']>;
-  primaryBtnSize?: Maybe<Scalars['Float']['output']>;
-  secondaryCtaText?: Maybe<Scalars['String']['output']>;
-  secondaryCtaLink?: Maybe<Scalars['String']['output']>;
   secondaryBtnBorder?: Maybe<Scalars['String']['output']>;
   secondaryBtnText?: Maybe<Scalars['String']['output']>;
-  secondaryBtnSize?: Maybe<Scalars['Float']['output']>;
-  backgroundImage?: Maybe<Scalars['String']['output']>;
   overlayColor?: Maybe<Scalars['String']['output']>;
   overlayOpacity?: Maybe<Scalars['Float']['output']>;
 };
@@ -256,26 +251,22 @@ export type HomepageCategoriesItems = {
   title?: Maybe<Scalars['String']['output']>;
   subtitle?: Maybe<Scalars['String']['output']>;
   href?: Maybe<Scalars['String']['output']>;
-  bg?: Maybe<Scalars['String']['output']>;
   image?: Maybe<Scalars['String']['output']>;
 };
 
 export type HomepageCategories = {
   __typename?: 'HomepageCategories';
   label?: Maybe<Scalars['String']['output']>;
-  labelColor?: Maybe<Scalars['String']['output']>;
-  labelSize?: Maybe<Scalars['Float']['output']>;
-  labelFont?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
-  titleColor?: Maybe<Scalars['String']['output']>;
-  titleSize?: Maybe<Scalars['Float']['output']>;
-  titleFont?: Maybe<Scalars['String']['output']>;
   subtitle?: Maybe<Scalars['String']['output']>;
-  subtitleColor?: Maybe<Scalars['String']['output']>;
-  subtitleSize?: Maybe<Scalars['Float']['output']>;
-  subtitleFont?: Maybe<Scalars['String']['output']>;
   items?: Maybe<Array<Maybe<HomepageCategoriesItems>>>;
   sectionBg?: Maybe<Scalars['String']['output']>;
+  labelColor?: Maybe<Scalars['String']['output']>;
+  labelSize?: Maybe<Scalars['Float']['output']>;
+  titleColor?: Maybe<Scalars['String']['output']>;
+  titleSize?: Maybe<Scalars['Float']['output']>;
+  subtitleColor?: Maybe<Scalars['String']['output']>;
+  subtitleSize?: Maybe<Scalars['Float']['output']>;
   cardBg?: Maybe<Scalars['String']['output']>;
   cardTitleColor?: Maybe<Scalars['String']['output']>;
   cardSubColor?: Maybe<Scalars['String']['output']>;
@@ -291,15 +282,13 @@ export type HomepageTrustItems = {
 export type HomepageTrust = {
   __typename?: 'HomepageTrust';
   label?: Maybe<Scalars['String']['output']>;
-  labelColor?: Maybe<Scalars['String']['output']>;
-  labelSize?: Maybe<Scalars['Float']['output']>;
-  labelFont?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
-  titleColor?: Maybe<Scalars['String']['output']>;
-  titleSize?: Maybe<Scalars['Float']['output']>;
-  titleFont?: Maybe<Scalars['String']['output']>;
   items?: Maybe<Array<Maybe<HomepageTrustItems>>>;
   sectionBg?: Maybe<Scalars['String']['output']>;
+  labelColor?: Maybe<Scalars['String']['output']>;
+  labelSize?: Maybe<Scalars['Float']['output']>;
+  titleColor?: Maybe<Scalars['String']['output']>;
+  titleSize?: Maybe<Scalars['Float']['output']>;
   cardBg?: Maybe<Scalars['String']['output']>;
   cardTitleColor?: Maybe<Scalars['String']['output']>;
   cardDescColor?: Maybe<Scalars['String']['output']>;
@@ -310,64 +299,59 @@ export type HomepageTrust = {
 export type HomepageStudio = {
   __typename?: 'HomepageStudio';
   label?: Maybe<Scalars['String']['output']>;
-  labelColor?: Maybe<Scalars['String']['output']>;
-  labelSize?: Maybe<Scalars['Float']['output']>;
-  labelFont?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
-  titleColor?: Maybe<Scalars['String']['output']>;
-  titleSize?: Maybe<Scalars['Float']['output']>;
-  titleFont?: Maybe<Scalars['String']['output']>;
   text?: Maybe<Scalars['String']['output']>;
-  textColor?: Maybe<Scalars['String']['output']>;
-  textSize?: Maybe<Scalars['Float']['output']>;
-  textFont?: Maybe<Scalars['String']['output']>;
   features?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  featureIconColor?: Maybe<Scalars['String']['output']>;
-  featureTextColor?: Maybe<Scalars['String']['output']>;
+  images?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   ctaText?: Maybe<Scalars['String']['output']>;
   ctaLink?: Maybe<Scalars['String']['output']>;
-  ctaBg?: Maybe<Scalars['String']['output']>;
-  ctaTextColor?: Maybe<Scalars['String']['output']>;
-  images?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   sectionBg?: Maybe<Scalars['String']['output']>;
-};
-
-export type HomepageCta = {
-  __typename?: 'HomepageCta';
-  label?: Maybe<Scalars['String']['output']>;
   labelColor?: Maybe<Scalars['String']['output']>;
   labelSize?: Maybe<Scalars['Float']['output']>;
-  labelFont?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
   titleColor?: Maybe<Scalars['String']['output']>;
   titleSize?: Maybe<Scalars['Float']['output']>;
-  titleFont?: Maybe<Scalars['String']['output']>;
-  subtitle?: Maybe<Scalars['String']['output']>;
-  subtitleColor?: Maybe<Scalars['String']['output']>;
-  subtitleSize?: Maybe<Scalars['Float']['output']>;
-  subtitleFont?: Maybe<Scalars['String']['output']>;
-  primaryText?: Maybe<Scalars['String']['output']>;
-  primaryLink?: Maybe<Scalars['String']['output']>;
-  primaryBtnBg?: Maybe<Scalars['String']['output']>;
-  primaryBtnText?: Maybe<Scalars['String']['output']>;
-  secondaryText?: Maybe<Scalars['String']['output']>;
-  secondaryLink?: Maybe<Scalars['String']['output']>;
-  secondaryBtnBorder?: Maybe<Scalars['String']['output']>;
-  secondaryBtnText?: Maybe<Scalars['String']['output']>;
-  sectionBg?: Maybe<Scalars['String']['output']>;
+  textColor?: Maybe<Scalars['String']['output']>;
+  textSize?: Maybe<Scalars['Float']['output']>;
+  featureIconColor?: Maybe<Scalars['String']['output']>;
+  featureTextColor?: Maybe<Scalars['String']['output']>;
+  ctaBg?: Maybe<Scalars['String']['output']>;
+  ctaTextColor?: Maybe<Scalars['String']['output']>;
+  ctaFontSize?: Maybe<Scalars['Float']['output']>;
 };
 
 export type HomepageReviews = {
   __typename?: 'HomepageReviews';
   label?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  sectionBg?: Maybe<Scalars['String']['output']>;
   labelColor?: Maybe<Scalars['String']['output']>;
   labelSize?: Maybe<Scalars['Float']['output']>;
-  labelFont?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
   titleColor?: Maybe<Scalars['String']['output']>;
   titleSize?: Maybe<Scalars['Float']['output']>;
-  titleFont?: Maybe<Scalars['String']['output']>;
+};
+
+export type HomepageCta = {
+  __typename?: 'HomepageCta';
+  label?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  primaryText?: Maybe<Scalars['String']['output']>;
+  primaryLink?: Maybe<Scalars['String']['output']>;
+  secondaryText?: Maybe<Scalars['String']['output']>;
+  secondaryLink?: Maybe<Scalars['String']['output']>;
   sectionBg?: Maybe<Scalars['String']['output']>;
+  labelColor?: Maybe<Scalars['String']['output']>;
+  labelSize?: Maybe<Scalars['Float']['output']>;
+  titleColor?: Maybe<Scalars['String']['output']>;
+  titleSize?: Maybe<Scalars['Float']['output']>;
+  subtitleColor?: Maybe<Scalars['String']['output']>;
+  subtitleSize?: Maybe<Scalars['Float']['output']>;
+  primaryBtnBg?: Maybe<Scalars['String']['output']>;
+  primaryBtnText?: Maybe<Scalars['String']['output']>;
+  secondaryBtnBorder?: Maybe<Scalars['String']['output']>;
+  secondaryBtnText?: Maybe<Scalars['String']['output']>;
+  primaryBtnSize?: Maybe<Scalars['Float']['output']>;
+  secondaryBtnSize?: Maybe<Scalars['Float']['output']>;
 };
 
 export type Homepage = Node & Document & {
@@ -376,14 +360,21 @@ export type Homepage = Node & Document & {
   categories?: Maybe<HomepageCategories>;
   trust?: Maybe<HomepageTrust>;
   studio?: Maybe<HomepageStudio>;
-  cta?: Maybe<HomepageCta>;
   reviews?: Maybe<HomepageReviews>;
+  cta?: Maybe<HomepageCta>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
 };
 
 export type StringFilter = {
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ImageFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
   exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -400,40 +391,28 @@ export type NumberFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
 };
 
-export type ImageFilter = {
-  startsWith?: InputMaybe<Scalars['String']['input']>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
 export type HomepageHeroFilter = {
   badge?: InputMaybe<StringFilter>;
+  headline?: InputMaybe<StringFilter>;
+  accent?: InputMaybe<StringFilter>;
+  subtext?: InputMaybe<StringFilter>;
+  backgroundImage?: InputMaybe<ImageFilter>;
+  primaryCtaText?: InputMaybe<StringFilter>;
+  primaryCtaLink?: InputMaybe<StringFilter>;
+  secondaryCtaText?: InputMaybe<StringFilter>;
+  secondaryCtaLink?: InputMaybe<StringFilter>;
   badgeBg?: InputMaybe<StringFilter>;
   badgeText?: InputMaybe<StringFilter>;
   badgeSize?: InputMaybe<NumberFilter>;
-  badgeFont?: InputMaybe<StringFilter>;
-  headline?: InputMaybe<StringFilter>;
   headlineColor?: InputMaybe<StringFilter>;
   headlineSize?: InputMaybe<NumberFilter>;
-  headlineFont?: InputMaybe<StringFilter>;
-  accent?: InputMaybe<StringFilter>;
   accentColor?: InputMaybe<StringFilter>;
-  subtext?: InputMaybe<StringFilter>;
   subtextColor?: InputMaybe<StringFilter>;
   subtextSize?: InputMaybe<NumberFilter>;
-  subtextFont?: InputMaybe<StringFilter>;
-  primaryCtaText?: InputMaybe<StringFilter>;
-  primaryCtaLink?: InputMaybe<StringFilter>;
   primaryBtnBg?: InputMaybe<StringFilter>;
   primaryBtnText?: InputMaybe<StringFilter>;
-  primaryBtnSize?: InputMaybe<NumberFilter>;
-  secondaryCtaText?: InputMaybe<StringFilter>;
-  secondaryCtaLink?: InputMaybe<StringFilter>;
   secondaryBtnBorder?: InputMaybe<StringFilter>;
   secondaryBtnText?: InputMaybe<StringFilter>;
-  secondaryBtnSize?: InputMaybe<NumberFilter>;
-  backgroundImage?: InputMaybe<ImageFilter>;
   overlayColor?: InputMaybe<StringFilter>;
   overlayOpacity?: InputMaybe<NumberFilter>;
 };
@@ -442,25 +421,21 @@ export type HomepageCategoriesItemsFilter = {
   title?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
   href?: InputMaybe<StringFilter>;
-  bg?: InputMaybe<StringFilter>;
   image?: InputMaybe<ImageFilter>;
 };
 
 export type HomepageCategoriesFilter = {
   label?: InputMaybe<StringFilter>;
-  labelColor?: InputMaybe<StringFilter>;
-  labelSize?: InputMaybe<NumberFilter>;
-  labelFont?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
-  titleColor?: InputMaybe<StringFilter>;
-  titleSize?: InputMaybe<NumberFilter>;
-  titleFont?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
-  subtitleColor?: InputMaybe<StringFilter>;
-  subtitleSize?: InputMaybe<NumberFilter>;
-  subtitleFont?: InputMaybe<StringFilter>;
   items?: InputMaybe<HomepageCategoriesItemsFilter>;
   sectionBg?: InputMaybe<StringFilter>;
+  labelColor?: InputMaybe<StringFilter>;
+  labelSize?: InputMaybe<NumberFilter>;
+  titleColor?: InputMaybe<StringFilter>;
+  titleSize?: InputMaybe<NumberFilter>;
+  subtitleColor?: InputMaybe<StringFilter>;
+  subtitleSize?: InputMaybe<NumberFilter>;
   cardBg?: InputMaybe<StringFilter>;
   cardTitleColor?: InputMaybe<StringFilter>;
   cardSubColor?: InputMaybe<StringFilter>;
@@ -474,15 +449,13 @@ export type HomepageTrustItemsFilter = {
 
 export type HomepageTrustFilter = {
   label?: InputMaybe<StringFilter>;
-  labelColor?: InputMaybe<StringFilter>;
-  labelSize?: InputMaybe<NumberFilter>;
-  labelFont?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
-  titleColor?: InputMaybe<StringFilter>;
-  titleSize?: InputMaybe<NumberFilter>;
-  titleFont?: InputMaybe<StringFilter>;
   items?: InputMaybe<HomepageTrustItemsFilter>;
   sectionBg?: InputMaybe<StringFilter>;
+  labelColor?: InputMaybe<StringFilter>;
+  labelSize?: InputMaybe<NumberFilter>;
+  titleColor?: InputMaybe<StringFilter>;
+  titleSize?: InputMaybe<NumberFilter>;
   cardBg?: InputMaybe<StringFilter>;
   cardTitleColor?: InputMaybe<StringFilter>;
   cardDescColor?: InputMaybe<StringFilter>;
@@ -492,62 +465,57 @@ export type HomepageTrustFilter = {
 
 export type HomepageStudioFilter = {
   label?: InputMaybe<StringFilter>;
-  labelColor?: InputMaybe<StringFilter>;
-  labelSize?: InputMaybe<NumberFilter>;
-  labelFont?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
-  titleColor?: InputMaybe<StringFilter>;
-  titleSize?: InputMaybe<NumberFilter>;
-  titleFont?: InputMaybe<StringFilter>;
   text?: InputMaybe<StringFilter>;
-  textColor?: InputMaybe<StringFilter>;
-  textSize?: InputMaybe<NumberFilter>;
-  textFont?: InputMaybe<StringFilter>;
   features?: InputMaybe<StringFilter>;
-  featureIconColor?: InputMaybe<StringFilter>;
-  featureTextColor?: InputMaybe<StringFilter>;
+  images?: InputMaybe<ImageFilter>;
   ctaText?: InputMaybe<StringFilter>;
   ctaLink?: InputMaybe<StringFilter>;
-  ctaBg?: InputMaybe<StringFilter>;
-  ctaTextColor?: InputMaybe<StringFilter>;
-  images?: InputMaybe<ImageFilter>;
   sectionBg?: InputMaybe<StringFilter>;
-};
-
-export type HomepageCtaFilter = {
-  label?: InputMaybe<StringFilter>;
   labelColor?: InputMaybe<StringFilter>;
   labelSize?: InputMaybe<NumberFilter>;
-  labelFont?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
   titleColor?: InputMaybe<StringFilter>;
   titleSize?: InputMaybe<NumberFilter>;
-  titleFont?: InputMaybe<StringFilter>;
-  subtitle?: InputMaybe<StringFilter>;
-  subtitleColor?: InputMaybe<StringFilter>;
-  subtitleSize?: InputMaybe<NumberFilter>;
-  subtitleFont?: InputMaybe<StringFilter>;
-  primaryText?: InputMaybe<StringFilter>;
-  primaryLink?: InputMaybe<StringFilter>;
-  primaryBtnBg?: InputMaybe<StringFilter>;
-  primaryBtnText?: InputMaybe<StringFilter>;
-  secondaryText?: InputMaybe<StringFilter>;
-  secondaryLink?: InputMaybe<StringFilter>;
-  secondaryBtnBorder?: InputMaybe<StringFilter>;
-  secondaryBtnText?: InputMaybe<StringFilter>;
-  sectionBg?: InputMaybe<StringFilter>;
+  textColor?: InputMaybe<StringFilter>;
+  textSize?: InputMaybe<NumberFilter>;
+  featureIconColor?: InputMaybe<StringFilter>;
+  featureTextColor?: InputMaybe<StringFilter>;
+  ctaBg?: InputMaybe<StringFilter>;
+  ctaTextColor?: InputMaybe<StringFilter>;
+  ctaFontSize?: InputMaybe<NumberFilter>;
 };
 
 export type HomepageReviewsFilter = {
   label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  sectionBg?: InputMaybe<StringFilter>;
   labelColor?: InputMaybe<StringFilter>;
   labelSize?: InputMaybe<NumberFilter>;
-  labelFont?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
   titleColor?: InputMaybe<StringFilter>;
   titleSize?: InputMaybe<NumberFilter>;
-  titleFont?: InputMaybe<StringFilter>;
+};
+
+export type HomepageCtaFilter = {
+  label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  primaryText?: InputMaybe<StringFilter>;
+  primaryLink?: InputMaybe<StringFilter>;
+  secondaryText?: InputMaybe<StringFilter>;
+  secondaryLink?: InputMaybe<StringFilter>;
   sectionBg?: InputMaybe<StringFilter>;
+  labelColor?: InputMaybe<StringFilter>;
+  labelSize?: InputMaybe<NumberFilter>;
+  titleColor?: InputMaybe<StringFilter>;
+  titleSize?: InputMaybe<NumberFilter>;
+  subtitleColor?: InputMaybe<StringFilter>;
+  subtitleSize?: InputMaybe<NumberFilter>;
+  primaryBtnBg?: InputMaybe<StringFilter>;
+  primaryBtnText?: InputMaybe<StringFilter>;
+  secondaryBtnBorder?: InputMaybe<StringFilter>;
+  secondaryBtnText?: InputMaybe<StringFilter>;
+  primaryBtnSize?: InputMaybe<NumberFilter>;
+  secondaryBtnSize?: InputMaybe<NumberFilter>;
 };
 
 export type HomepageFilter = {
@@ -555,8 +523,8 @@ export type HomepageFilter = {
   categories?: InputMaybe<HomepageCategoriesFilter>;
   trust?: InputMaybe<HomepageTrustFilter>;
   studio?: InputMaybe<HomepageStudioFilter>;
-  cta?: InputMaybe<HomepageCtaFilter>;
   reviews?: InputMaybe<HomepageReviewsFilter>;
+  cta?: InputMaybe<HomepageCtaFilter>;
 };
 
 export type HomepageConnectionEdges = {
@@ -575,17 +543,17 @@ export type HomepageConnection = Connection & {
 export type Project = Node & Document & {
   __typename?: 'Project';
   title: Scalars['String']['output'];
-  titleColor?: Maybe<Scalars['String']['output']>;
-  titleSize?: Maybe<Scalars['Float']['output']>;
-  titleFont?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  descColor?: Maybe<Scalars['String']['output']>;
-  descSize?: Maybe<Scalars['Float']['output']>;
-  descFont?: Maybe<Scalars['String']['output']>;
-  cardBg?: Maybe<Scalars['String']['output']>;
   category?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
   completionDate?: Maybe<Scalars['String']['output']>;
   images?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  titleColor?: Maybe<Scalars['String']['output']>;
+  titleSize?: Maybe<Scalars['Float']['output']>;
+  descColor?: Maybe<Scalars['String']['output']>;
+  descSize?: Maybe<Scalars['Float']['output']>;
+  cardBg?: Maybe<Scalars['String']['output']>;
+  titleFont?: Maybe<Scalars['String']['output']>;
+  descFont?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -593,17 +561,17 @@ export type Project = Node & Document & {
 
 export type ProjectFilter = {
   title?: InputMaybe<StringFilter>;
-  titleColor?: InputMaybe<StringFilter>;
-  titleSize?: InputMaybe<NumberFilter>;
-  titleFont?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  descColor?: InputMaybe<StringFilter>;
-  descSize?: InputMaybe<NumberFilter>;
-  descFont?: InputMaybe<StringFilter>;
-  cardBg?: InputMaybe<StringFilter>;
   category?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
   completionDate?: InputMaybe<StringFilter>;
   images?: InputMaybe<ImageFilter>;
+  titleColor?: InputMaybe<StringFilter>;
+  titleSize?: InputMaybe<NumberFilter>;
+  descColor?: InputMaybe<StringFilter>;
+  descSize?: InputMaybe<NumberFilter>;
+  cardBg?: InputMaybe<StringFilter>;
+  titleFont?: InputMaybe<StringFilter>;
+  descFont?: InputMaybe<StringFilter>;
 };
 
 export type ProjectConnectionEdges = {
@@ -621,17 +589,16 @@ export type ProjectConnection = Connection & {
 
 export type Review = Node & Document & {
   __typename?: 'Review';
+  name: Scalars['String']['output'];
   quote?: Maybe<Scalars['String']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  rating?: Maybe<Scalars['Float']['output']>;
   quoteColor?: Maybe<Scalars['String']['output']>;
   quoteSize?: Maybe<Scalars['Float']['output']>;
-  quoteFont?: Maybe<Scalars['String']['output']>;
-  name: Scalars['String']['output'];
   nameColor?: Maybe<Scalars['String']['output']>;
   nameSize?: Maybe<Scalars['Float']['output']>;
-  location?: Maybe<Scalars['String']['output']>;
   locationColor?: Maybe<Scalars['String']['output']>;
   locationSize?: Maybe<Scalars['Float']['output']>;
-  rating?: Maybe<Scalars['Float']['output']>;
   starColor?: Maybe<Scalars['String']['output']>;
   cardBg?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
@@ -640,17 +607,16 @@ export type Review = Node & Document & {
 };
 
 export type ReviewFilter = {
+  name?: InputMaybe<StringFilter>;
   quote?: InputMaybe<StringFilter>;
+  location?: InputMaybe<StringFilter>;
+  rating?: InputMaybe<NumberFilter>;
   quoteColor?: InputMaybe<StringFilter>;
   quoteSize?: InputMaybe<NumberFilter>;
-  quoteFont?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
   nameColor?: InputMaybe<StringFilter>;
   nameSize?: InputMaybe<NumberFilter>;
-  location?: InputMaybe<StringFilter>;
   locationColor?: InputMaybe<StringFilter>;
   locationSize?: InputMaybe<NumberFilter>;
-  rating?: InputMaybe<NumberFilter>;
   starColor?: InputMaybe<StringFilter>;
   cardBg?: InputMaybe<StringFilter>;
 };
@@ -673,15 +639,12 @@ export type SettingsPortfolio = {
   label?: Maybe<Scalars['String']['output']>;
   labelColor?: Maybe<Scalars['String']['output']>;
   labelSize?: Maybe<Scalars['Float']['output']>;
-  labelFont?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   titleColor?: Maybe<Scalars['String']['output']>;
   titleSize?: Maybe<Scalars['Float']['output']>;
-  titleFont?: Maybe<Scalars['String']['output']>;
   subtitle?: Maybe<Scalars['String']['output']>;
   subtitleColor?: Maybe<Scalars['String']['output']>;
   subtitleSize?: Maybe<Scalars['Float']['output']>;
-  subtitleFont?: Maybe<Scalars['String']['output']>;
   sectionBg?: Maybe<Scalars['String']['output']>;
 };
 
@@ -693,35 +656,30 @@ export type SettingsHeaderNavLinks = {
 
 export type SettingsHeader = {
   __typename?: 'SettingsHeader';
-  logoImage?: Maybe<Scalars['String']['output']>;
   logoText?: Maybe<Scalars['String']['output']>;
   logoColor?: Maybe<Scalars['String']['output']>;
   logoEnSize?: Maybe<Scalars['Float']['output']>;
-  logoFont?: Maybe<Scalars['String']['output']>;
   logoAr?: Maybe<Scalars['String']['output']>;
   logoArColor?: Maybe<Scalars['String']['output']>;
   logoArSize?: Maybe<Scalars['Float']['output']>;
   navLinks?: Maybe<Array<Maybe<SettingsHeaderNavLinks>>>;
   navLinkColor?: Maybe<Scalars['String']['output']>;
   navLinkSize?: Maybe<Scalars['Float']['output']>;
-  navLinkFont?: Maybe<Scalars['String']['output']>;
+  headerBg?: Maybe<Scalars['String']['output']>;
   ctaLabel?: Maybe<Scalars['String']['output']>;
   ctaBg?: Maybe<Scalars['String']['output']>;
   ctaTextColor?: Maybe<Scalars['String']['output']>;
   ctaFontSize?: Maybe<Scalars['Float']['output']>;
-  ctaFont?: Maybe<Scalars['String']['output']>;
-  headerBg?: Maybe<Scalars['String']['output']>;
 };
 
 export type Settings = Node & Document & {
   __typename?: 'Settings';
   brandName?: Maybe<Scalars['String']['output']>;
-  customFont?: Maybe<Scalars['String']['output']>;
-  goldColor?: Maybe<Scalars['String']['output']>;
+  whatsapp?: Maybe<Scalars['String']['output']>;
   phone?: Maybe<Scalars['String']['output']>;
   email?: Maybe<Scalars['String']['output']>;
   location?: Maybe<Scalars['String']['output']>;
-  whatsapp?: Maybe<Scalars['String']['output']>;
+  goldColor?: Maybe<Scalars['String']['output']>;
   instagram?: Maybe<Scalars['String']['output']>;
   facebook?: Maybe<Scalars['String']['output']>;
   tiktok?: Maybe<Scalars['String']['output']>;
@@ -729,18 +687,13 @@ export type Settings = Node & Document & {
   pinterest?: Maybe<Scalars['String']['output']>;
   footerBg?: Maybe<Scalars['String']['output']>;
   footerTitleColor?: Maybe<Scalars['String']['output']>;
-  footerTitleSize?: Maybe<Scalars['Float']['output']>;
-  footerTitleFont?: Maybe<Scalars['String']['output']>;
   footerTextColor?: Maybe<Scalars['String']['output']>;
-  footerTextSize?: Maybe<Scalars['Float']['output']>;
-  footerTextFont?: Maybe<Scalars['String']['output']>;
   footerLinkColor?: Maybe<Scalars['String']['output']>;
-  footerLinkSize?: Maybe<Scalars['Float']['output']>;
-  footerLinkFont?: Maybe<Scalars['String']['output']>;
   footerSocialColor?: Maybe<Scalars['String']['output']>;
   categories?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   portfolio?: Maybe<SettingsPortfolio>;
   header?: Maybe<SettingsHeader>;
+  customFont?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -750,15 +703,12 @@ export type SettingsPortfolioFilter = {
   label?: InputMaybe<StringFilter>;
   labelColor?: InputMaybe<StringFilter>;
   labelSize?: InputMaybe<NumberFilter>;
-  labelFont?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   titleColor?: InputMaybe<StringFilter>;
   titleSize?: InputMaybe<NumberFilter>;
-  titleFont?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
   subtitleColor?: InputMaybe<StringFilter>;
   subtitleSize?: InputMaybe<NumberFilter>;
-  subtitleFont?: InputMaybe<StringFilter>;
   sectionBg?: InputMaybe<StringFilter>;
 };
 
@@ -768,34 +718,29 @@ export type SettingsHeaderNavLinksFilter = {
 };
 
 export type SettingsHeaderFilter = {
-  logoImage?: InputMaybe<ImageFilter>;
   logoText?: InputMaybe<StringFilter>;
   logoColor?: InputMaybe<StringFilter>;
   logoEnSize?: InputMaybe<NumberFilter>;
-  logoFont?: InputMaybe<StringFilter>;
   logoAr?: InputMaybe<StringFilter>;
   logoArColor?: InputMaybe<StringFilter>;
   logoArSize?: InputMaybe<NumberFilter>;
   navLinks?: InputMaybe<SettingsHeaderNavLinksFilter>;
   navLinkColor?: InputMaybe<StringFilter>;
   navLinkSize?: InputMaybe<NumberFilter>;
-  navLinkFont?: InputMaybe<StringFilter>;
+  headerBg?: InputMaybe<StringFilter>;
   ctaLabel?: InputMaybe<StringFilter>;
   ctaBg?: InputMaybe<StringFilter>;
   ctaTextColor?: InputMaybe<StringFilter>;
   ctaFontSize?: InputMaybe<NumberFilter>;
-  ctaFont?: InputMaybe<StringFilter>;
-  headerBg?: InputMaybe<StringFilter>;
 };
 
 export type SettingsFilter = {
   brandName?: InputMaybe<StringFilter>;
-  customFont?: InputMaybe<ImageFilter>;
-  goldColor?: InputMaybe<StringFilter>;
+  whatsapp?: InputMaybe<StringFilter>;
   phone?: InputMaybe<StringFilter>;
   email?: InputMaybe<StringFilter>;
   location?: InputMaybe<StringFilter>;
-  whatsapp?: InputMaybe<StringFilter>;
+  goldColor?: InputMaybe<StringFilter>;
   instagram?: InputMaybe<StringFilter>;
   facebook?: InputMaybe<StringFilter>;
   tiktok?: InputMaybe<StringFilter>;
@@ -803,18 +748,13 @@ export type SettingsFilter = {
   pinterest?: InputMaybe<StringFilter>;
   footerBg?: InputMaybe<StringFilter>;
   footerTitleColor?: InputMaybe<StringFilter>;
-  footerTitleSize?: InputMaybe<NumberFilter>;
-  footerTitleFont?: InputMaybe<StringFilter>;
   footerTextColor?: InputMaybe<StringFilter>;
-  footerTextSize?: InputMaybe<NumberFilter>;
-  footerTextFont?: InputMaybe<StringFilter>;
   footerLinkColor?: InputMaybe<StringFilter>;
-  footerLinkSize?: InputMaybe<NumberFilter>;
-  footerLinkFont?: InputMaybe<StringFilter>;
   footerSocialColor?: InputMaybe<StringFilter>;
   categories?: InputMaybe<StringFilter>;
   portfolio?: InputMaybe<SettingsPortfolioFilter>;
   header?: InputMaybe<SettingsHeaderFilter>;
+  customFont?: InputMaybe<ImageFilter>;
 };
 
 export type SettingsConnectionEdges = {
@@ -945,31 +885,26 @@ export type DocumentMutation = {
 
 export type HomepageHeroMutation = {
   badge?: InputMaybe<Scalars['String']['input']>;
+  headline?: InputMaybe<Scalars['String']['input']>;
+  accent?: InputMaybe<Scalars['String']['input']>;
+  subtext?: InputMaybe<Scalars['String']['input']>;
+  backgroundImage?: InputMaybe<Scalars['String']['input']>;
+  primaryCtaText?: InputMaybe<Scalars['String']['input']>;
+  primaryCtaLink?: InputMaybe<Scalars['String']['input']>;
+  secondaryCtaText?: InputMaybe<Scalars['String']['input']>;
+  secondaryCtaLink?: InputMaybe<Scalars['String']['input']>;
   badgeBg?: InputMaybe<Scalars['String']['input']>;
   badgeText?: InputMaybe<Scalars['String']['input']>;
   badgeSize?: InputMaybe<Scalars['Float']['input']>;
-  badgeFont?: InputMaybe<Scalars['String']['input']>;
-  headline?: InputMaybe<Scalars['String']['input']>;
   headlineColor?: InputMaybe<Scalars['String']['input']>;
   headlineSize?: InputMaybe<Scalars['Float']['input']>;
-  headlineFont?: InputMaybe<Scalars['String']['input']>;
-  accent?: InputMaybe<Scalars['String']['input']>;
   accentColor?: InputMaybe<Scalars['String']['input']>;
-  subtext?: InputMaybe<Scalars['String']['input']>;
   subtextColor?: InputMaybe<Scalars['String']['input']>;
   subtextSize?: InputMaybe<Scalars['Float']['input']>;
-  subtextFont?: InputMaybe<Scalars['String']['input']>;
-  primaryCtaText?: InputMaybe<Scalars['String']['input']>;
-  primaryCtaLink?: InputMaybe<Scalars['String']['input']>;
   primaryBtnBg?: InputMaybe<Scalars['String']['input']>;
   primaryBtnText?: InputMaybe<Scalars['String']['input']>;
-  primaryBtnSize?: InputMaybe<Scalars['Float']['input']>;
-  secondaryCtaText?: InputMaybe<Scalars['String']['input']>;
-  secondaryCtaLink?: InputMaybe<Scalars['String']['input']>;
   secondaryBtnBorder?: InputMaybe<Scalars['String']['input']>;
   secondaryBtnText?: InputMaybe<Scalars['String']['input']>;
-  secondaryBtnSize?: InputMaybe<Scalars['Float']['input']>;
-  backgroundImage?: InputMaybe<Scalars['String']['input']>;
   overlayColor?: InputMaybe<Scalars['String']['input']>;
   overlayOpacity?: InputMaybe<Scalars['Float']['input']>;
 };
@@ -978,25 +913,21 @@ export type HomepageCategoriesItemsMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
   href?: InputMaybe<Scalars['String']['input']>;
-  bg?: InputMaybe<Scalars['String']['input']>;
   image?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type HomepageCategoriesMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
-  labelColor?: InputMaybe<Scalars['String']['input']>;
-  labelSize?: InputMaybe<Scalars['Float']['input']>;
-  labelFont?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
-  titleColor?: InputMaybe<Scalars['String']['input']>;
-  titleSize?: InputMaybe<Scalars['Float']['input']>;
-  titleFont?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
-  subtitleColor?: InputMaybe<Scalars['String']['input']>;
-  subtitleSize?: InputMaybe<Scalars['Float']['input']>;
-  subtitleFont?: InputMaybe<Scalars['String']['input']>;
   items?: InputMaybe<Array<InputMaybe<HomepageCategoriesItemsMutation>>>;
   sectionBg?: InputMaybe<Scalars['String']['input']>;
+  labelColor?: InputMaybe<Scalars['String']['input']>;
+  labelSize?: InputMaybe<Scalars['Float']['input']>;
+  titleColor?: InputMaybe<Scalars['String']['input']>;
+  titleSize?: InputMaybe<Scalars['Float']['input']>;
+  subtitleColor?: InputMaybe<Scalars['String']['input']>;
+  subtitleSize?: InputMaybe<Scalars['Float']['input']>;
   cardBg?: InputMaybe<Scalars['String']['input']>;
   cardTitleColor?: InputMaybe<Scalars['String']['input']>;
   cardSubColor?: InputMaybe<Scalars['String']['input']>;
@@ -1010,15 +941,13 @@ export type HomepageTrustItemsMutation = {
 
 export type HomepageTrustMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
-  labelColor?: InputMaybe<Scalars['String']['input']>;
-  labelSize?: InputMaybe<Scalars['Float']['input']>;
-  labelFont?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
-  titleColor?: InputMaybe<Scalars['String']['input']>;
-  titleSize?: InputMaybe<Scalars['Float']['input']>;
-  titleFont?: InputMaybe<Scalars['String']['input']>;
   items?: InputMaybe<Array<InputMaybe<HomepageTrustItemsMutation>>>;
   sectionBg?: InputMaybe<Scalars['String']['input']>;
+  labelColor?: InputMaybe<Scalars['String']['input']>;
+  labelSize?: InputMaybe<Scalars['Float']['input']>;
+  titleColor?: InputMaybe<Scalars['String']['input']>;
+  titleSize?: InputMaybe<Scalars['Float']['input']>;
   cardBg?: InputMaybe<Scalars['String']['input']>;
   cardTitleColor?: InputMaybe<Scalars['String']['input']>;
   cardDescColor?: InputMaybe<Scalars['String']['input']>;
@@ -1028,62 +957,57 @@ export type HomepageTrustMutation = {
 
 export type HomepageStudioMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
-  labelColor?: InputMaybe<Scalars['String']['input']>;
-  labelSize?: InputMaybe<Scalars['Float']['input']>;
-  labelFont?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
-  titleColor?: InputMaybe<Scalars['String']['input']>;
-  titleSize?: InputMaybe<Scalars['Float']['input']>;
-  titleFont?: InputMaybe<Scalars['String']['input']>;
   text?: InputMaybe<Scalars['String']['input']>;
-  textColor?: InputMaybe<Scalars['String']['input']>;
-  textSize?: InputMaybe<Scalars['Float']['input']>;
-  textFont?: InputMaybe<Scalars['String']['input']>;
   features?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  featureIconColor?: InputMaybe<Scalars['String']['input']>;
-  featureTextColor?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   ctaText?: InputMaybe<Scalars['String']['input']>;
   ctaLink?: InputMaybe<Scalars['String']['input']>;
-  ctaBg?: InputMaybe<Scalars['String']['input']>;
-  ctaTextColor?: InputMaybe<Scalars['String']['input']>;
-  images?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sectionBg?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type HomepageCtaMutation = {
-  label?: InputMaybe<Scalars['String']['input']>;
   labelColor?: InputMaybe<Scalars['String']['input']>;
   labelSize?: InputMaybe<Scalars['Float']['input']>;
-  labelFont?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
   titleColor?: InputMaybe<Scalars['String']['input']>;
   titleSize?: InputMaybe<Scalars['Float']['input']>;
-  titleFont?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  subtitleColor?: InputMaybe<Scalars['String']['input']>;
-  subtitleSize?: InputMaybe<Scalars['Float']['input']>;
-  subtitleFont?: InputMaybe<Scalars['String']['input']>;
-  primaryText?: InputMaybe<Scalars['String']['input']>;
-  primaryLink?: InputMaybe<Scalars['String']['input']>;
-  primaryBtnBg?: InputMaybe<Scalars['String']['input']>;
-  primaryBtnText?: InputMaybe<Scalars['String']['input']>;
-  secondaryText?: InputMaybe<Scalars['String']['input']>;
-  secondaryLink?: InputMaybe<Scalars['String']['input']>;
-  secondaryBtnBorder?: InputMaybe<Scalars['String']['input']>;
-  secondaryBtnText?: InputMaybe<Scalars['String']['input']>;
-  sectionBg?: InputMaybe<Scalars['String']['input']>;
+  textColor?: InputMaybe<Scalars['String']['input']>;
+  textSize?: InputMaybe<Scalars['Float']['input']>;
+  featureIconColor?: InputMaybe<Scalars['String']['input']>;
+  featureTextColor?: InputMaybe<Scalars['String']['input']>;
+  ctaBg?: InputMaybe<Scalars['String']['input']>;
+  ctaTextColor?: InputMaybe<Scalars['String']['input']>;
+  ctaFontSize?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type HomepageReviewsMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  sectionBg?: InputMaybe<Scalars['String']['input']>;
   labelColor?: InputMaybe<Scalars['String']['input']>;
   labelSize?: InputMaybe<Scalars['Float']['input']>;
-  labelFont?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
   titleColor?: InputMaybe<Scalars['String']['input']>;
   titleSize?: InputMaybe<Scalars['Float']['input']>;
-  titleFont?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type HomepageCtaMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  primaryText?: InputMaybe<Scalars['String']['input']>;
+  primaryLink?: InputMaybe<Scalars['String']['input']>;
+  secondaryText?: InputMaybe<Scalars['String']['input']>;
+  secondaryLink?: InputMaybe<Scalars['String']['input']>;
   sectionBg?: InputMaybe<Scalars['String']['input']>;
+  labelColor?: InputMaybe<Scalars['String']['input']>;
+  labelSize?: InputMaybe<Scalars['Float']['input']>;
+  titleColor?: InputMaybe<Scalars['String']['input']>;
+  titleSize?: InputMaybe<Scalars['Float']['input']>;
+  subtitleColor?: InputMaybe<Scalars['String']['input']>;
+  subtitleSize?: InputMaybe<Scalars['Float']['input']>;
+  primaryBtnBg?: InputMaybe<Scalars['String']['input']>;
+  primaryBtnText?: InputMaybe<Scalars['String']['input']>;
+  secondaryBtnBorder?: InputMaybe<Scalars['String']['input']>;
+  secondaryBtnText?: InputMaybe<Scalars['String']['input']>;
+  primaryBtnSize?: InputMaybe<Scalars['Float']['input']>;
+  secondaryBtnSize?: InputMaybe<Scalars['Float']['input']>;
 };
 
 export type HomepageMutation = {
@@ -1091,37 +1015,36 @@ export type HomepageMutation = {
   categories?: InputMaybe<HomepageCategoriesMutation>;
   trust?: InputMaybe<HomepageTrustMutation>;
   studio?: InputMaybe<HomepageStudioMutation>;
-  cta?: InputMaybe<HomepageCtaMutation>;
   reviews?: InputMaybe<HomepageReviewsMutation>;
+  cta?: InputMaybe<HomepageCtaMutation>;
 };
 
 export type ProjectMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
-  titleColor?: InputMaybe<Scalars['String']['input']>;
-  titleSize?: InputMaybe<Scalars['Float']['input']>;
-  titleFont?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  descColor?: InputMaybe<Scalars['String']['input']>;
-  descSize?: InputMaybe<Scalars['Float']['input']>;
-  descFont?: InputMaybe<Scalars['String']['input']>;
-  cardBg?: InputMaybe<Scalars['String']['input']>;
   category?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
   completionDate?: InputMaybe<Scalars['String']['input']>;
   images?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  titleColor?: InputMaybe<Scalars['String']['input']>;
+  titleSize?: InputMaybe<Scalars['Float']['input']>;
+  descColor?: InputMaybe<Scalars['String']['input']>;
+  descSize?: InputMaybe<Scalars['Float']['input']>;
+  cardBg?: InputMaybe<Scalars['String']['input']>;
+  titleFont?: InputMaybe<Scalars['String']['input']>;
+  descFont?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ReviewMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
   quote?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  rating?: InputMaybe<Scalars['Float']['input']>;
   quoteColor?: InputMaybe<Scalars['String']['input']>;
   quoteSize?: InputMaybe<Scalars['Float']['input']>;
-  quoteFont?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
   nameColor?: InputMaybe<Scalars['String']['input']>;
   nameSize?: InputMaybe<Scalars['Float']['input']>;
-  location?: InputMaybe<Scalars['String']['input']>;
   locationColor?: InputMaybe<Scalars['String']['input']>;
   locationSize?: InputMaybe<Scalars['Float']['input']>;
-  rating?: InputMaybe<Scalars['Float']['input']>;
   starColor?: InputMaybe<Scalars['String']['input']>;
   cardBg?: InputMaybe<Scalars['String']['input']>;
 };
@@ -1130,15 +1053,12 @@ export type SettingsPortfolioMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
   labelColor?: InputMaybe<Scalars['String']['input']>;
   labelSize?: InputMaybe<Scalars['Float']['input']>;
-  labelFont?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   titleColor?: InputMaybe<Scalars['String']['input']>;
   titleSize?: InputMaybe<Scalars['Float']['input']>;
-  titleFont?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
   subtitleColor?: InputMaybe<Scalars['String']['input']>;
   subtitleSize?: InputMaybe<Scalars['Float']['input']>;
-  subtitleFont?: InputMaybe<Scalars['String']['input']>;
   sectionBg?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -1148,34 +1068,29 @@ export type SettingsHeaderNavLinksMutation = {
 };
 
 export type SettingsHeaderMutation = {
-  logoImage?: InputMaybe<Scalars['String']['input']>;
   logoText?: InputMaybe<Scalars['String']['input']>;
   logoColor?: InputMaybe<Scalars['String']['input']>;
   logoEnSize?: InputMaybe<Scalars['Float']['input']>;
-  logoFont?: InputMaybe<Scalars['String']['input']>;
   logoAr?: InputMaybe<Scalars['String']['input']>;
   logoArColor?: InputMaybe<Scalars['String']['input']>;
   logoArSize?: InputMaybe<Scalars['Float']['input']>;
   navLinks?: InputMaybe<Array<InputMaybe<SettingsHeaderNavLinksMutation>>>;
   navLinkColor?: InputMaybe<Scalars['String']['input']>;
   navLinkSize?: InputMaybe<Scalars['Float']['input']>;
-  navLinkFont?: InputMaybe<Scalars['String']['input']>;
+  headerBg?: InputMaybe<Scalars['String']['input']>;
   ctaLabel?: InputMaybe<Scalars['String']['input']>;
   ctaBg?: InputMaybe<Scalars['String']['input']>;
   ctaTextColor?: InputMaybe<Scalars['String']['input']>;
   ctaFontSize?: InputMaybe<Scalars['Float']['input']>;
-  ctaFont?: InputMaybe<Scalars['String']['input']>;
-  headerBg?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SettingsMutation = {
   brandName?: InputMaybe<Scalars['String']['input']>;
-  customFont?: InputMaybe<Scalars['String']['input']>;
-  goldColor?: InputMaybe<Scalars['String']['input']>;
+  whatsapp?: InputMaybe<Scalars['String']['input']>;
   phone?: InputMaybe<Scalars['String']['input']>;
   email?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<Scalars['String']['input']>;
-  whatsapp?: InputMaybe<Scalars['String']['input']>;
+  goldColor?: InputMaybe<Scalars['String']['input']>;
   instagram?: InputMaybe<Scalars['String']['input']>;
   facebook?: InputMaybe<Scalars['String']['input']>;
   tiktok?: InputMaybe<Scalars['String']['input']>;
@@ -1183,34 +1098,29 @@ export type SettingsMutation = {
   pinterest?: InputMaybe<Scalars['String']['input']>;
   footerBg?: InputMaybe<Scalars['String']['input']>;
   footerTitleColor?: InputMaybe<Scalars['String']['input']>;
-  footerTitleSize?: InputMaybe<Scalars['Float']['input']>;
-  footerTitleFont?: InputMaybe<Scalars['String']['input']>;
   footerTextColor?: InputMaybe<Scalars['String']['input']>;
-  footerTextSize?: InputMaybe<Scalars['Float']['input']>;
-  footerTextFont?: InputMaybe<Scalars['String']['input']>;
   footerLinkColor?: InputMaybe<Scalars['String']['input']>;
-  footerLinkSize?: InputMaybe<Scalars['Float']['input']>;
-  footerLinkFont?: InputMaybe<Scalars['String']['input']>;
   footerSocialColor?: InputMaybe<Scalars['String']['input']>;
   categories?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   portfolio?: InputMaybe<SettingsPortfolioMutation>;
   header?: InputMaybe<SettingsHeaderMutation>;
+  customFont?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type HomepagePartsFragment = { __typename: 'Homepage', hero?: { __typename: 'HomepageHero', badge?: string | null, badgeBg?: string | null, badgeText?: string | null, badgeSize?: number | null, badgeFont?: string | null, headline?: string | null, headlineColor?: string | null, headlineSize?: number | null, headlineFont?: string | null, accent?: string | null, accentColor?: string | null, subtext?: string | null, subtextColor?: string | null, subtextSize?: number | null, subtextFont?: string | null, primaryCtaText?: string | null, primaryCtaLink?: string | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, primaryBtnSize?: number | null, secondaryCtaText?: string | null, secondaryCtaLink?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, secondaryBtnSize?: number | null, backgroundImage?: string | null, overlayColor?: string | null, overlayOpacity?: number | null } | null, categories?: { __typename: 'HomepageCategories', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, sectionBg?: string | null, cardBg?: string | null, cardTitleColor?: string | null, cardSubColor?: string | null, items?: Array<{ __typename: 'HomepageCategoriesItems', title?: string | null, subtitle?: string | null, href?: string | null, bg?: string | null, image?: string | null } | null> | null } | null, trust?: { __typename: 'HomepageTrust', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, sectionBg?: string | null, cardBg?: string | null, cardTitleColor?: string | null, cardDescColor?: string | null, iconColor?: string | null, iconBg?: string | null, items?: Array<{ __typename: 'HomepageTrustItems', icon?: string | null, title?: string | null, desc?: string | null } | null> | null } | null, studio?: { __typename: 'HomepageStudio', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, text?: string | null, textColor?: string | null, textSize?: number | null, textFont?: string | null, features?: Array<string | null> | null, featureIconColor?: string | null, featureTextColor?: string | null, ctaText?: string | null, ctaLink?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, images?: Array<string | null> | null, sectionBg?: string | null } | null, cta?: { __typename: 'HomepageCta', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, primaryText?: string | null, primaryLink?: string | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, sectionBg?: string | null } | null, reviews?: { __typename: 'HomepageReviews', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, sectionBg?: string | null } | null };
+export type HomepagePartsFragment = { __typename: 'Homepage', hero?: { __typename: 'HomepageHero', badge?: string | null, headline?: string | null, accent?: string | null, subtext?: string | null, backgroundImage?: string | null, primaryCtaText?: string | null, primaryCtaLink?: string | null, secondaryCtaText?: string | null, secondaryCtaLink?: string | null, badgeBg?: string | null, badgeText?: string | null, badgeSize?: number | null, headlineColor?: string | null, headlineSize?: number | null, accentColor?: string | null, subtextColor?: string | null, subtextSize?: number | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, overlayColor?: string | null, overlayOpacity?: number | null } | null, categories?: { __typename: 'HomepageCategories', label?: string | null, title?: string | null, subtitle?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, subtitleColor?: string | null, subtitleSize?: number | null, cardBg?: string | null, cardTitleColor?: string | null, cardSubColor?: string | null, items?: Array<{ __typename: 'HomepageCategoriesItems', title?: string | null, subtitle?: string | null, href?: string | null, image?: string | null } | null> | null } | null, trust?: { __typename: 'HomepageTrust', label?: string | null, title?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, cardBg?: string | null, cardTitleColor?: string | null, cardDescColor?: string | null, iconColor?: string | null, iconBg?: string | null, items?: Array<{ __typename: 'HomepageTrustItems', icon?: string | null, title?: string | null, desc?: string | null } | null> | null } | null, studio?: { __typename: 'HomepageStudio', label?: string | null, title?: string | null, text?: string | null, features?: Array<string | null> | null, images?: Array<string | null> | null, ctaText?: string | null, ctaLink?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, textColor?: string | null, textSize?: number | null, featureIconColor?: string | null, featureTextColor?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null } | null, reviews?: { __typename: 'HomepageReviews', label?: string | null, title?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null } | null, cta?: { __typename: 'HomepageCta', label?: string | null, title?: string | null, subtitle?: string | null, primaryText?: string | null, primaryLink?: string | null, secondaryText?: string | null, secondaryLink?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, subtitleColor?: string | null, subtitleSize?: number | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, primaryBtnSize?: number | null, secondaryBtnSize?: number | null } | null };
 
-export type ProjectPartsFragment = { __typename: 'Project', title: string, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, description?: string | null, descColor?: string | null, descSize?: number | null, descFont?: string | null, cardBg?: string | null, category?: string | null, completionDate?: string | null, images?: Array<string | null> | null };
+export type ProjectPartsFragment = { __typename: 'Project', title: string, category?: string | null, description?: string | null, completionDate?: string | null, images?: Array<string | null> | null, titleColor?: string | null, titleSize?: number | null, descColor?: string | null, descSize?: number | null, cardBg?: string | null, titleFont?: string | null, descFont?: string | null };
 
-export type ReviewPartsFragment = { __typename: 'Review', quote?: string | null, quoteColor?: string | null, quoteSize?: number | null, quoteFont?: string | null, name: string, nameColor?: string | null, nameSize?: number | null, location?: string | null, locationColor?: string | null, locationSize?: number | null, rating?: number | null, starColor?: string | null, cardBg?: string | null };
+export type ReviewPartsFragment = { __typename: 'Review', name: string, quote?: string | null, location?: string | null, rating?: number | null, quoteColor?: string | null, quoteSize?: number | null, nameColor?: string | null, nameSize?: number | null, locationColor?: string | null, locationSize?: number | null, starColor?: string | null, cardBg?: string | null };
 
-export type SettingsPartsFragment = { __typename: 'Settings', brandName?: string | null, customFont?: string | null, goldColor?: string | null, phone?: string | null, email?: string | null, location?: string | null, whatsapp?: string | null, instagram?: string | null, facebook?: string | null, tiktok?: string | null, twitter?: string | null, pinterest?: string | null, footerBg?: string | null, footerTitleColor?: string | null, footerTitleSize?: number | null, footerTitleFont?: string | null, footerTextColor?: string | null, footerTextSize?: number | null, footerTextFont?: string | null, footerLinkColor?: string | null, footerLinkSize?: number | null, footerLinkFont?: string | null, footerSocialColor?: string | null, categories?: Array<string | null> | null, portfolio?: { __typename: 'SettingsPortfolio', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, sectionBg?: string | null } | null, header?: { __typename: 'SettingsHeader', logoImage?: string | null, logoText?: string | null, logoColor?: string | null, logoEnSize?: number | null, logoFont?: string | null, logoAr?: string | null, logoArColor?: string | null, logoArSize?: number | null, navLinkColor?: string | null, navLinkSize?: number | null, navLinkFont?: string | null, ctaLabel?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null, ctaFont?: string | null, headerBg?: string | null, navLinks?: Array<{ __typename: 'SettingsHeaderNavLinks', label?: string | null, href?: string | null } | null> | null } | null };
+export type SettingsPartsFragment = { __typename: 'Settings', brandName?: string | null, whatsapp?: string | null, phone?: string | null, email?: string | null, location?: string | null, goldColor?: string | null, instagram?: string | null, facebook?: string | null, tiktok?: string | null, twitter?: string | null, pinterest?: string | null, footerBg?: string | null, footerTitleColor?: string | null, footerTextColor?: string | null, footerLinkColor?: string | null, footerSocialColor?: string | null, categories?: Array<string | null> | null, customFont?: string | null, portfolio?: { __typename: 'SettingsPortfolio', label?: string | null, labelColor?: string | null, labelSize?: number | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, sectionBg?: string | null } | null, header?: { __typename: 'SettingsHeader', logoText?: string | null, logoColor?: string | null, logoEnSize?: number | null, logoAr?: string | null, logoArColor?: string | null, logoArSize?: number | null, navLinkColor?: string | null, navLinkSize?: number | null, headerBg?: string | null, ctaLabel?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null, navLinks?: Array<{ __typename: 'SettingsHeaderNavLinks', label?: string | null, href?: string | null } | null> | null } | null };
 
 export type HomepageQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type HomepageQuery = { __typename?: 'Query', homepage: { __typename: 'Homepage', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'HomepageHero', badge?: string | null, badgeBg?: string | null, badgeText?: string | null, badgeSize?: number | null, badgeFont?: string | null, headline?: string | null, headlineColor?: string | null, headlineSize?: number | null, headlineFont?: string | null, accent?: string | null, accentColor?: string | null, subtext?: string | null, subtextColor?: string | null, subtextSize?: number | null, subtextFont?: string | null, primaryCtaText?: string | null, primaryCtaLink?: string | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, primaryBtnSize?: number | null, secondaryCtaText?: string | null, secondaryCtaLink?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, secondaryBtnSize?: number | null, backgroundImage?: string | null, overlayColor?: string | null, overlayOpacity?: number | null } | null, categories?: { __typename: 'HomepageCategories', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, sectionBg?: string | null, cardBg?: string | null, cardTitleColor?: string | null, cardSubColor?: string | null, items?: Array<{ __typename: 'HomepageCategoriesItems', title?: string | null, subtitle?: string | null, href?: string | null, bg?: string | null, image?: string | null } | null> | null } | null, trust?: { __typename: 'HomepageTrust', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, sectionBg?: string | null, cardBg?: string | null, cardTitleColor?: string | null, cardDescColor?: string | null, iconColor?: string | null, iconBg?: string | null, items?: Array<{ __typename: 'HomepageTrustItems', icon?: string | null, title?: string | null, desc?: string | null } | null> | null } | null, studio?: { __typename: 'HomepageStudio', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, text?: string | null, textColor?: string | null, textSize?: number | null, textFont?: string | null, features?: Array<string | null> | null, featureIconColor?: string | null, featureTextColor?: string | null, ctaText?: string | null, ctaLink?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, images?: Array<string | null> | null, sectionBg?: string | null } | null, cta?: { __typename: 'HomepageCta', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, primaryText?: string | null, primaryLink?: string | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, sectionBg?: string | null } | null, reviews?: { __typename: 'HomepageReviews', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, sectionBg?: string | null } | null } };
+export type HomepageQuery = { __typename?: 'Query', homepage: { __typename: 'Homepage', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'HomepageHero', badge?: string | null, headline?: string | null, accent?: string | null, subtext?: string | null, backgroundImage?: string | null, primaryCtaText?: string | null, primaryCtaLink?: string | null, secondaryCtaText?: string | null, secondaryCtaLink?: string | null, badgeBg?: string | null, badgeText?: string | null, badgeSize?: number | null, headlineColor?: string | null, headlineSize?: number | null, accentColor?: string | null, subtextColor?: string | null, subtextSize?: number | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, overlayColor?: string | null, overlayOpacity?: number | null } | null, categories?: { __typename: 'HomepageCategories', label?: string | null, title?: string | null, subtitle?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, subtitleColor?: string | null, subtitleSize?: number | null, cardBg?: string | null, cardTitleColor?: string | null, cardSubColor?: string | null, items?: Array<{ __typename: 'HomepageCategoriesItems', title?: string | null, subtitle?: string | null, href?: string | null, image?: string | null } | null> | null } | null, trust?: { __typename: 'HomepageTrust', label?: string | null, title?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, cardBg?: string | null, cardTitleColor?: string | null, cardDescColor?: string | null, iconColor?: string | null, iconBg?: string | null, items?: Array<{ __typename: 'HomepageTrustItems', icon?: string | null, title?: string | null, desc?: string | null } | null> | null } | null, studio?: { __typename: 'HomepageStudio', label?: string | null, title?: string | null, text?: string | null, features?: Array<string | null> | null, images?: Array<string | null> | null, ctaText?: string | null, ctaLink?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, textColor?: string | null, textSize?: number | null, featureIconColor?: string | null, featureTextColor?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null } | null, reviews?: { __typename: 'HomepageReviews', label?: string | null, title?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null } | null, cta?: { __typename: 'HomepageCta', label?: string | null, title?: string | null, subtitle?: string | null, primaryText?: string | null, primaryLink?: string | null, secondaryText?: string | null, secondaryLink?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, subtitleColor?: string | null, subtitleSize?: number | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, primaryBtnSize?: number | null, secondaryBtnSize?: number | null } | null } };
 
 export type HomepageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -1222,14 +1132,14 @@ export type HomepageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type HomepageConnectionQuery = { __typename?: 'Query', homepageConnection: { __typename?: 'HomepageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HomepageConnectionEdges', cursor: string, node?: { __typename: 'Homepage', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'HomepageHero', badge?: string | null, badgeBg?: string | null, badgeText?: string | null, badgeSize?: number | null, badgeFont?: string | null, headline?: string | null, headlineColor?: string | null, headlineSize?: number | null, headlineFont?: string | null, accent?: string | null, accentColor?: string | null, subtext?: string | null, subtextColor?: string | null, subtextSize?: number | null, subtextFont?: string | null, primaryCtaText?: string | null, primaryCtaLink?: string | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, primaryBtnSize?: number | null, secondaryCtaText?: string | null, secondaryCtaLink?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, secondaryBtnSize?: number | null, backgroundImage?: string | null, overlayColor?: string | null, overlayOpacity?: number | null } | null, categories?: { __typename: 'HomepageCategories', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, sectionBg?: string | null, cardBg?: string | null, cardTitleColor?: string | null, cardSubColor?: string | null, items?: Array<{ __typename: 'HomepageCategoriesItems', title?: string | null, subtitle?: string | null, href?: string | null, bg?: string | null, image?: string | null } | null> | null } | null, trust?: { __typename: 'HomepageTrust', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, sectionBg?: string | null, cardBg?: string | null, cardTitleColor?: string | null, cardDescColor?: string | null, iconColor?: string | null, iconBg?: string | null, items?: Array<{ __typename: 'HomepageTrustItems', icon?: string | null, title?: string | null, desc?: string | null } | null> | null } | null, studio?: { __typename: 'HomepageStudio', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, text?: string | null, textColor?: string | null, textSize?: number | null, textFont?: string | null, features?: Array<string | null> | null, featureIconColor?: string | null, featureTextColor?: string | null, ctaText?: string | null, ctaLink?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, images?: Array<string | null> | null, sectionBg?: string | null } | null, cta?: { __typename: 'HomepageCta', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, primaryText?: string | null, primaryLink?: string | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryText?: string | null, secondaryLink?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, sectionBg?: string | null } | null, reviews?: { __typename: 'HomepageReviews', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, sectionBg?: string | null } | null } | null } | null> | null } };
+export type HomepageConnectionQuery = { __typename?: 'Query', homepageConnection: { __typename?: 'HomepageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'HomepageConnectionEdges', cursor: string, node?: { __typename: 'Homepage', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'HomepageHero', badge?: string | null, headline?: string | null, accent?: string | null, subtext?: string | null, backgroundImage?: string | null, primaryCtaText?: string | null, primaryCtaLink?: string | null, secondaryCtaText?: string | null, secondaryCtaLink?: string | null, badgeBg?: string | null, badgeText?: string | null, badgeSize?: number | null, headlineColor?: string | null, headlineSize?: number | null, accentColor?: string | null, subtextColor?: string | null, subtextSize?: number | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, overlayColor?: string | null, overlayOpacity?: number | null } | null, categories?: { __typename: 'HomepageCategories', label?: string | null, title?: string | null, subtitle?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, subtitleColor?: string | null, subtitleSize?: number | null, cardBg?: string | null, cardTitleColor?: string | null, cardSubColor?: string | null, items?: Array<{ __typename: 'HomepageCategoriesItems', title?: string | null, subtitle?: string | null, href?: string | null, image?: string | null } | null> | null } | null, trust?: { __typename: 'HomepageTrust', label?: string | null, title?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, cardBg?: string | null, cardTitleColor?: string | null, cardDescColor?: string | null, iconColor?: string | null, iconBg?: string | null, items?: Array<{ __typename: 'HomepageTrustItems', icon?: string | null, title?: string | null, desc?: string | null } | null> | null } | null, studio?: { __typename: 'HomepageStudio', label?: string | null, title?: string | null, text?: string | null, features?: Array<string | null> | null, images?: Array<string | null> | null, ctaText?: string | null, ctaLink?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, textColor?: string | null, textSize?: number | null, featureIconColor?: string | null, featureTextColor?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null } | null, reviews?: { __typename: 'HomepageReviews', label?: string | null, title?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null } | null, cta?: { __typename: 'HomepageCta', label?: string | null, title?: string | null, subtitle?: string | null, primaryText?: string | null, primaryLink?: string | null, secondaryText?: string | null, secondaryLink?: string | null, sectionBg?: string | null, labelColor?: string | null, labelSize?: number | null, titleColor?: string | null, titleSize?: number | null, subtitleColor?: string | null, subtitleSize?: number | null, primaryBtnBg?: string | null, primaryBtnText?: string | null, secondaryBtnBorder?: string | null, secondaryBtnText?: string | null, primaryBtnSize?: number | null, secondaryBtnSize?: number | null } | null } | null } | null> | null } };
 
 export type ProjectQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type ProjectQuery = { __typename?: 'Query', project: { __typename: 'Project', id: string, title: string, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, description?: string | null, descColor?: string | null, descSize?: number | null, descFont?: string | null, cardBg?: string | null, category?: string | null, completionDate?: string | null, images?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ProjectQuery = { __typename?: 'Query', project: { __typename: 'Project', id: string, title: string, category?: string | null, description?: string | null, completionDate?: string | null, images?: Array<string | null> | null, titleColor?: string | null, titleSize?: number | null, descColor?: string | null, descSize?: number | null, cardBg?: string | null, titleFont?: string | null, descFont?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type ProjectConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -1241,14 +1151,14 @@ export type ProjectConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ProjectConnectionQuery = { __typename?: 'Query', projectConnection: { __typename?: 'ProjectConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ProjectConnectionEdges', cursor: string, node?: { __typename: 'Project', id: string, title: string, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, description?: string | null, descColor?: string | null, descSize?: number | null, descFont?: string | null, cardBg?: string | null, category?: string | null, completionDate?: string | null, images?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ProjectConnectionQuery = { __typename?: 'Query', projectConnection: { __typename?: 'ProjectConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ProjectConnectionEdges', cursor: string, node?: { __typename: 'Project', id: string, title: string, category?: string | null, description?: string | null, completionDate?: string | null, images?: Array<string | null> | null, titleColor?: string | null, titleSize?: number | null, descColor?: string | null, descSize?: number | null, cardBg?: string | null, titleFont?: string | null, descFont?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type ReviewQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type ReviewQuery = { __typename?: 'Query', review: { __typename: 'Review', id: string, quote?: string | null, quoteColor?: string | null, quoteSize?: number | null, quoteFont?: string | null, name: string, nameColor?: string | null, nameSize?: number | null, location?: string | null, locationColor?: string | null, locationSize?: number | null, rating?: number | null, starColor?: string | null, cardBg?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type ReviewQuery = { __typename?: 'Query', review: { __typename: 'Review', id: string, name: string, quote?: string | null, location?: string | null, rating?: number | null, quoteColor?: string | null, quoteSize?: number | null, nameColor?: string | null, nameSize?: number | null, locationColor?: string | null, locationSize?: number | null, starColor?: string | null, cardBg?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type ReviewConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -1260,14 +1170,14 @@ export type ReviewConnectionQueryVariables = Exact<{
 }>;
 
 
-export type ReviewConnectionQuery = { __typename?: 'Query', reviewConnection: { __typename?: 'ReviewConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ReviewConnectionEdges', cursor: string, node?: { __typename: 'Review', id: string, quote?: string | null, quoteColor?: string | null, quoteSize?: number | null, quoteFont?: string | null, name: string, nameColor?: string | null, nameSize?: number | null, location?: string | null, locationColor?: string | null, locationSize?: number | null, rating?: number | null, starColor?: string | null, cardBg?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type ReviewConnectionQuery = { __typename?: 'Query', reviewConnection: { __typename?: 'ReviewConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'ReviewConnectionEdges', cursor: string, node?: { __typename: 'Review', id: string, name: string, quote?: string | null, location?: string | null, rating?: number | null, quoteColor?: string | null, quoteSize?: number | null, nameColor?: string | null, nameSize?: number | null, locationColor?: string | null, locationSize?: number | null, starColor?: string | null, cardBg?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type SettingsQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type SettingsQuery = { __typename?: 'Query', settings: { __typename: 'Settings', id: string, brandName?: string | null, customFont?: string | null, goldColor?: string | null, phone?: string | null, email?: string | null, location?: string | null, whatsapp?: string | null, instagram?: string | null, facebook?: string | null, tiktok?: string | null, twitter?: string | null, pinterest?: string | null, footerBg?: string | null, footerTitleColor?: string | null, footerTitleSize?: number | null, footerTitleFont?: string | null, footerTextColor?: string | null, footerTextSize?: number | null, footerTextFont?: string | null, footerLinkColor?: string | null, footerLinkSize?: number | null, footerLinkFont?: string | null, footerSocialColor?: string | null, categories?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, portfolio?: { __typename: 'SettingsPortfolio', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, sectionBg?: string | null } | null, header?: { __typename: 'SettingsHeader', logoImage?: string | null, logoText?: string | null, logoColor?: string | null, logoEnSize?: number | null, logoFont?: string | null, logoAr?: string | null, logoArColor?: string | null, logoArSize?: number | null, navLinkColor?: string | null, navLinkSize?: number | null, navLinkFont?: string | null, ctaLabel?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null, ctaFont?: string | null, headerBg?: string | null, navLinks?: Array<{ __typename: 'SettingsHeaderNavLinks', label?: string | null, href?: string | null } | null> | null } | null } };
+export type SettingsQuery = { __typename?: 'Query', settings: { __typename: 'Settings', id: string, brandName?: string | null, whatsapp?: string | null, phone?: string | null, email?: string | null, location?: string | null, goldColor?: string | null, instagram?: string | null, facebook?: string | null, tiktok?: string | null, twitter?: string | null, pinterest?: string | null, footerBg?: string | null, footerTitleColor?: string | null, footerTextColor?: string | null, footerLinkColor?: string | null, footerSocialColor?: string | null, categories?: Array<string | null> | null, customFont?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, portfolio?: { __typename: 'SettingsPortfolio', label?: string | null, labelColor?: string | null, labelSize?: number | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, sectionBg?: string | null } | null, header?: { __typename: 'SettingsHeader', logoText?: string | null, logoColor?: string | null, logoEnSize?: number | null, logoAr?: string | null, logoArColor?: string | null, logoArSize?: number | null, navLinkColor?: string | null, navLinkSize?: number | null, headerBg?: string | null, ctaLabel?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null, navLinks?: Array<{ __typename: 'SettingsHeaderNavLinks', label?: string | null, href?: string | null } | null> | null } | null } };
 
 export type SettingsConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -1279,7 +1189,7 @@ export type SettingsConnectionQueryVariables = Exact<{
 }>;
 
 
-export type SettingsConnectionQuery = { __typename?: 'Query', settingsConnection: { __typename?: 'SettingsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SettingsConnectionEdges', cursor: string, node?: { __typename: 'Settings', id: string, brandName?: string | null, customFont?: string | null, goldColor?: string | null, phone?: string | null, email?: string | null, location?: string | null, whatsapp?: string | null, instagram?: string | null, facebook?: string | null, tiktok?: string | null, twitter?: string | null, pinterest?: string | null, footerBg?: string | null, footerTitleColor?: string | null, footerTitleSize?: number | null, footerTitleFont?: string | null, footerTextColor?: string | null, footerTextSize?: number | null, footerTextFont?: string | null, footerLinkColor?: string | null, footerLinkSize?: number | null, footerLinkFont?: string | null, footerSocialColor?: string | null, categories?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, portfolio?: { __typename: 'SettingsPortfolio', label?: string | null, labelColor?: string | null, labelSize?: number | null, labelFont?: string | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, titleFont?: string | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, subtitleFont?: string | null, sectionBg?: string | null } | null, header?: { __typename: 'SettingsHeader', logoImage?: string | null, logoText?: string | null, logoColor?: string | null, logoEnSize?: number | null, logoFont?: string | null, logoAr?: string | null, logoArColor?: string | null, logoArSize?: number | null, navLinkColor?: string | null, navLinkSize?: number | null, navLinkFont?: string | null, ctaLabel?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null, ctaFont?: string | null, headerBg?: string | null, navLinks?: Array<{ __typename: 'SettingsHeaderNavLinks', label?: string | null, href?: string | null } | null> | null } | null } | null } | null> | null } };
+export type SettingsConnectionQuery = { __typename?: 'Query', settingsConnection: { __typename?: 'SettingsConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SettingsConnectionEdges', cursor: string, node?: { __typename: 'Settings', id: string, brandName?: string | null, whatsapp?: string | null, phone?: string | null, email?: string | null, location?: string | null, goldColor?: string | null, instagram?: string | null, facebook?: string | null, tiktok?: string | null, twitter?: string | null, pinterest?: string | null, footerBg?: string | null, footerTitleColor?: string | null, footerTextColor?: string | null, footerLinkColor?: string | null, footerSocialColor?: string | null, categories?: Array<string | null> | null, customFont?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, portfolio?: { __typename: 'SettingsPortfolio', label?: string | null, labelColor?: string | null, labelSize?: number | null, title?: string | null, titleColor?: string | null, titleSize?: number | null, subtitle?: string | null, subtitleColor?: string | null, subtitleSize?: number | null, sectionBg?: string | null } | null, header?: { __typename: 'SettingsHeader', logoText?: string | null, logoColor?: string | null, logoEnSize?: number | null, logoAr?: string | null, logoArColor?: string | null, logoArSize?: number | null, navLinkColor?: string | null, navLinkSize?: number | null, headerBg?: string | null, ctaLabel?: string | null, ctaBg?: string | null, ctaTextColor?: string | null, ctaFontSize?: number | null, navLinks?: Array<{ __typename: 'SettingsHeaderNavLinks', label?: string | null, href?: string | null } | null> | null } | null } | null } | null> | null } };
 
 export const HomepagePartsFragmentDoc = gql`
     fragment HomepageParts on Homepage {
@@ -1287,57 +1197,48 @@ export const HomepagePartsFragmentDoc = gql`
   hero {
     __typename
     badge
+    headline
+    accent
+    subtext
+    backgroundImage
+    primaryCtaText
+    primaryCtaLink
+    secondaryCtaText
+    secondaryCtaLink
     badgeBg
     badgeText
     badgeSize
-    badgeFont
-    headline
     headlineColor
     headlineSize
-    headlineFont
-    accent
     accentColor
-    subtext
     subtextColor
     subtextSize
-    subtextFont
-    primaryCtaText
-    primaryCtaLink
     primaryBtnBg
     primaryBtnText
-    primaryBtnSize
-    secondaryCtaText
-    secondaryCtaLink
     secondaryBtnBorder
     secondaryBtnText
-    secondaryBtnSize
-    backgroundImage
     overlayColor
     overlayOpacity
   }
   categories {
     __typename
     label
-    labelColor
-    labelSize
-    labelFont
     title
-    titleColor
-    titleSize
-    titleFont
     subtitle
-    subtitleColor
-    subtitleSize
-    subtitleFont
     items {
       __typename
       title
       subtitle
       href
-      bg
       image
     }
     sectionBg
+    labelColor
+    labelSize
+    titleColor
+    titleSize
+    subtitleColor
+    subtitleSize
     cardBg
     cardTitleColor
     cardSubColor
@@ -1345,13 +1246,7 @@ export const HomepagePartsFragmentDoc = gql`
   trust {
     __typename
     label
-    labelColor
-    labelSize
-    labelFont
     title
-    titleColor
-    titleSize
-    titleFont
     items {
       __typename
       icon
@@ -1359,6 +1254,10 @@ export const HomepagePartsFragmentDoc = gql`
       desc
     }
     sectionBg
+    labelColor
+    labelSize
+    titleColor
+    titleSize
     cardBg
     cardTitleColor
     cardDescColor
@@ -1368,62 +1267,57 @@ export const HomepagePartsFragmentDoc = gql`
   studio {
     __typename
     label
-    labelColor
-    labelSize
-    labelFont
     title
-    titleColor
-    titleSize
-    titleFont
     text
-    textColor
-    textSize
-    textFont
     features
-    featureIconColor
-    featureTextColor
+    images
     ctaText
     ctaLink
-    ctaBg
-    ctaTextColor
-    images
     sectionBg
-  }
-  cta {
-    __typename
-    label
     labelColor
     labelSize
-    labelFont
-    title
     titleColor
     titleSize
-    titleFont
-    subtitle
-    subtitleColor
-    subtitleSize
-    subtitleFont
-    primaryText
-    primaryLink
-    primaryBtnBg
-    primaryBtnText
-    secondaryText
-    secondaryLink
-    secondaryBtnBorder
-    secondaryBtnText
-    sectionBg
+    textColor
+    textSize
+    featureIconColor
+    featureTextColor
+    ctaBg
+    ctaTextColor
+    ctaFontSize
   }
   reviews {
     __typename
     label
+    title
+    sectionBg
     labelColor
     labelSize
-    labelFont
-    title
     titleColor
     titleSize
-    titleFont
+  }
+  cta {
+    __typename
+    label
+    title
+    subtitle
+    primaryText
+    primaryLink
+    secondaryText
+    secondaryLink
     sectionBg
+    labelColor
+    labelSize
+    titleColor
+    titleSize
+    subtitleColor
+    subtitleSize
+    primaryBtnBg
+    primaryBtnText
+    secondaryBtnBorder
+    secondaryBtnText
+    primaryBtnSize
+    secondaryBtnSize
   }
 }
     `;
@@ -1431,33 +1325,32 @@ export const ProjectPartsFragmentDoc = gql`
     fragment ProjectParts on Project {
   __typename
   title
-  titleColor
-  titleSize
-  titleFont
-  description
-  descColor
-  descSize
-  descFont
-  cardBg
   category
+  description
   completionDate
   images
+  titleColor
+  titleSize
+  descColor
+  descSize
+  cardBg
+  titleFont
+  descFont
 }
     `;
 export const ReviewPartsFragmentDoc = gql`
     fragment ReviewParts on Review {
   __typename
+  name
   quote
+  location
+  rating
   quoteColor
   quoteSize
-  quoteFont
-  name
   nameColor
   nameSize
-  location
   locationColor
   locationSize
-  rating
   starColor
   cardBg
 }
@@ -1466,12 +1359,11 @@ export const SettingsPartsFragmentDoc = gql`
     fragment SettingsParts on Settings {
   __typename
   brandName
-  customFont
-  goldColor
+  whatsapp
   phone
   email
   location
-  whatsapp
+  goldColor
   instagram
   facebook
   tiktok
@@ -1479,14 +1371,8 @@ export const SettingsPartsFragmentDoc = gql`
   pinterest
   footerBg
   footerTitleColor
-  footerTitleSize
-  footerTitleFont
   footerTextColor
-  footerTextSize
-  footerTextFont
   footerLinkColor
-  footerLinkSize
-  footerLinkFont
   footerSocialColor
   categories
   portfolio {
@@ -1494,24 +1380,19 @@ export const SettingsPartsFragmentDoc = gql`
     label
     labelColor
     labelSize
-    labelFont
     title
     titleColor
     titleSize
-    titleFont
     subtitle
     subtitleColor
     subtitleSize
-    subtitleFont
     sectionBg
   }
   header {
     __typename
-    logoImage
     logoText
     logoColor
     logoEnSize
-    logoFont
     logoAr
     logoArColor
     logoArSize
@@ -1522,14 +1403,13 @@ export const SettingsPartsFragmentDoc = gql`
     }
     navLinkColor
     navLinkSize
-    navLinkFont
+    headerBg
     ctaLabel
     ctaBg
     ctaTextColor
     ctaFontSize
-    ctaFont
-    headerBg
   }
+  customFont
 }
     `;
 export const HomepageDocument = gql`
