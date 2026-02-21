@@ -1,20 +1,44 @@
 .hero {
     position: relative;
     height: 100vh;
-    min-height: 680px;
+    min-height: 720px;
     display: flex;
     align-items: center;
-    background: url('/images/hero-kitchen.jpg') center center / cover no-repeat;
-    background-color: var(--primary-blue-dark);
+    overflow: hidden;
+    background-color: #0c1823;
+}
+
+.bgContainer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.bgImage {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.1);
+    animation: heroZoom 20s ease-out forwards;
+}
+
+@keyframes heroZoom {
+    0% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg,
-            rgba(12, 24, 35, 0.84) 0%,
-            rgba(22, 39, 54, 0.66) 58%,
-            rgba(14, 28, 41, 0.62) 100%);
+    background: radial-gradient(circle at center, rgba(35, 74, 104, 0.4) 0%, rgba(12, 24, 35, 0.9) 100%);
+    z-index: 1;
 }
 
 .content {
@@ -26,26 +50,27 @@
 
 .badge {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--accent-yellow);
-    background: rgba(242, 183, 5, 0.12);
-    border: 1px solid rgba(242, 183, 5, 0.36);
-    padding: 8px 18px;
-    border-radius: 2px;
-    margin-bottom: 28px;
-    animation: fadeInUp 1s 0.1s ease both;
+    background: rgba(242, 183, 5, 0.08);
+    border: 1px solid rgba(242, 183, 5, 0.25);
+    padding: 10px 24px;
+    border-radius: 0;
+    margin-bottom: 32px;
+    animation: fadeInUp 1.2s 0.1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
 }
 
 .headline {
-    font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-    font-weight: 800;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 700;
     color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 24px;
-    animation: fadeInUp 1s 0.2s ease both;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+    animation: fadeInUp 1.2s 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) both;
 }
 
 .accent {
@@ -54,12 +79,13 @@
 }
 
 .subtext {
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
-    color: rgba(245, 245, 245, 0.82);
-    margin-bottom: 44px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(245, 245, 245, 0.7);
+    margin-bottom: 56px;
     font-weight: 400;
-    max-width: 480px;
-    animation: fadeInUp 1s 0.3s ease both;
+    max-width: 540px;
+    line-height: 1.7;
+    animation: fadeInUp 1.2s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) both;
 }
 
 .ctas {
@@ -80,10 +106,11 @@
 
 .scrollLine {
     width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, rgba(242, 183, 5, 0.86), transparent);
+    height: 80px;
+    background: linear-gradient(to bottom, var(--accent-yellow), transparent);
     margin: 0 auto;
-    animation: scrollPulse 2s ease-in-out infinite;
+    opacity: 0.6;
+    animation: scrollPulse 3s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
