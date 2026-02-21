@@ -31,25 +31,33 @@ export default function Footer({ settings }) {
     const twitter = settings?.twitter;
     const pinterest = settings?.pinterest;
 
+    const styles_data = settings?.style || {};
     const footerStyle = {
         ...(settings?.footerBg ? { backgroundColor: settings.footerBg } : {}),
+        ...(styles_data.footerBg ? { backgroundColor: styles_data.footerBg } : {}),
     };
     const titleStyle = {
         ...(settings?.footerTitleColor ? { color: settings.footerTitleColor } : {}),
+        ...(styles_data.footerTitleColor ? { color: styles_data.footerTitleColor } : {}),
         ...(settings?.footerTitleSize ? { fontSize: `${settings.footerTitleSize}px` } : {}),
-        ...(settings?.footerTitleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+        ...(styles_data.footerTitleSize ? { fontSize: `${styles_data.footerTitleSize}px` } : {}),
+        ...((settings?.footerTitleFont === 'CustomFont' || styles_data.footerTitleFont === 'CustomFont') ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
     const textStyle = {
         ...(settings?.footerTextColor ? { color: settings.footerTextColor } : {}),
+        ...(styles_data.footerTextColor ? { color: styles_data.footerTextColor } : {}),
         ...(settings?.footerTextSize ? { fontSize: `${settings.footerTextSize}px` } : {}),
-        ...(settings?.footerTextFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+        ...(styles_data.footerTextSize ? { fontSize: `${styles_data.footerTextSize}px` } : {}),
+        ...((settings?.footerTextFont === 'CustomFont' || styles_data.footerTextFont === 'CustomFont') ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
     const linkStyle = {
         ...(settings?.footerLinkColor ? { color: settings.footerLinkColor } : {}),
+        ...(styles_data.footerLinkColor ? { color: styles_data.footerLinkColor } : {}),
         ...(settings?.footerLinkSize ? { fontSize: `${settings.footerLinkSize}px` } : {}),
-        ...(settings?.footerLinkFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+        ...(styles_data.footerLinkSize ? { fontSize: `${styles_data.footerLinkSize}px` } : {}),
+        ...((settings?.footerLinkFont === 'CustomFont' || styles_data.footerLinkFont === 'CustomFont') ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
-    const socialStyle = settings?.footerSocialColor ? { color: settings.footerSocialColor } : {};
+    const socialStyle = (settings?.footerSocialColor || styles_data.footerSocialColor) ? { color: settings?.footerSocialColor || styles_data.footerSocialColor } : {};
 
     return (
         <footer className={styles.footer} style={footerStyle}>

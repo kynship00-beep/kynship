@@ -20,6 +20,10 @@ function isExternalUrl(url) {
 export default function HeroSection({ data = {} }) {
     const content = { ...defaultData, ...data };
     const heroStyle = {
+        // Main container styles
+    };
+
+    const bgImageStyle = {
         ...(content.backgroundImage ? { backgroundImage: `url('${content.backgroundImage}')` } : {}),
     };
 
@@ -70,6 +74,9 @@ export default function HeroSection({ data = {} }) {
 
     return (
         <section className={styles.hero} style={heroStyle}>
+            <div className={styles.bgContainer}>
+                <div className={styles.bgImage} style={bgImageStyle} />
+            </div>
             <div className={styles.overlay} style={overlayStyle} />
             <div className={`container ${styles.content}`}>
                 <div className={styles.badge} style={badgeStyle}>{content.badge}</div>

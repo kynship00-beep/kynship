@@ -27,7 +27,20 @@ const defaultData = {
     ],
 };
 
+/**
+ * TrustSection Component
+ * 
+ * Displays a list of "Trust Features" or "Why Choose Us" items.
+ * Each item consists of an icon (emoji), a title, and a brief description.
+ * 
+ * Data Structure (passed via 'data' prop from TinaCMS):
+ * - label: Short badge text above the title.
+ * - title: Main section heading.
+ * - items: Array of objects [{ icon: string, title: string, desc: string }]
+ * - Styling properties: labelColor, labelSize, titleColor, titleSize, sectionBg, cardBg, iconBg, etc.
+ */
 export default function TrustSection({ data = {} }) {
+    // Merge provided data with defaults to ensure component always renders properly
     const content = {
         ...defaultData,
         ...data,

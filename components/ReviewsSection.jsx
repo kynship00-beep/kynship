@@ -10,18 +10,24 @@ export default function ReviewsSection({ reviews = [], data = {} }) {
         return null;
     }
 
+    const styles_data = data.style || {};
     const sectionStyle = {
         ...(data.sectionBg ? { backgroundColor: data.sectionBg } : {}),
+        ...(styles_data.sectionBg ? { backgroundColor: styles_data.sectionBg } : {}),
     };
     const labelStyle = {
         ...(data.labelColor ? { color: data.labelColor } : {}),
+        ...(styles_data.labelColor ? { color: styles_data.labelColor } : {}),
         ...(data.labelSize ? { fontSize: `${data.labelSize}px` } : {}),
-        ...(data.labelFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+        ...(styles_data.labelSize ? { fontSize: `${styles_data.labelSize}px` } : {}),
+        ...((data.labelFont === 'CustomFont' || styles_data.labelFont === 'CustomFont') ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
     const titleStyle = {
         ...(data.titleColor ? { color: data.titleColor } : {}),
+        ...(styles_data.titleColor ? { color: styles_data.titleColor } : {}),
         ...(data.titleSize ? { fontSize: `${data.titleSize}px` } : {}),
-        ...(data.titleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+        ...(styles_data.titleSize ? { fontSize: `${styles_data.titleSize}px` } : {}),
+        ...((data.titleFont === 'CustomFont' || styles_data.titleFont === 'CustomFont') ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
 
     return (
@@ -34,24 +40,33 @@ export default function ReviewsSection({ reviews = [], data = {} }) {
                 </div>
                 <div className={styles.grid}>
                     {reviews.map((review, index) => {
+                        const review_style = review.style || {};
                         const cardStyle = {
                             ...(review.cardBg ? { backgroundColor: review.cardBg } : {}),
+                            ...(review_style.cardBg ? { backgroundColor: review_style.cardBg } : {}),
                         };
                         const starStyle = {
                             ...(review.starColor ? { color: review.starColor } : {}),
+                            ...(review_style.starColor ? { color: review_style.starColor } : {}),
                         };
                         const quoteStyle = {
                             ...(review.quoteColor ? { color: review.quoteColor } : {}),
+                            ...(review_style.quoteColor ? { color: review_style.quoteColor } : {}),
                             ...(review.quoteSize ? { fontSize: `${review.quoteSize}px` } : {}),
-                            ...(review.quoteFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+                            ...(review_style.quoteSize ? { fontSize: `${review_style.quoteSize}px` } : {}),
+                            ...((review.quoteFont === 'CustomFont' || review_style.quoteFont === 'CustomFont') ? { fontFamily: "'CustomFont', sans-serif" } : {}),
                         };
                         const nameStyle = {
                             ...(review.nameColor ? { color: review.nameColor } : {}),
+                            ...(review_style.nameColor ? { color: review_style.nameColor } : {}),
                             ...(review.nameSize ? { fontSize: `${review.nameSize}px` } : {}),
+                            ...(review_style.nameSize ? { fontSize: `${review_style.nameSize}px` } : {}),
                         };
                         const locationStyle = {
                             ...(review.locationColor ? { color: review.locationColor } : {}),
+                            ...(review_style.locationColor ? { color: review_style.locationColor } : {}),
                             ...(review.locationSize ? { fontSize: `${review.locationSize}px` } : {}),
+                            ...(review_style.locationSize ? { fontSize: `${review_style.locationSize}px` } : {}),
                         };
 
                         return (
