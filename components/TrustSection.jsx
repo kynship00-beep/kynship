@@ -38,8 +38,16 @@ export default function TrustSection({ data = {} }) {
         ...(content.sectionBg ? { backgroundColor: content.sectionBg } : {}),
     };
 
-    const labelStyle = content.labelColor ? { color: content.labelColor } : {};
-    const titleStyle = content.titleColor ? { color: content.titleColor } : {};
+    const labelStyle = {
+        ...(content.labelColor ? { color: content.labelColor } : {}),
+        ...(content.labelSize ? { fontSize: `${content.labelSize}px` } : {}),
+        ...(content.labelFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const titleStyle = {
+        ...(content.titleColor ? { color: content.titleColor } : {}),
+        ...(content.titleSize ? { fontSize: `${content.titleSize}px` } : {}),
+        ...(content.titleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
     const cardStyle = {
         ...(content.cardBg ? { backgroundColor: content.cardBg } : {}),
     };

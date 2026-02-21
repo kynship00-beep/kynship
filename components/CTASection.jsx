@@ -22,16 +22,32 @@ export default function CTASection({ data = {} }) {
         ...(content.sectionBg ? { backgroundColor: content.sectionBg } : {}),
     };
 
-    const labelStyle = content.labelColor ? { color: content.labelColor } : { color: 'rgba(242,183,5,0.95)' };
-    const titleStyle = content.titleColor ? { color: content.titleColor } : {};
-    const subtitleStyle = content.subtitleColor ? { color: content.subtitleColor } : {};
+    const labelStyle = {
+        ...(content.labelColor ? { color: content.labelColor } : { color: 'rgba(242,183,5,0.95)' }),
+        ...(content.labelSize ? { fontSize: `${content.labelSize}px` } : {}),
+        ...(content.labelFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const titleStyle = {
+        ...(content.titleColor ? { color: content.titleColor } : {}),
+        ...(content.titleSize ? { fontSize: `${content.titleSize}px` } : {}),
+        ...(content.titleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const subtitleStyle = {
+        ...(content.subtitleColor ? { color: content.subtitleColor } : {}),
+        ...(content.subtitleSize ? { fontSize: `${content.subtitleSize}px` } : {}),
+        ...(content.subtitleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
     const primaryStyle = {
         ...(content.primaryBtnBg ? { backgroundColor: content.primaryBtnBg, borderColor: content.primaryBtnBg } : {}),
         ...(content.primaryBtnText ? { color: content.primaryBtnText } : {}),
+        ...(content.primaryBtnSize ? { fontSize: `${content.primaryBtnSize}px` } : {}),
+        ...(content.primaryBtnFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
     const secondaryStyle = {
         ...(content.secondaryBtnBorder ? { borderColor: content.secondaryBtnBorder } : {}),
         ...(content.secondaryBtnText ? { color: content.secondaryBtnText } : {}),
+        ...(content.secondaryBtnSize ? { fontSize: `${content.secondaryBtnSize}px` } : {}),
+        ...(content.secondaryBtnFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
 
     return (

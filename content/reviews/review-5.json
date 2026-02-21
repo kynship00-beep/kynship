@@ -1,6 +1,15 @@
 {
-  "name": "محمود عبد الله",
-  "location": "الزقازيق",
-  "rating": 5,
-  "quote": "قيمة ممتازة مقابل الجودة. التفاصيل النهائية كانت مرتبة ونظيفة جدًا."
+    "name":  "محمود عبد الله",
+    "location":  "الزقازيق",
+    "rating":  5,
+    "quote":  "قيمة ممتازة مقابل الجودة. التفاصيل النهائية كانت مرتبة ونظيفة جدًا.",
+    "starColor":  "#C8A646",
+    "quoteSize":  16,
+    "cardBg":  "#112240",
+    "locationSize":  14,
+    "quoteColor":  "#E6F1FF",
+    "quoteFont":  "inherit",
+    "locationColor":  "#C8A646",
+    "nameColor":  "#FFFFFF",
+    "nameSize":  18
 }

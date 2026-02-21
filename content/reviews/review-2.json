@@ -1,6 +1,15 @@
 {
-  "name": "منى السيد",
-  "location": "القاهرة",
-  "rating": 5,
-  "quote": "التصميم ثلاثي الأبعاد ساعدني أشوف النتيجة قبل التنفيذ، والنتيجة النهائية كانت أفضل من المتوقع."
+    "name":  "منى السيد",
+    "location":  "القاهرة",
+    "rating":  5,
+    "quote":  "التصميم ثلاثي الأبعاد ساعدني أشوف النتيجة قبل التنفيذ، والنتيجة النهائية كانت أفضل من المتوقع.",
+    "starColor":  "#C8A646",
+    "quoteSize":  16,
+    "cardBg":  "#112240",
+    "locationSize":  14,
+    "quoteColor":  "#E6F1FF",
+    "quoteFont":  "inherit",
+    "locationColor":  "#C8A646",
+    "nameColor":  "#FFFFFF",
+    "nameSize":  18
 }

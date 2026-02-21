@@ -34,9 +34,21 @@ export default function Footer({ settings }) {
     const footerStyle = {
         ...(settings?.footerBg ? { backgroundColor: settings.footerBg } : {}),
     };
-    const titleStyle = settings?.footerTitleColor ? { color: settings.footerTitleColor } : {};
-    const textStyle = settings?.footerTextColor ? { color: settings.footerTextColor } : {};
-    const linkStyle = settings?.footerLinkColor ? { color: settings.footerLinkColor } : {};
+    const titleStyle = {
+        ...(settings?.footerTitleColor ? { color: settings.footerTitleColor } : {}),
+        ...(settings?.footerTitleSize ? { fontSize: `${settings.footerTitleSize}px` } : {}),
+        ...(settings?.footerTitleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const textStyle = {
+        ...(settings?.footerTextColor ? { color: settings.footerTextColor } : {}),
+        ...(settings?.footerTextSize ? { fontSize: `${settings.footerTextSize}px` } : {}),
+        ...(settings?.footerTextFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const linkStyle = {
+        ...(settings?.footerLinkColor ? { color: settings.footerLinkColor } : {}),
+        ...(settings?.footerLinkSize ? { fontSize: `${settings.footerLinkSize}px` } : {}),
+        ...(settings?.footerLinkFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
     const socialStyle = settings?.footerSocialColor ? { color: settings.footerSocialColor } : {};
 
     return (

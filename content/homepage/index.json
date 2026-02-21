@@ -19,7 +19,15 @@
     "secondaryBtnBorder": "#FFFFFF",
     "secondaryBtnText": "#FFFFFF",
     "overlayColor": "#0A192F",
-    "overlayOpacity": 0.7
+    "overlayOpacity": 0.7,
+    "badgeSize": 14,
+    "badgeFont": "inherit",
+    "headlineSize": 48,
+    "headlineFont": "inherit",
+    "subtextSize": 18,
+    "subtextFont": "inherit",
+    "primaryBtnSize": 16,
+    "secondaryBtnSize": 16
   },
   "categories": {
     "label": "تخصصاتنا",
@@ -61,7 +69,13 @@
     "subtitleColor": "#E6F1FF",
     "cardBg": "#112240",
     "cardTitleColor": "#FFFFFF",
-    "cardSubColor": "#E6F1FF"
+    "cardSubColor": "#E6F1FF",
+    "labelSize": 14,
+    "labelFont": "inherit",
+    "titleSize": 36,
+    "titleFont": "inherit",
+    "subtitleSize": 16,
+    "subtitleFont": "inherit"
   },
   "trust": {
     "label": "لماذا كينشيب",
@@ -95,7 +109,11 @@
     "cardTitleColor": "#FFFFFF",
     "cardDescColor": "#E6F1FF",
     "iconColor": "#C8A646",
-    "iconBg": "rgba(200, 166, 70, 0.1)"
+    "iconBg": "rgba(200, 166, 70, 0.1)",
+    "labelSize": 14,
+    "labelFont": "inherit",
+    "titleSize": 36,
+    "titleFont": "inherit"
   },
   "studio": {
     "label": "استوديو التصميم",
@@ -116,7 +134,15 @@
     "featureIconColor": "#C8A646",
     "featureTextColor": "#FFFFFF",
     "ctaBg": "#C8A646",
-    "ctaTextColor": "#FFFFFF"
+    "ctaTextColor": "#FFFFFF",
+    "labelSize": 14,
+    "labelFont": "inherit",
+    "titleSize": 36,
+    "titleFont": "inherit",
+    "textSize": 16,
+    "textFont": "inherit",
+    "ctaFontSize": 16,
+    "ctaFont": "inherit"
   },
   "cta": {
     "label": "ابدأ رحلتك معنا",
@@ -133,6 +159,25 @@
     "primaryBtnBg": "#C8A646",
     "primaryBtnText": "#FFFFFF",
     "secondaryBtnBorder": "#FFFFFF",
-    "secondaryBtnText": "#FFFFFF"
+    "secondaryBtnText": "#FFFFFF",
+    "labelSize": 14,
+    "labelFont": "inherit",
+    "titleSize": 36,
+    "titleFont": "inherit",
+    "subtitleSize": 18,
+    "subtitleFont": "inherit",
+    "primaryBtnSize": 16,
+    "secondaryBtnSize": 16
+  },
+  "reviews": {
+    "label": "آراء عملائنا",
+    "title": "ماذا قالوا عنا",
+    "sectionBg": "#0A192F",
+    "labelColor": "#C8A646",
+    "titleColor": "#FFFFFF",
+    "labelSize": 14,
+    "labelFont": "inherit",
+    "titleSize": 36,
+    "titleFont": "inherit"
   }
 }

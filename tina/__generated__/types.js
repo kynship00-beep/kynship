@@ -13,20 +13,28 @@ export const HomepagePartsFragmentDoc = gql`
     badge
     badgeBg
     badgeText
+    badgeSize
+    badgeFont
     headline
     headlineColor
+    headlineSize
+    headlineFont
     accent
     accentColor
     subtext
     subtextColor
+    subtextSize
+    subtextFont
     primaryCtaText
     primaryCtaLink
     primaryBtnBg
     primaryBtnText
+    primaryBtnSize
     secondaryCtaText
     secondaryCtaLink
     secondaryBtnBorder
     secondaryBtnText
+    secondaryBtnSize
     backgroundImage
     overlayColor
     overlayOpacity
@@ -35,10 +43,16 @@ export const HomepagePartsFragmentDoc = gql`
     __typename
     label
     labelColor
+    labelSize
+    labelFont
     title
     titleColor
+    titleSize
+    titleFont
     subtitle
     subtitleColor
+    subtitleSize
+    subtitleFont
     items {
       __typename
       title
@@ -56,8 +70,12 @@ export const HomepagePartsFragmentDoc = gql`
     __typename
     label
     labelColor
+    labelSize
+    labelFont
     title
     titleColor
+    titleSize
+    titleFont
     items {
       __typename
       icon
@@ -75,10 +93,16 @@ export const HomepagePartsFragmentDoc = gql`
     __typename
     label
     labelColor
+    labelSize
+    labelFont
     title
     titleColor
+    titleSize
+    titleFont
     text
     textColor
+    textSize
+    textFont
     features
     featureIconColor
     featureTextColor
@@ -93,10 +117,16 @@ export const HomepagePartsFragmentDoc = gql`
     __typename
     label
     labelColor
+    labelSize
+    labelFont
     title
     titleColor
+    titleSize
+    titleFont
     subtitle
     subtitleColor
+    subtitleSize
+    subtitleFont
     primaryText
     primaryLink
     primaryBtnBg
@@ -107,13 +137,32 @@ export const HomepagePartsFragmentDoc = gql`
     secondaryBtnText
     sectionBg
   }
+  reviews {
+    __typename
+    label
+    labelColor
+    labelSize
+    labelFont
+    title
+    titleColor
+    titleSize
+    titleFont
+    sectionBg
+  }
 }
     `;
 export const ProjectPartsFragmentDoc = gql`
     fragment ProjectParts on Project {
   __typename
   title
+  titleColor
+  titleSize
+  titleFont
   description
+  descColor
+  descSize
+  descFont
+  cardBg
   category
   completionDate
   images
@@ -122,16 +171,26 @@ export const ProjectPartsFragmentDoc = gql`
 export const ReviewPartsFragmentDoc = gql`
     fragment ReviewParts on Review {
   __typename
-  name
-  location
-  rating
   quote
+  quoteColor
+  quoteSize
+  quoteFont
+  name
+  nameColor
+  nameSize
+  location
+  locationColor
+  locationSize
+  rating
+  starColor
+  cardBg
 }
     `;
 export const SettingsPartsFragmentDoc = gql`
     fragment SettingsParts on Settings {
   __typename
   brandName
+  customFont
   goldColor
   phone
   email
@@ -144,24 +203,55 @@ export const SettingsPartsFragmentDoc = gql`
   pinterest
   footerBg
   footerTitleColor
+  footerTitleSize
+  footerTitleFont
   footerTextColor
+  footerTextSize
+  footerTextFont
   footerLinkColor
+  footerLinkSize
+  footerLinkFont
   footerSocialColor
+  categories
+  portfolio {
+    __typename
+    label
+    labelColor
+    labelSize
+    labelFont
+    title
+    titleColor
+    titleSize
+    titleFont
+    subtitle
+    subtitleColor
+    subtitleSize
+    subtitleFont
+    sectionBg
+  }
   header {
     __typename
+    logoImage
     logoText
     logoColor
+    logoEnSize
+    logoFont
     logoAr
     logoArColor
+    logoArSize
     navLinks {
       __typename
       label
       href
     }
     navLinkColor
+    navLinkSize
+    navLinkFont
     ctaLabel
     ctaBg
     ctaTextColor
+    ctaFontSize
+    ctaFont
     headerBg
   }
 }

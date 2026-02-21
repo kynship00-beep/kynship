@@ -48,11 +48,26 @@ export default function CategoriesSection({ data = {} }) {
         ...(content.sectionBg ? { backgroundColor: content.sectionBg } : {}),
     };
 
-    const labelStyle = content.labelColor ? { color: content.labelColor } : {};
-    const titleStyle = content.titleColor ? { color: content.titleColor } : {};
-    const subtitleStyle = content.subtitleColor ? { color: content.subtitleColor } : {};
+    const labelStyle = {
+        ...(content.labelColor ? { color: content.labelColor } : {}),
+        ...(content.labelSize ? { fontSize: `${content.labelSize}px` } : {}),
+        ...(content.labelFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const titleStyle = {
+        ...(content.titleColor ? { color: content.titleColor } : {}),
+        ...(content.titleSize ? { fontSize: `${content.titleSize}px` } : {}),
+        ...(content.titleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const subtitleStyle = {
+        ...(content.subtitleColor ? { color: content.subtitleColor } : {}),
+        ...(content.subtitleSize ? { fontSize: `${content.subtitleSize}px` } : {}),
+        ...(content.subtitleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
     const cardBgStyle = content.cardBg ? { backgroundColor: content.cardBg } : {};
-    const cardTitleStyle = content.cardTitleColor ? { color: content.cardTitleColor } : {};
+    const cardTitleStyle = {
+        ...(content.cardTitleColor ? { color: content.cardTitleColor } : {}),
+        ...(content.cardTitleSize ? { fontSize: `${content.cardTitleSize}px` } : {}),
+    };
     const cardSubStyle = content.cardSubColor ? { color: content.cardSubColor } : {};
 
     return (

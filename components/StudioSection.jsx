@@ -26,14 +26,31 @@ export default function StudioSection({ data = {} }) {
         ...(content.sectionBg ? { backgroundColor: content.sectionBg } : {}),
     };
 
-    const labelStyle = content.labelColor ? { color: content.labelColor } : {};
-    const titleStyle = content.titleColor ? { color: content.titleColor } : {};
-    const textStyle = content.textColor ? { color: content.textColor } : {};
+    const labelStyle = {
+        ...(content.labelColor ? { color: content.labelColor } : {}),
+        ...(content.labelSize ? { fontSize: `${content.labelSize}px` } : {}),
+        ...(content.labelFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const titleStyle = {
+        ...(content.titleColor ? { color: content.titleColor } : {}),
+        ...(content.titleSize ? { fontSize: `${content.titleSize}px` } : {}),
+        ...(content.titleFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const textStyle = {
+        ...(content.textColor ? { color: content.textColor } : {}),
+        ...(content.textSize ? { fontSize: `${content.textSize}px` } : {}),
+        ...(content.textFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
     const featureIconStyle = content.featureIconColor ? { color: content.featureIconColor } : {};
-    const featureTextStyle = content.featureTextColor ? { color: content.featureTextColor } : {};
+    const featureTextStyle = {
+        ...(content.featureTextColor ? { color: content.featureTextColor } : {}),
+        ...(content.featureTextSize ? { fontSize: `${content.featureTextSize}px` } : {}),
+    };
     const ctaStyle = {
         ...(content.ctaBg ? { backgroundColor: content.ctaBg, borderColor: content.ctaBg } : {}),
         ...(content.ctaTextColor ? { color: content.ctaTextColor } : {}),
+        ...(content.ctaFontSize ? { fontSize: `${content.ctaFontSize}px` } : {}),
+        ...(content.ctaFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
 
     return (

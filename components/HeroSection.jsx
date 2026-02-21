@@ -31,22 +31,39 @@ export default function HeroSection({ data = {} }) {
     const badgeStyle = {
         ...(content.badgeBg ? { backgroundColor: content.badgeBg } : {}),
         ...(content.badgeText ? { color: content.badgeText } : {}),
+        ...(content.badgeSize ? { fontSize: `${content.badgeSize}px` } : {}),
+        ...(content.badgeFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
 
-    const headlineStyle = content.headlineColor ? { color: content.headlineColor } : {};
-    const accentStyle = content.accentColor ? { color: content.accentColor } : {};
+    const headlineStyle = {
+        ...(content.headlineColor ? { color: content.headlineColor } : {}),
+        ...(content.headlineSize ? { fontSize: `${content.headlineSize}px` } : {}),
+        ...(content.headlineFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+
+    const accentStyle = {
+        ...(content.accentColor ? { color: content.accentColor } : {}),
+        ...(content.headlineFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+
     const subtextStyle = {
         ...(content.subtextColor ? { color: content.subtextColor, opacity: 1 } : {}),
+        ...(content.subtextSize ? { fontSize: `${content.subtextSize}px` } : {}),
+        ...(content.subtextFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
 
     const primaryStyle = {
         ...(content.primaryBtnBg ? { backgroundColor: content.primaryBtnBg, borderColor: content.primaryBtnBg } : {}),
         ...(content.primaryBtnText ? { color: content.primaryBtnText } : {}),
+        ...(content.primaryBtnSize ? { fontSize: `${content.primaryBtnSize}px` } : {}),
+        ...(content.primaryBtnFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
 
     const secondaryStyle = {
         ...(content.secondaryBtnBorder ? { borderColor: content.secondaryBtnBorder } : {}),
         ...(content.secondaryBtnText ? { color: content.secondaryBtnText } : {}),
+        ...(content.secondaryBtnSize ? { fontSize: `${content.secondaryBtnSize}px` } : {}),
+        ...(content.secondaryBtnFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
 
     const scrollLineStyle = content.accentColor ? { backgroundColor: content.accentColor } : {};

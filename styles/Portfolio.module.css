@@ -15,6 +15,42 @@
     max-width: 500px;
 }
 
+.filterBar {
+    padding: 32px 0 0;
+    width: 100%;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filterList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filterBtn {
+    padding: 8px 24px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.filterBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.filterBtn.active {
+    background: var(--gold);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(200, 166, 70, 0.25);
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

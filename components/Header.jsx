@@ -69,13 +69,29 @@ export default function Header({ settings }) {
         ...(!scrolled && headerBg ? { backgroundColor: headerBg } : {}), // Apply even if not scrolled if defined
     };
 
-    const logoStyle = logoColor ? { color: logoColor } : {};
-    const logoArStyle = logoArColor ? { color: logoArColor } : {};
-    const navLinkStyle = navLinkColor ? { color: navLinkColor } : {};
+    const logoStyle = {
+        ...(logoColor ? { color: logoColor } : {}),
+        ...(headerSettings.logoEnSize ? { fontSize: `${headerSettings.logoEnSize}px` } : {}),
+        ...(headerSettings.logoFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const logoArStyle = {
+        ...(logoArColor ? { color: logoArColor } : {}),
+        ...(headerSettings.logoArSize ? { fontSize: `${headerSettings.logoArSize}px` } : {}),
+        ...(headerSettings.logoFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
+    const navLinkStyle = {
+        ...(navLinkColor ? { color: navLinkColor } : {}),
+        ...(headerSettings.navLinkSize ? { fontSize: `${headerSettings.navLinkSize}px` } : {}),
+        ...(headerSettings.navLinkFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
+    };
     const ctaStyle = {
         ...(ctaBg ? { backgroundColor: ctaBg, borderColor: ctaBg } : {}),
         ...(ctaTextColor ? { color: ctaTextColor } : {}),
+        ...(headerSettings.ctaFontSize ? { fontSize: `${headerSettings.ctaFontSize}px` } : {}),
+        ...(headerSettings.ctaFont === 'CustomFont' ? { fontFamily: "'CustomFont', sans-serif" } : {}),
     };
+
+    const logoImage = headerSettings.logoImage;
 
     return (
         <header
@@ -85,8 +101,14 @@ export default function Header({ settings }) {
             <div className={`container ${styles.inner}`}>
                 <div className={styles.logo}>
                     <Link href="/">
-                        <span className={styles.logoText} style={logoStyle}>{logoText}</span>
-                        <span className={styles.logoAr} style={logoArStyle}>{logoAr}</span>
+                        {logoImage ? (
+                            <img src={logoImage} alt={brandName} className={styles.logoImg} />
+                        ) : (
+                            <>
+                                <span className={styles.logoText} style={logoStyle}>{logoText}</span>
+                                <span className={styles.logoAr} style={logoArStyle}>{logoAr}</span>
+                            </>
+                        )}
                     </Link>
                 </div>
 

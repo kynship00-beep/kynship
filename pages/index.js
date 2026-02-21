@@ -140,7 +140,7 @@ export default function HomePage({ homeContent, reviews }) {
             <CategoriesSection data={homeContent.categories} />
             <TrustSection data={homeContent.trust} />
             <StudioSection data={homeContent.studio} />
-            <ReviewsSection reviews={reviews} />
+            <ReviewsSection reviews={reviews} data={homeContent.reviews} />
             <CTASection data={homeContent.cta} />
         </>
     );
