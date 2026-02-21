@@ -1,0 +1,140 @@
+.footer {
+    background: linear-gradient(180deg, var(--primary-blue-dark), #132A3B);
+    color: rgba(245, 245, 245, 0.82);
+    padding-top: 72px;
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+    gap: 48px;
+    padding-bottom: 64px;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.logoText {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.logoAr {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    margin-bottom: 4px;
+}
+
+.tagline {
+    font-size: 0.88rem;
+    color: rgba(245, 245, 245, 0.58);
+    line-height: 1.6;
+}
+
+.colTitle {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.links a {
+    font-size: 0.95rem;
+    color: rgba(245, 245, 245, 0.76);
+    transition: var(--transition);
+}
+
+.links a:hover {
+    color: var(--gold);
+    padding-right: 4px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: rgba(245, 245, 245, 0.76);
+}
+
+.contactItem svg {
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.socialIcons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(245, 245, 245, 0.88);
+    transition: var(--transition);
+}
+
+.socialIcons a:hover {
+    background: var(--accent-yellow);
+    color: var(--charcoal);
+    transform: translateY(-3px);
+}
+
+.bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.bottom p {
+    font-size: 0.85rem;
+    color: rgba(245, 245, 245, 0.62);
+}
+
+@media (max-width: 1024px) {
+    .inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}

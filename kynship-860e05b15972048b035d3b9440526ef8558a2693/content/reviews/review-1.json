@@ -1,0 +1,15 @@
+{
+    "name":  "أحمد محمد",
+    "location":  "الزقازيق، الشرقية",
+    "rating":  5,
+    "quote":  "تجربة ممتازة من التصميم حتى التسليم. التنفيذ كان دقيق جدًا والخامات قوية. F",
+    "quoteColor":  "#E6F1FF",
+    "quoteSize":  16,
+    "quoteFont":  "inherit",
+    "nameColor":  "#FFFFFF",
+    "nameSize":  18,
+    "locationColor":  "#C8A646",
+    "locationSize":  14,
+    "cardBg":  "#112240",
+    "starColor":  "#C8A646"
+}
