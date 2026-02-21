@@ -22,21 +22,44 @@ export default function StudioSection({ data = {} }) {
             Array.isArray(data.features) && data.features.length > 0 ? data.features : defaultData.features,
     };
 
+    const sectionStyle = {
+        ...(content.sectionBg ? { backgroundColor: content.sectionBg } : {}),
+    };
+
+    const labelStyle = content.labelColor ? { color: content.labelColor } : {};
+    const titleStyle = content.titleColor ? { color: content.titleColor } : {};
+    const textStyle = content.textColor ? { color: content.textColor } : {};
+    const featureIconStyle = content.featureIconColor ? { color: content.featureIconColor } : {};
+    const featureTextStyle = content.featureTextColor ? { color: content.featureTextColor } : {};
+    const ctaStyle = {
+        ...(content.ctaBg ? { backgroundColor: content.ctaBg, borderColor: content.ctaBg } : {}),
+        ...(content.ctaTextColor ? { color: content.ctaTextColor } : {}),
+    };
+
     return (
-        <section className={styles.section}>
+        <section className={styles.section} style={sectionStyle}>
             <div className="container">
                 <div className={styles.inner}>
                     <div className={styles.content}>
-                        <span className={styles.label}>{content.label}</span>
-                        <h2 className={styles.title}>{content.title}</h2>
+                        <span className={styles.label} style={labelStyle}>{content.label}</span>
+                        <h2 className={styles.title} style={titleStyle}>{content.title}</h2>
                         <div className={styles.goldLine} />
-                        <p className={styles.text}>{content.text}</p>
+                        <p className={styles.text} style={textStyle}>{content.text}</p>
                         <ul className={styles.features}>
                             {content.features.map((feature, index) => (
-                                <li key={`${feature}-${index}`}>{feature}</li>
+                                <li key={`${feature}-${index}`} style={featureTextStyle}>
+                                    <span style={featureIconStyle}>+ </span>
+                                    {feature}
+                                </li>
                             ))}
                         </ul>
-                        <a href={content.ctaLink} target="_blank" rel="noopener noreferrer" className="btn-gold">
+                        <a
+                            href={content.ctaLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-gold"
+                            style={ctaStyle}
+                        >
                             {content.ctaText}
                         </a>
                     </div>

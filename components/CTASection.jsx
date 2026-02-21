@@ -18,21 +18,38 @@ function isExternalUrl(url) {
 export default function CTASection({ data = {} }) {
     const content = { ...defaultData, ...data };
 
+    const sectionStyle = {
+        ...(content.sectionBg ? { backgroundColor: content.sectionBg } : {}),
+    };
+
+    const labelStyle = content.labelColor ? { color: content.labelColor } : { color: 'rgba(242,183,5,0.95)' };
+    const titleStyle = content.titleColor ? { color: content.titleColor } : {};
+    const subtitleStyle = content.subtitleColor ? { color: content.subtitleColor } : {};
+    const primaryStyle = {
+        ...(content.primaryBtnBg ? { backgroundColor: content.primaryBtnBg, borderColor: content.primaryBtnBg } : {}),
+        ...(content.primaryBtnText ? { color: content.primaryBtnText } : {}),
+    };
+    const secondaryStyle = {
+        ...(content.secondaryBtnBorder ? { borderColor: content.secondaryBtnBorder } : {}),
+        ...(content.secondaryBtnText ? { color: content.secondaryBtnText } : {}),
+    };
+
     return (
-        <section className={styles.section}>
+        <section className={styles.section} style={sectionStyle}>
             <div className="container">
                 <div className={styles.inner}>
-                    <span className="section-label" style={{ color: 'rgba(242,183,5,0.95)' }}>
+                    <span className="section-label" style={labelStyle}>
                         {content.label}
                     </span>
-                    <h2 className={styles.title}>{content.title}</h2>
-                    <p className={styles.subtitle}>{content.subtitle}</p>
+                    <h2 className={styles.title} style={titleStyle}>{content.title}</h2>
+                    <p className={styles.subtitle} style={subtitleStyle}>{content.subtitle}</p>
                     <div className={styles.actions}>
                         <a
                             href={content.primaryLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-gold"
+                            style={primaryStyle}
                         >
                             {content.primaryText}
                         </a>
@@ -42,11 +59,12 @@ export default function CTASection({ data = {} }) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-outline"
+                                style={secondaryStyle}
                             >
                                 {content.secondaryText}
                             </a>
                         ) : (
-                            <Link href={content.secondaryLink || '/contact'} className="btn-outline">
+                            <Link href={content.secondaryLink || '/contact'} className="btn-outline" style={secondaryStyle}>
                                 {content.secondaryText}
                             </Link>
                         )}

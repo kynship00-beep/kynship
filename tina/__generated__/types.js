@@ -11,20 +11,34 @@ export const HomepagePartsFragmentDoc = gql`
   hero {
     __typename
     badge
+    badgeBg
+    badgeText
     headline
+    headlineColor
     accent
+    accentColor
     subtext
+    subtextColor
     primaryCtaText
     primaryCtaLink
+    primaryBtnBg
+    primaryBtnText
     secondaryCtaText
     secondaryCtaLink
+    secondaryBtnBorder
+    secondaryBtnText
     backgroundImage
+    overlayColor
+    overlayOpacity
   }
   categories {
     __typename
     label
+    labelColor
     title
+    titleColor
     subtitle
+    subtitleColor
     items {
       __typename
       title
@@ -33,37 +47,65 @@ export const HomepagePartsFragmentDoc = gql`
       bg
       image
     }
+    sectionBg
+    cardBg
+    cardTitleColor
+    cardSubColor
   }
   trust {
     __typename
     label
+    labelColor
     title
+    titleColor
     items {
       __typename
       icon
       title
       desc
     }
+    sectionBg
+    cardBg
+    cardTitleColor
+    cardDescColor
+    iconColor
+    iconBg
   }
   studio {
     __typename
     label
+    labelColor
     title
+    titleColor
     text
+    textColor
     features
+    featureIconColor
+    featureTextColor
     ctaText
     ctaLink
+    ctaBg
+    ctaTextColor
     images
+    sectionBg
   }
   cta {
     __typename
     label
+    labelColor
     title
+    titleColor
     subtitle
+    subtitleColor
     primaryText
     primaryLink
+    primaryBtnBg
+    primaryBtnText
     secondaryText
     secondaryLink
+    secondaryBtnBorder
+    secondaryBtnText
+    sectionBg
   }
 }
     `;
@@ -90,6 +132,7 @@ export const SettingsPartsFragmentDoc = gql`
     fragment SettingsParts on Settings {
   __typename
   brandName
+  goldColor
   phone
   email
   location
@@ -99,7 +142,28 @@ export const SettingsPartsFragmentDoc = gql`
   tiktok
   twitter
   pinterest
-  goldColor
+  footerBg
+  footerTitleColor
+  footerTextColor
+  footerLinkColor
+  footerSocialColor
+  header {
+    __typename
+    logoText
+    logoColor
+    logoAr
+    logoArColor
+    navLinks {
+      __typename
+      label
+      href
+    }
+    navLinkColor
+    ctaLabel
+    ctaBg
+    ctaTextColor
+    headerBg
+  }
 }
     `;
 export const HomepageDocument = gql`

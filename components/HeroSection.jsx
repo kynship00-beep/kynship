@@ -19,27 +19,58 @@ function isExternalUrl(url) {
 
 export default function HeroSection({ data = {} }) {
     const content = { ...defaultData, ...data };
-    const heroStyle = content.backgroundImage
-        ? { backgroundImage: `url('${content.backgroundImage}')` }
-        : undefined;
+    const heroStyle = {
+        ...(content.backgroundImage ? { backgroundImage: `url('${content.backgroundImage}')` } : {}),
+    };
+
+    const overlayStyle = {
+        ...(content.overlayColor ? { backgroundColor: content.overlayColor } : {}),
+        ...(content.overlayOpacity !== undefined ? { opacity: content.overlayOpacity } : {}),
+    };
+
+    const badgeStyle = {
+        ...(content.badgeBg ? { backgroundColor: content.badgeBg } : {}),
+        ...(content.badgeText ? { color: content.badgeText } : {}),
+    };
+
+    const headlineStyle = content.headlineColor ? { color: content.headlineColor } : {};
+    const accentStyle = content.accentColor ? { color: content.accentColor } : {};
+    const subtextStyle = {
+        ...(content.subtextColor ? { color: content.subtextColor, opacity: 1 } : {}),
+    };
+
+    const primaryStyle = {
+        ...(content.primaryBtnBg ? { backgroundColor: content.primaryBtnBg, borderColor: content.primaryBtnBg } : {}),
+        ...(content.primaryBtnText ? { color: content.primaryBtnText } : {}),
+    };
+
+    const secondaryStyle = {
+        ...(content.secondaryBtnBorder ? { borderColor: content.secondaryBtnBorder } : {}),
+        ...(content.secondaryBtnText ? { color: content.secondaryBtnText } : {}),
+    };
+
+    const scrollLineStyle = content.accentColor ? { backgroundColor: content.accentColor } : {};
 
     return (
         <section className={styles.hero} style={heroStyle}>
-            <div className={styles.overlay} />
+            <div className={styles.overlay} style={overlayStyle} />
             <div className={`container ${styles.content}`}>
-                <div className={styles.badge}>{content.badge}</div>
-                <h1 className={styles.headline}>
+                <div className={styles.badge} style={badgeStyle}>{content.badge}</div>
+                <h1 className={styles.headline} style={headlineStyle}>
                     {content.headline}
                     <br />
-                    <span className={styles.accent}>{content.accent}</span>
+                    <span className={styles.accent} style={accentStyle}>{content.accent}</span>
                 </h1>
-                <p className={styles.subtext}>{content.subtext}</p>
+                <p className={styles.subtext} style={subtextStyle}>
+                    {content.subtext}
+                </p>
                 <div className={styles.ctas}>
                     <a
                         href={content.primaryCtaLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-gold"
+                        style={primaryStyle}
                     >
                         {content.primaryCtaText}
                     </a>
@@ -49,18 +80,19 @@ export default function HeroSection({ data = {} }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-outline"
+                            style={secondaryStyle}
                         >
                             {content.secondaryCtaText}
                         </a>
                     ) : (
-                        <Link href={content.secondaryCtaLink || '/portfolio'} className="btn-outline">
+                        <Link href={content.secondaryCtaLink || '/portfolio'} className="btn-outline" style={secondaryStyle}>
                             {content.secondaryCtaText}
                         </Link>
                     )}
                 </div>
             </div>
             <div className={styles.scrollHint}>
-                <div className={styles.scrollLine} />
+                <div className={styles.scrollLine} style={scrollLineStyle} />
             </div>
         </section>
     );

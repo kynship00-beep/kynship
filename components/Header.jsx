@@ -21,8 +21,27 @@ const AR_LABELS = {
 export default function Header({ settings }) {
     const whatsappNumber = normalizeWhatsappNumber(settings?.whatsapp);
     const whatsappLink = buildWhatsappUrl(whatsappNumber);
-    const bookLink = buildWhatsappUrl(whatsappNumber, AR_LABELS.bookFree);
     const brandName = settings?.brandName || 'Kynship';
+
+    // Use settings from CMS or fallback to defaults
+    const headerSettings = settings?.header || {};
+    const logoText = headerSettings.logoText || brandName;
+    const logoAr = headerSettings.logoAr || '\u0643\u064a\u0646\u0634\u064a\u0628';
+    const ctaLabel = headerSettings.ctaLabel || '\u0627\u062d\u062c\u0632 \u0645\u063a\u0627\u064a\u0646\u0629 \u0645\u062c\u0627\u0646\u064a\u0629';
+    const navLinks = headerSettings.navLinks || [
+        { href: '/', label: '\u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629' },
+        { href: '/portfolio', label: '\u0623\u0639\u0645\u0627\u0644\u0646\u0627' },
+        { href: '/contact', label: '\u062a\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627' },
+    ];
+
+    const headerBg = headerSettings.headerBg;
+    const logoColor = headerSettings.logoColor;
+    const logoArColor = headerSettings.logoArColor;
+    const navLinkColor = headerSettings.navLinkColor;
+    const ctaBg = headerSettings.ctaBg;
+    const ctaTextColor = headerSettings.ctaTextColor;
+
+    const bookLink = buildWhatsappUrl(whatsappNumber, ctaLabel);
 
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -45,25 +64,40 @@ export default function Header({ settings }) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const navLinks = [
-        { href: '/', label: AR_LABELS.home },
-        { href: '/portfolio', label: AR_LABELS.portfolio },
-        { href: '/contact', label: AR_LABELS.contact },
-    ];
+    const headerStyle = {
+        ...(scrolled && headerBg ? { backgroundColor: headerBg } : {}),
+        ...(!scrolled && headerBg ? { backgroundColor: headerBg } : {}), // Apply even if not scrolled if defined
+    };
+
+    const logoStyle = logoColor ? { color: logoColor } : {};
+    const logoArStyle = logoArColor ? { color: logoArColor } : {};
+    const navLinkStyle = navLinkColor ? { color: navLinkColor } : {};
+    const ctaStyle = {
+        ...(ctaBg ? { backgroundColor: ctaBg, borderColor: ctaBg } : {}),
+        ...(ctaTextColor ? { color: ctaTextColor } : {}),
+    };
 
     return (
-        <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+        <header
+            className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}
+            style={headerStyle}
+        >
             <div className={`container ${styles.inner}`}>
                 <div className={styles.logo}>
                     <Link href="/">
-                        <span className={styles.logoText}>{brandName}</span>
-                        <span className={styles.logoAr}>{AR_LABELS.logo}</span>
+                        <span className={styles.logoText} style={logoStyle}>{logoText}</span>
+                        <span className={styles.logoAr} style={logoArStyle}>{logoAr}</span>
                     </Link>
                 </div>
 
                 <nav className={styles.desktopNav} aria-label="Main">
-                    {navLinks.map((link) => (
-                        <Link key={link.href} href={link.href} className={styles.desktopNavLink}>
+                    {navLinks.map((link, index) => (
+                        <Link
+                            key={`${link.href}-${index}`}
+                            href={link.href}
+                            className={styles.desktopNavLink}
+                            style={navLinkStyle}
+                        >
                             {link.label}
                         </Link>
                     ))}
@@ -75,8 +109,9 @@ export default function Header({ settings }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`btn-gold ${styles.desktopCta}`}
+                        style={ctaStyle}
                     >
-                        {AR_LABELS.bookFree}
+                        {ctaLabel}
                     </a>
 
                     <a
@@ -84,7 +119,7 @@ export default function Header({ settings }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.whatsappBtn}
-                        aria-label={AR_LABELS.whatsapp}
+                        aria-label="\u0648\u0627\u062a\u0633\u0627\u0628"
                     >
                         <FaWhatsapp size={22} />
                     </a>
@@ -95,7 +130,7 @@ export default function Header({ settings }) {
                         onClick={() => setMenuOpen(!menuOpen)}
                         aria-expanded={menuOpen}
                         aria-controls="mobile-nav"
-                        aria-label={AR_LABELS.menu}
+                        aria-label="\u0627\u0644\u0642\u0627\u0626\u0645\u0629"
                     >
                         {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
                     </button>
@@ -108,16 +143,17 @@ export default function Header({ settings }) {
                         type="button"
                         className={styles.closeBtn}
                         onClick={() => setMenuOpen(false)}
-                        aria-label={AR_LABELS.menu}
+                        aria-label="\u0627\u0644\u0642\u0627\u0626\u0645\u0629"
                     >
                         <FiX size={28} />
                     </button>
-                    {navLinks.map((link) => (
+                    {navLinks.map((link, index) => (
                         <Link
-                            key={link.href}
+                            key={`${link.href}-${index}`}
                             href={link.href}
                             className={styles.navLink}
                             onClick={() => setMenuOpen(false)}
+                            style={navLinkStyle}
                         >
                             {link.label}
                         </Link>
@@ -129,8 +165,9 @@ export default function Header({ settings }) {
                         rel="noopener noreferrer"
                         className="btn-gold"
                         onClick={() => setMenuOpen(false)}
+                        style={ctaStyle}
                     >
-                        {AR_LABELS.bookFree}
+                        {ctaLabel}
                     </a>
                 </div>
             </nav>

@@ -34,22 +34,38 @@ export default function TrustSection({ data = {} }) {
         items: Array.isArray(data.items) && data.items.length > 0 ? data.items : defaultData.items,
     };
 
+    const sectionStyle = {
+        ...(content.sectionBg ? { backgroundColor: content.sectionBg } : {}),
+    };
+
+    const labelStyle = content.labelColor ? { color: content.labelColor } : {};
+    const titleStyle = content.titleColor ? { color: content.titleColor } : {};
+    const cardStyle = {
+        ...(content.cardBg ? { backgroundColor: content.cardBg } : {}),
+    };
+    const cardTitleStyle = content.cardTitleColor ? { color: content.cardTitleColor } : {};
+    const cardDescStyle = content.cardDescColor ? { color: content.cardDescColor } : {};
+    const iconWrapStyle = {
+        ...(content.iconBg ? { backgroundColor: content.iconBg } : {}),
+    };
+    const iconStyle = content.iconColor ? { color: content.iconColor } : {};
+
     return (
-        <section className={`section ${styles.section}`}>
+        <section className={`section ${styles.section}`} style={sectionStyle}>
             <div className="container">
                 <div className={styles.header}>
-                    <span className="section-label">{content.label}</span>
-                    <h2 className="section-title">{content.title}</h2>
+                    <span className="section-label" style={labelStyle}>{content.label}</span>
+                    <h2 className="section-title" style={titleStyle}>{content.title}</h2>
                     <div className="gold-divider" />
                 </div>
                 <div className={styles.grid}>
                     {content.items.map((item, index) => (
-                        <div key={`${item.title}-${index}`} className={styles.card}>
-                            <div className={styles.iconWrap}>
-                                <span className={styles.icon}>{item.icon}</span>
+                        <div key={`${item.title}-${index}`} className={styles.card} style={cardStyle}>
+                            <div className={styles.iconWrap} style={iconWrapStyle}>
+                                <span className={styles.icon} style={iconStyle}>{item.icon}</span>
                             </div>
-                            <h3 className={styles.title}>{item.title}</h3>
-                            <p className={styles.desc}>{item.desc}</p>
+                            <h3 className={styles.title} style={cardTitleStyle}>{item.title}</h3>
+                            <p className={styles.desc} style={cardDescStyle}>{item.desc}</p>
                         </div>
                     ))}
                 </div>

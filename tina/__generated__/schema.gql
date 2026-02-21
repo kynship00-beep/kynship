@@ -98,14 +98,25 @@ union DocumentNode = Homepage | Project | Review | Settings | Folder
 
 type HomepageHero {
   badge: String
+  badgeBg: String
+  badgeText: String
   headline: String
+  headlineColor: String
   accent: String
+  accentColor: String
   subtext: String
+  subtextColor: String
   primaryCtaText: String
   primaryCtaLink: String
+  primaryBtnBg: String
+  primaryBtnText: String
   secondaryCtaText: String
   secondaryCtaLink: String
+  secondaryBtnBorder: String
+  secondaryBtnText: String
   backgroundImage: String
+  overlayColor: String
+  overlayOpacity: Float
 }
 
 type HomepageCategoriesItems {
@@ -118,9 +129,16 @@ type HomepageCategoriesItems {
 
 type HomepageCategories {
   label: String
+  labelColor: String
   title: String
+  titleColor: String
   subtitle: String
+  subtitleColor: String
   items: [HomepageCategoriesItems]
+  sectionBg: String
+  cardBg: String
+  cardTitleColor: String
+  cardSubColor: String
 }
 
 type HomepageTrustItems {
@@ -131,28 +149,52 @@ type HomepageTrustItems {
 
 type HomepageTrust {
   label: String
+  labelColor: String
   title: String
+  titleColor: String
   items: [HomepageTrustItems]
+  sectionBg: String
+  cardBg: String
+  cardTitleColor: String
+  cardDescColor: String
+  iconColor: String
+  iconBg: String
 }
 
 type HomepageStudio {
   label: String
+  labelColor: String
   title: String
+  titleColor: String
   text: String
+  textColor: String
   features: [String]
+  featureIconColor: String
+  featureTextColor: String
   ctaText: String
   ctaLink: String
+  ctaBg: String
+  ctaTextColor: String
   images: [String]
+  sectionBg: String
 }
 
 type HomepageCta {
   label: String
+  labelColor: String
   title: String
+  titleColor: String
   subtitle: String
+  subtitleColor: String
   primaryText: String
   primaryLink: String
+  primaryBtnBg: String
+  primaryBtnText: String
   secondaryText: String
   secondaryLink: String
+  secondaryBtnBorder: String
+  secondaryBtnText: String
+  sectionBg: String
 }
 
 type Homepage implements Node & Document {
@@ -180,16 +222,37 @@ input ImageFilter {
   in: [String]
 }
 
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
 input HomepageHeroFilter {
   badge: StringFilter
+  badgeBg: StringFilter
+  badgeText: StringFilter
   headline: StringFilter
+  headlineColor: StringFilter
   accent: StringFilter
+  accentColor: StringFilter
   subtext: StringFilter
+  subtextColor: StringFilter
   primaryCtaText: StringFilter
   primaryCtaLink: StringFilter
+  primaryBtnBg: StringFilter
+  primaryBtnText: StringFilter
   secondaryCtaText: StringFilter
   secondaryCtaLink: StringFilter
+  secondaryBtnBorder: StringFilter
+  secondaryBtnText: StringFilter
   backgroundImage: ImageFilter
+  overlayColor: StringFilter
+  overlayOpacity: NumberFilter
 }
 
 input HomepageCategoriesItemsFilter {
@@ -202,9 +265,16 @@ input HomepageCategoriesItemsFilter {
 
 input HomepageCategoriesFilter {
   label: StringFilter
+  labelColor: StringFilter
   title: StringFilter
+  titleColor: StringFilter
   subtitle: StringFilter
+  subtitleColor: StringFilter
   items: HomepageCategoriesItemsFilter
+  sectionBg: StringFilter
+  cardBg: StringFilter
+  cardTitleColor: StringFilter
+  cardSubColor: StringFilter
 }
 
 input HomepageTrustItemsFilter {
@@ -215,28 +285,52 @@ input HomepageTrustItemsFilter {
 
 input HomepageTrustFilter {
   label: StringFilter
+  labelColor: StringFilter
   title: StringFilter
+  titleColor: StringFilter
   items: HomepageTrustItemsFilter
+  sectionBg: StringFilter
+  cardBg: StringFilter
+  cardTitleColor: StringFilter
+  cardDescColor: StringFilter
+  iconColor: StringFilter
+  iconBg: StringFilter
 }
 
 input HomepageStudioFilter {
   label: StringFilter
+  labelColor: StringFilter
   title: StringFilter
+  titleColor: StringFilter
   text: StringFilter
+  textColor: StringFilter
   features: StringFilter
+  featureIconColor: StringFilter
+  featureTextColor: StringFilter
   ctaText: StringFilter
   ctaLink: StringFilter
+  ctaBg: StringFilter
+  ctaTextColor: StringFilter
   images: ImageFilter
+  sectionBg: StringFilter
 }
 
 input HomepageCtaFilter {
   label: StringFilter
+  labelColor: StringFilter
   title: StringFilter
+  titleColor: StringFilter
   subtitle: StringFilter
+  subtitleColor: StringFilter
   primaryText: StringFilter
   primaryLink: StringFilter
+  primaryBtnBg: StringFilter
+  primaryBtnText: StringFilter
   secondaryText: StringFilter
   secondaryLink: StringFilter
+  secondaryBtnBorder: StringFilter
+  secondaryBtnText: StringFilter
+  sectionBg: StringFilter
 }
 
 input HomepageFilter {
@@ -298,16 +392,6 @@ type Review implements Node & Document {
   _values: JSON!
 }
 
-input NumberFilter {
-  lt: Float
-  lte: Float
-  gte: Float
-  gt: Float
-  eq: Float
-  exists: Boolean
-  in: [Float]
-}
-
 input ReviewFilter {
   name: StringFilter
   location: StringFilter
@@ -326,8 +410,27 @@ type ReviewConnection implements Connection {
   edges: [ReviewConnectionEdges]
 }
 
+type SettingsHeaderNavLinks {
+  label: String
+  href: String
+}
+
+type SettingsHeader {
+  logoText: String
+  logoColor: String
+  logoAr: String
+  logoArColor: String
+  navLinks: [SettingsHeaderNavLinks]
+  navLinkColor: String
+  ctaLabel: String
+  ctaBg: String
+  ctaTextColor: String
+  headerBg: String
+}
+
 type Settings implements Node & Document {
   brandName: String
+  goldColor: String
   phone: String
   email: String
   location: String
@@ -337,14 +440,38 @@ type Settings implements Node & Document {
   tiktok: String
   twitter: String
   pinterest: String
-  goldColor: String
+  footerBg: String
+  footerTitleColor: String
+  footerTextColor: String
+  footerLinkColor: String
+  footerSocialColor: String
+  header: SettingsHeader
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
+input SettingsHeaderNavLinksFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input SettingsHeaderFilter {
+  logoText: StringFilter
+  logoColor: StringFilter
+  logoAr: StringFilter
+  logoArColor: StringFilter
+  navLinks: SettingsHeaderNavLinksFilter
+  navLinkColor: StringFilter
+  ctaLabel: StringFilter
+  ctaBg: StringFilter
+  ctaTextColor: StringFilter
+  headerBg: StringFilter
+}
+
 input SettingsFilter {
   brandName: StringFilter
+  goldColor: StringFilter
   phone: StringFilter
   email: StringFilter
   location: StringFilter
@@ -354,7 +481,12 @@ input SettingsFilter {
   tiktok: StringFilter
   twitter: StringFilter
   pinterest: StringFilter
-  goldColor: StringFilter
+  footerBg: StringFilter
+  footerTitleColor: StringFilter
+  footerTextColor: StringFilter
+  footerLinkColor: StringFilter
+  footerSocialColor: StringFilter
+  header: SettingsHeaderFilter
 }
 
 type SettingsConnectionEdges {
@@ -401,14 +533,25 @@ input DocumentMutation {
 
 input HomepageHeroMutation {
   badge: String
+  badgeBg: String
+  badgeText: String
   headline: String
+  headlineColor: String
   accent: String
+  accentColor: String
   subtext: String
+  subtextColor: String
   primaryCtaText: String
   primaryCtaLink: String
+  primaryBtnBg: String
+  primaryBtnText: String
   secondaryCtaText: String
   secondaryCtaLink: String
+  secondaryBtnBorder: String
+  secondaryBtnText: String
   backgroundImage: String
+  overlayColor: String
+  overlayOpacity: Float
 }
 
 input HomepageCategoriesItemsMutation {
@@ -421,9 +564,16 @@ input HomepageCategoriesItemsMutation {
 
 input HomepageCategoriesMutation {
   label: String
+  labelColor: String
   title: String
+  titleColor: String
   subtitle: String
+  subtitleColor: String
   items: [HomepageCategoriesItemsMutation]
+  sectionBg: String
+  cardBg: String
+  cardTitleColor: String
+  cardSubColor: String
 }
 
 input HomepageTrustItemsMutation {
@@ -434,28 +584,52 @@ input HomepageTrustItemsMutation {
 
 input HomepageTrustMutation {
   label: String
+  labelColor: String
   title: String
+  titleColor: String
   items: [HomepageTrustItemsMutation]
+  sectionBg: String
+  cardBg: String
+  cardTitleColor: String
+  cardDescColor: String
+  iconColor: String
+  iconBg: String
 }
 
 input HomepageStudioMutation {
   label: String
+  labelColor: String
   title: String
+  titleColor: String
   text: String
+  textColor: String
   features: [String]
+  featureIconColor: String
+  featureTextColor: String
   ctaText: String
   ctaLink: String
+  ctaBg: String
+  ctaTextColor: String
   images: [String]
+  sectionBg: String
 }
 
 input HomepageCtaMutation {
   label: String
+  labelColor: String
   title: String
+  titleColor: String
   subtitle: String
+  subtitleColor: String
   primaryText: String
   primaryLink: String
+  primaryBtnBg: String
+  primaryBtnText: String
   secondaryText: String
   secondaryLink: String
+  secondaryBtnBorder: String
+  secondaryBtnText: String
+  sectionBg: String
 }
 
 input HomepageMutation {
@@ -481,8 +655,27 @@ input ReviewMutation {
   quote: String
 }
 
+input SettingsHeaderNavLinksMutation {
+  label: String
+  href: String
+}
+
+input SettingsHeaderMutation {
+  logoText: String
+  logoColor: String
+  logoAr: String
+  logoArColor: String
+  navLinks: [SettingsHeaderNavLinksMutation]
+  navLinkColor: String
+  ctaLabel: String
+  ctaBg: String
+  ctaTextColor: String
+  headerBg: String
+}
+
 input SettingsMutation {
   brandName: String
+  goldColor: String
   phone: String
   email: String
   location: String
@@ -492,7 +685,12 @@ input SettingsMutation {
   tiktok: String
   twitter: String
   pinterest: String
-  goldColor: String
+  footerBg: String
+  footerTitleColor: String
+  footerTextColor: String
+  footerLinkColor: String
+  footerSocialColor: String
+  header: SettingsHeaderMutation
 }
 
 schema {

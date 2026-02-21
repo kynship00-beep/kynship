@@ -44,18 +44,29 @@ export default function CategoriesSection({ data = {} }) {
         items: Array.isArray(data.items) && data.items.length > 0 ? data.items : defaultData.items,
     };
 
+    const sectionStyle = {
+        ...(content.sectionBg ? { backgroundColor: content.sectionBg } : {}),
+    };
+
+    const labelStyle = content.labelColor ? { color: content.labelColor } : {};
+    const titleStyle = content.titleColor ? { color: content.titleColor } : {};
+    const subtitleStyle = content.subtitleColor ? { color: content.subtitleColor } : {};
+    const cardBgStyle = content.cardBg ? { backgroundColor: content.cardBg } : {};
+    const cardTitleStyle = content.cardTitleColor ? { color: content.cardTitleColor } : {};
+    const cardSubStyle = content.cardSubColor ? { color: content.cardSubColor } : {};
+
     return (
-        <section className={`section ${styles.section}`}>
+        <section className={`section ${styles.section}`} style={sectionStyle}>
             <div className="container">
                 <div className={styles.header}>
-                    <span className="section-label">{content.label}</span>
-                    <h2 className="section-title">{content.title}</h2>
+                    <span className="section-label" style={labelStyle}>{content.label}</span>
+                    <h2 className="section-title" style={titleStyle}>{content.title}</h2>
                     <div className="gold-divider" />
-                    <p className="section-subtitle">{content.subtitle}</p>
+                    <p className="section-subtitle" style={subtitleStyle}>{content.subtitle}</p>
                 </div>
                 <div className={styles.grid}>
                     {content.items.map((cat, index) => (
-                        <Link href={cat.href || '/portfolio'} key={`${cat.title}-${index}`} className={styles.card}>
+                        <Link href={cat.href || '/portfolio'} key={`${cat.title}-${index}`} className={styles.card} style={cardBgStyle}>
                             <div className={styles.imageWrap} style={{ background: cat.bg || '#1B3A52' }}>
                                 {cat.image ? (
                                     <img src={cat.image} alt={cat.title || 'Category'} className={styles.cardImage} />
@@ -67,8 +78,8 @@ export default function CategoriesSection({ data = {} }) {
                                 <div className={styles.cardOverlay} />
                             </div>
                             <div className={styles.cardContent}>
-                                <h3 className={styles.cardTitle}>{cat.title}</h3>
-                                <p className={styles.cardSub}>{cat.subtitle}</p>
+                                <h3 className={styles.cardTitle} style={cardTitleStyle}>{cat.title}</h3>
+                                <p className={styles.cardSub} style={cardSubStyle}>{cat.subtitle}</p>
                                 <span className={styles.arrow}>←</span>
                             </div>
                         </Link>

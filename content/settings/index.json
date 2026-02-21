@@ -1,5 +1,6 @@
 {
   "brandName": "Kynship",
+  "goldColor": "#C8A646",
   "phone": "01010104140",
   "email": "kynship00@gmail.com",
   "location": "الزقازيق، محافظة الشرقية، مصر",
@@ -9,5 +10,34 @@
   "tiktok": "https://www.tiktok.com/@kyn_ship?lang=en&is_from_webapp=1&sender_device=mobile&sender_web_id=7608925886205543944",
   "twitter": "https://x.com/kyn_ship?s=21&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAQFNThleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafo-in3QwqApKV3cFyO3Bf8lWFew8N6CRKl6lINrWSakb5V4FIWNmI8xYzgxA_aem_v8ZQmP9FodurkQZ-GOS2Jg",
   "pinterest": "https://www.pinterest.com/kynship/?invite_code=142d97f7426d461b95570fea32623a53&sender=792704109320124643&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAQFNv5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafo-in3QwqApKV3cFyO3Bf8lWFew8N6CRKl6lINrWSakb5V4FIWNmI8xYzgxA_aem_v8ZQmP9FodurkQZ-GOS2Jg",
-  "goldColor": "#C8A646"
+  "footerBg": "#0A192F",
+  "footerTitleColor": "#C8A646",
+  "footerTextColor": "#E6F1FF",
+  "footerLinkColor": "#FFFFFF",
+  "footerSocialColor": "#C8A646",
+  "header": {
+    "logoText": "Kynship",
+    "logoColor": "#FFFFFF",
+    "logoAr": "كينشيب",
+    "logoArColor": "#C8A646",
+    "navLinks": [
+      {
+        "label": "الرئيسية",
+        "href": "/"
+      },
+      {
+        "label": "أعمالنا",
+        "href": "/portfolio"
+      },
+      {
+        "label": "تواصل معنا",
+        "href": "/contact"
+      }
+    ],
+    "navLinkColor": "#FFFFFF",
+    "ctaLabel": "احجز معاينة مجانية",
+    "ctaBg": "#C8A646",
+    "ctaTextColor": "#FFFFFF",
+    "headerBg": "rgba(10, 25, 47, 0.9)"
+  }
 }

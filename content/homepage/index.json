@@ -8,7 +8,18 @@
     "primaryCtaLink": "https://wa.me/201000000000?text=أريد طلب معاينة مجانية",
     "secondaryCtaText": "استكشف أعمالنا",
     "secondaryCtaLink": "/portfolio",
-    "backgroundImage": "/images/WhatsApp Image 2026-02-20 at 2.32.00 PM.jpeg"
+    "backgroundImage": "/images/WhatsApp Image 2026-02-20 at 2.32.00 PM.jpeg",
+    "badgeBg": "rgba(200, 166, 70, 0.1)",
+    "badgeText": "#C8A646",
+    "headlineColor": "#FFFFFF",
+    "accentColor": "#C8A646",
+    "subtextColor": "#E6F1FF",
+    "primaryBtnBg": "#C8A646",
+    "primaryBtnText": "#FFFFFF",
+    "secondaryBtnBorder": "#FFFFFF",
+    "secondaryBtnText": "#FFFFFF",
+    "overlayColor": "#0A192F",
+    "overlayOpacity": 0.7
   },
   "categories": {
     "label": "تخصصاتنا",
@@ -43,7 +54,14 @@
         "bg": "#25384A",
         "image": "/images/cat-special.jpg"
       }
-    ]
+    ],
+    "sectionBg": "#0A192F",
+    "labelColor": "#C8A646",
+    "titleColor": "#FFFFFF",
+    "subtitleColor": "#E6F1FF",
+    "cardBg": "#112240",
+    "cardTitleColor": "#FFFFFF",
+    "cardSubColor": "#E6F1FF"
   },
   "trust": {
     "label": "لماذا كينشيب",
@@ -69,7 +87,15 @@
         "title": "خدمة ما بعد البيع",
         "desc": "دعم فني مستمر وصيانة دورية بعد التسليم."
       }
-    ]
+    ],
+    "sectionBg": "#0A192F",
+    "labelColor": "#C8A646",
+    "titleColor": "#FFFFFF",
+    "cardBg": "#112240",
+    "cardTitleColor": "#FFFFFF",
+    "cardDescColor": "#E6F1FF",
+    "iconColor": "#C8A646",
+    "iconBg": "rgba(200, 166, 70, 0.1)"
   },
   "studio": {
     "label": "استوديو التصميم",
@@ -82,7 +108,15 @@
       "✦ ضمان شامل على جميع المنتجات"
     ],
     "ctaText": "احجز استشارة الآن",
-    "ctaLink": "https://wa.me/201000000000?text=أريد حجز استشارة تصميم"
+    "ctaLink": "https://wa.me/201000000000?text=أريد حجز استشارة تصميم",
+    "sectionBg": "#0A192F",
+    "labelColor": "#C8A646",
+    "titleColor": "#FFFFFF",
+    "textColor": "#E6F1FF",
+    "featureIconColor": "#C8A646",
+    "featureTextColor": "#FFFFFF",
+    "ctaBg": "#C8A646",
+    "ctaTextColor": "#FFFFFF"
   },
   "cta": {
     "label": "ابدأ رحلتك معنا",
@@ -91,6 +125,14 @@
     "primaryText": "تواصل معنا الآن",
     "primaryLink": "https://wa.me/201000000000?text=أريد التواصل معكم",
     "secondaryText": "أرسل رسالة",
-    "secondaryLink": "/contact"
+    "secondaryLink": "/contact",
+    "sectionBg": "#0A192F",
+    "labelColor": "#C8A646",
+    "titleColor": "#FFFFFF",
+    "subtitleColor": "#E6F1FF",
+    "primaryBtnBg": "#C8A646",
+    "primaryBtnText": "#FFFFFF",
+    "secondaryBtnBorder": "#FFFFFF",
+    "secondaryBtnText": "#FFFFFF"
   }
 }

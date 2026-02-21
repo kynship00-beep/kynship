@@ -31,62 +31,70 @@ export default function Footer({ settings }) {
     const twitter = settings?.twitter;
     const pinterest = settings?.pinterest;
 
+    const footerStyle = {
+        ...(settings?.footerBg ? { backgroundColor: settings.footerBg } : {}),
+    };
+    const titleStyle = settings?.footerTitleColor ? { color: settings.footerTitleColor } : {};
+    const textStyle = settings?.footerTextColor ? { color: settings.footerTextColor } : {};
+    const linkStyle = settings?.footerLinkColor ? { color: settings.footerLinkColor } : {};
+    const socialStyle = settings?.footerSocialColor ? { color: settings.footerSocialColor } : {};
+
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} style={footerStyle}>
             <div className={`container ${styles.inner}`}>
                 <div className={styles.brand}>
-                    <div className={styles.logoText}>{brandName}</div>
-                    <div className={styles.logoAr}>{AR.logo}</div>
-                    <p className={styles.tagline}>{AR.tagline}</p>
+                    <div className={styles.logoText} style={titleStyle}>{brandName}</div>
+                    <div className={styles.logoAr} style={titleStyle}>{AR.logo}</div>
+                    <p className={styles.tagline} style={textStyle}>{AR.tagline}</p>
                 </div>
 
                 <div className={styles.links}>
-                    <h4 className={styles.colTitle}>{AR.quickLinks}</h4>
-                    <Link href="/">{AR.home}</Link>
-                    <Link href="/portfolio">{AR.portfolio}</Link>
-                    <Link href="/contact">{AR.contact}</Link>
+                    <h4 className={styles.colTitle} style={titleStyle}>{AR.quickLinks}</h4>
+                    <Link href="/" style={linkStyle}>{AR.home}</Link>
+                    <Link href="/portfolio" style={linkStyle}>{AR.portfolio}</Link>
+                    <Link href="/contact" style={linkStyle}>{AR.contact}</Link>
                 </div>
 
                 <div className={styles.contact}>
-                    <h4 className={styles.colTitle}>{AR.contactTitle}</h4>
-                    <div className={styles.contactItem}>
+                    <h4 className={styles.colTitle} style={titleStyle}>{AR.contactTitle}</h4>
+                    <div className={styles.contactItem} style={textStyle}>
                         <MdLocationOn size={18} />
                         <span>{location}</span>
                     </div>
-                    <div className={styles.contactItem}>
+                    <div className={styles.contactItem} style={textStyle}>
                         <MdPhone size={18} />
                         <span>{phone}</span>
                     </div>
-                    <div className={styles.contactItem}>
+                    <div className={styles.contactItem} style={textStyle}>
                         <MdEmail size={18} />
                         <span>{email}</span>
                     </div>
                 </div>
 
                 <div className={styles.social}>
-                    <h4 className={styles.colTitle}>{AR.follow}</h4>
+                    <h4 className={styles.colTitle} style={titleStyle}>{AR.follow}</h4>
                     <div className={styles.socialIcons}>
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style={socialStyle}>
                             <FaWhatsapp size={20} />
                         </a>
-                        <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <a href={instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={socialStyle}>
                             <FaInstagram size={20} />
                         </a>
-                        <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <a href={facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={socialStyle}>
                             <FaFacebookF size={20} />
                         </a>
 
-                        <a href={tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <a href={tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok" style={socialStyle}>
                             <FaTiktok size={20} />
                         </a>
 
 
-                        <a href={twitter} target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                        <a href={twitter} target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" style={socialStyle}>
                             <FaXTwitter size={20} />
                         </a>
 
 
-                        <a href={pinterest} target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                        <a href={pinterest} target="_blank" rel="noopener noreferrer" aria-label="Pinterest" style={socialStyle}>
                             <FaPinterest size={20} />
                         </a>
 
@@ -94,9 +102,9 @@ export default function Footer({ settings }) {
                 </div>
             </div>
 
-            <div className={styles.bottom}>
+            <div className={styles.bottom} style={settings?.footerBg ? { borderTopColor: 'rgba(255,255,255,0.1)' } : {}}>
                 <div className="container">
-                    <p>
+                    <p style={textStyle}>
                         {'\u00A9'} {new Date().getFullYear()} {brandName}. {AR.rights}
                     </p>
                 </div>
