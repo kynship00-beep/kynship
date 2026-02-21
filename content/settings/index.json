@@ -1,6 +1,6 @@
 {
   "brandName": "Kynship",
-  "goldColor": "#C8A646",
+  "goldColor": "#F2B705",
   "phone": "01010104140",
   "email": "kynship00@gmail.com",
   "location": "الزقازيق، محافظة الشرقية، مصر",
@@ -11,8 +11,8 @@
   "twitter": "https://x.com/kyn_ship?s=21&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAQFNThleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafo-in3QwqApKV3cFyO3Bf8lWFew8N6CRKl6lINrWSakb5V4FIWNmI8xYzgxA_aem_v8ZQmP9FodurkQZ-GOS2Jg",
   "pinterest": "https://www.pinterest.com/kynship/?invite_code=142d97f7426d461b95570fea32623a53&sender=792704109320124643&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAQFNv5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafo-in3QwqApKV3cFyO3Bf8lWFew8N6CRKl6lINrWSakb5V4FIWNmI8xYzgxA_aem_v8ZQmP9FodurkQZ-GOS2Jg",
   "footerBg": "#0A192F",
-  "footerTitleColor": "#C8A646",
-  "footerSocialColor": "#C8A646",
+  "footerTitleColor": "#F2B705",
+  "footerSocialColor": "#F2B705",
   "categories": [
     "مطابخ",
     "غرف ملابس",
@@ -21,18 +21,18 @@
   ],
   "portfolio": {
     "label": "معرض الأعمال",
-    "labelColor": "#E2B657",
+    "labelColor": "#F2B705",
     "labelSize": 14,
     "labelFont": "inherit",
     "title": "أعمالنا",
-    "titleColor": "#4B649D",
+    "titleColor": "#FFFFFF",
     "titleSize": 48,
     "titleFont": "inherit",
     "subtitle": "مجموعة من أعمالنا المتميزة في تصميم وتنفيذ المطابخ وغرف الملابس",
-    "subtitleColor": "#1155AD",
+    "subtitleColor": "#F5F5F5",
     "subtitleSize": 18,
     "subtitleFont": "inherit",
-    "sectionBg": "rgba(35, 74, 104, 0.12)"
+    "sectionBg": "#234A68"
   },
   "header": {
     "logoText": "Kynship",
@@ -40,7 +40,7 @@
     "logoEnSize": 20,
     "logoFont": "inherit",
     "logoAr": "كينشيب",
-    "logoArColor": "#C8A646",
+    "logoArColor": "#F2B705",
     "logoArSize": 18,
     "navLinks": [
       {
@@ -60,8 +60,8 @@
     "navLinkSize": 16,
     "navLinkFont": "inherit",
     "ctaLabel": "احجز معاينة مجانية",
-    "ctaBg": "#C8A646",
-    "ctaTextColor": "#FFFFFF",
+    "ctaBg": "#F2B705",
+    "ctaTextColor": "#1A1A1A",
     "ctaFontSize": 16,
     "ctaFont": "inherit",
     "headerBg": "rgba(10, 25, 47, 0.9)"

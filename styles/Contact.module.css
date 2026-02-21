@@ -1,16 +1,19 @@
 .page {
-    padding-top: 72px;
+    padding-top: 0;
 }
 
 .pageHeader {
-    background: linear-gradient(180deg, rgba(35, 74, 104, 0.12), rgba(35, 74, 104, 0.04));
-    padding: 96px 0 56px;
-    border-bottom: 1px solid rgba(35, 74, 104, 0.16);
+    background: #234A68;
+    padding: 140px 0 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .pageTitle {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-size: clamp(2.4rem, 5.2vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
     margin-bottom: 16px;
+    letter-spacing: -0.02em;
 }
 
 .layout {
@@ -22,10 +25,10 @@
 
 .formWrap {
     background: var(--white);
-    border-radius: var(--radius-md);
-    padding: 40px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(35, 74, 104, 0.16);
+    border-radius: 2px;
+    padding: 48px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(35, 74, 104, 0.08);
 }
 
 .form {
@@ -56,12 +59,12 @@
 .select,
 .textarea {
     font-family: var(--font);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--charcoal);
-    background: var(--off-white);
-    border: 1.5px solid rgba(35, 74, 104, 0.22);
-    border-radius: var(--radius);
-    padding: 13px 16px;
+    background: #F9FAFB;
+    border: 1px solid rgba(35, 74, 104, 0.12);
+    border-radius: 0;
+    padding: 14px 18px;
     transition: var(--transition);
     outline: none;
     direction: rtl;
@@ -71,9 +74,9 @@
 .input:focus,
 .select:focus,
 .textarea:focus {
-    border-color: var(--primary-blue);
+    border-color: var(--accent-yellow);
     background: var(--white);
-    box-shadow: 0 0 0 3px rgba(35, 74, 104, 0.12);
+    box-shadow: 0 0 0 4px rgba(242, 183, 5, 0.1);
 }
 
 .inputError {
@@ -142,13 +145,13 @@
 
 .infoCard {
     background: var(--white);
-    border-radius: var(--radius-md);
-    padding: 32px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(35, 74, 104, 0.16);
+    border-radius: 2px;
+    padding: 40px 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(35, 74, 104, 0.08);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
 }
 
 .infoTitle {
