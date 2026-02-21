@@ -1,17 +1,17 @@
 {
-    "title": "وحدة تلفزيون بتصميم فلوتينج فاخر",
-    "description": "وحدة تلفزيون عائمة بتصميم معاصر مع خزائن عالية وإضاءة خلفية مميزة تضيف عمقاً وأناقة للمساحة.",
-    "category": "وحدات تلفزيون",
-    "completionDate": "2025-12-05",
-    "images": [
-        "/images/WhatsApp Image 2026-02-20 at 6.50.05 AM.jpeg",
-        "/images/WhatsApp Image 2026-02-20 at 2.32.00 PM.jpeg"
-    ],
-    "titleSize": 24,
-    "titleColor": "#F5F5F5",
-    "titleFont": "inherit",
-    "descFont": "inherit",
-    "descSize": 16,
-    "descColor": "#EAEAEA",
-    "cardBg": "#112240"
+    "title":  "وحدة تلفزيون بتصميم فلوتينج فاخر",
+    "description":  "وحدة تلفزيون عائمة بتصميم معاصر مع خزائن عالية وإضاءة خلفية مميزة تضيف عمقاً وأناقة للمساحة.",
+    "category":  "وحدات تلفزيون",
+    "completionDate":  "2025-12-05",
+    "images":  [
+                   "/images/WhatsApp Image 2026-02-20 at 6.50.05 AM.jpeg",
+                   "/images/WhatsApp Image 2026-02-20 at 2.32.00 PM.jpeg"
+               ],
+    "titleSize":  24,
+    "titleColor":  "#FFFFFF",
+    "titleFont":  "inherit",
+    "descFont":  "inherit",
+    "descSize":  16,
+    "descColor":  "#E6F1FF",
+    "cardBg":  "#112240"
 }
