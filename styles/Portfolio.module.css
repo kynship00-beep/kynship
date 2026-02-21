@@ -1,28 +1,25 @@
 .pageHeader {
-    background: #234A68;
-    padding: 140px 0 80px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(35, 74, 104, 0.12), rgba(35, 74, 104, 0.04));
+    padding: 120px 0 64px;
+    border-bottom: 1px solid rgba(35, 74, 104, 0.16);
 }
 
 .pageTitle {
-    font-size: clamp(2.4rem, 5.2vw, 3.5rem);
-    font-weight: 700;
-    color: var(--white);
+    font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 16px;
-    letter-spacing: -0.02em;
 }
 
 .pageSub {
-    color: rgba(245, 245, 245, 0.7);
-    font-size: 1.1rem;
-    max-width: 540px;
-    line-height: 1.7;
+    color: var(--text-body);
+    font-size: 1rem;
+    max-width: 500px;
 }
 
 .filterBar {
-    padding: 0;
+    padding: 32px 0 0;
     width: 100%;
-    margin-top: 56px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .filterList {
@@ -34,29 +31,24 @@
 }
 
 .filterBtn {
-    padding: 12px 32px;
-    border-radius: 2px;
-    background: rgba(255, 255, 255, 0.04);
-    color: #F5F5F5;
+    padding: 8px 24px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary-blue);
     font-weight: 600;
-    font-size: 0.85rem;
-    transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .filterBtn:hover {
-    background: rgba(242, 183, 5, 0.1);
-    border-color: #F2B705;
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .filterBtn.active {
-    background: #F2B705;
-    color: #1A1A1A;
-    border-color: #F2B705;
-    box-shadow: 0 10px 25px rgba(242, 183, 5, 0.25);
+    background: var(--gold);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(200, 166, 70, 0.25);
 }
 
 .grid {
