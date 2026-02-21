@@ -11,57 +11,48 @@ export const HomepagePartsFragmentDoc = gql`
   hero {
     __typename
     badge
+    headline
+    accent
+    subtext
+    backgroundImage
+    primaryCtaText
+    primaryCtaLink
+    secondaryCtaText
+    secondaryCtaLink
     badgeBg
     badgeText
     badgeSize
-    badgeFont
-    headline
     headlineColor
     headlineSize
-    headlineFont
-    accent
     accentColor
-    subtext
     subtextColor
     subtextSize
-    subtextFont
-    primaryCtaText
-    primaryCtaLink
     primaryBtnBg
     primaryBtnText
-    primaryBtnSize
-    secondaryCtaText
-    secondaryCtaLink
     secondaryBtnBorder
     secondaryBtnText
-    secondaryBtnSize
-    backgroundImage
     overlayColor
     overlayOpacity
   }
   categories {
     __typename
     label
-    labelColor
-    labelSize
-    labelFont
     title
-    titleColor
-    titleSize
-    titleFont
     subtitle
-    subtitleColor
-    subtitleSize
-    subtitleFont
     items {
       __typename
       title
       subtitle
       href
-      bg
       image
     }
     sectionBg
+    labelColor
+    labelSize
+    titleColor
+    titleSize
+    subtitleColor
+    subtitleSize
     cardBg
     cardTitleColor
     cardSubColor
@@ -69,13 +60,7 @@ export const HomepagePartsFragmentDoc = gql`
   trust {
     __typename
     label
-    labelColor
-    labelSize
-    labelFont
     title
-    titleColor
-    titleSize
-    titleFont
     items {
       __typename
       icon
@@ -83,6 +68,10 @@ export const HomepagePartsFragmentDoc = gql`
       desc
     }
     sectionBg
+    labelColor
+    labelSize
+    titleColor
+    titleSize
     cardBg
     cardTitleColor
     cardDescColor
@@ -92,62 +81,57 @@ export const HomepagePartsFragmentDoc = gql`
   studio {
     __typename
     label
-    labelColor
-    labelSize
-    labelFont
     title
-    titleColor
-    titleSize
-    titleFont
     text
-    textColor
-    textSize
-    textFont
     features
-    featureIconColor
-    featureTextColor
+    images
     ctaText
     ctaLink
-    ctaBg
-    ctaTextColor
-    images
     sectionBg
-  }
-  cta {
-    __typename
-    label
     labelColor
     labelSize
-    labelFont
-    title
     titleColor
     titleSize
-    titleFont
-    subtitle
-    subtitleColor
-    subtitleSize
-    subtitleFont
-    primaryText
-    primaryLink
-    primaryBtnBg
-    primaryBtnText
-    secondaryText
-    secondaryLink
-    secondaryBtnBorder
-    secondaryBtnText
-    sectionBg
+    textColor
+    textSize
+    featureIconColor
+    featureTextColor
+    ctaBg
+    ctaTextColor
+    ctaFontSize
   }
   reviews {
     __typename
     label
+    title
+    sectionBg
     labelColor
     labelSize
-    labelFont
-    title
     titleColor
     titleSize
-    titleFont
+  }
+  cta {
+    __typename
+    label
+    title
+    subtitle
+    primaryText
+    primaryLink
+    secondaryText
+    secondaryLink
     sectionBg
+    labelColor
+    labelSize
+    titleColor
+    titleSize
+    subtitleColor
+    subtitleSize
+    primaryBtnBg
+    primaryBtnText
+    secondaryBtnBorder
+    secondaryBtnText
+    primaryBtnSize
+    secondaryBtnSize
   }
 }
     `;
@@ -155,33 +139,32 @@ export const ProjectPartsFragmentDoc = gql`
     fragment ProjectParts on Project {
   __typename
   title
-  titleColor
-  titleSize
-  titleFont
-  description
-  descColor
-  descSize
-  descFont
-  cardBg
   category
+  description
   completionDate
   images
+  titleColor
+  titleSize
+  descColor
+  descSize
+  cardBg
+  titleFont
+  descFont
 }
     `;
 export const ReviewPartsFragmentDoc = gql`
     fragment ReviewParts on Review {
   __typename
+  name
   quote
+  location
+  rating
   quoteColor
   quoteSize
-  quoteFont
-  name
   nameColor
   nameSize
-  location
   locationColor
   locationSize
-  rating
   starColor
   cardBg
 }
@@ -190,12 +173,11 @@ export const SettingsPartsFragmentDoc = gql`
     fragment SettingsParts on Settings {
   __typename
   brandName
-  customFont
-  goldColor
+  whatsapp
   phone
   email
   location
-  whatsapp
+  goldColor
   instagram
   facebook
   tiktok
@@ -203,14 +185,8 @@ export const SettingsPartsFragmentDoc = gql`
   pinterest
   footerBg
   footerTitleColor
-  footerTitleSize
-  footerTitleFont
   footerTextColor
-  footerTextSize
-  footerTextFont
   footerLinkColor
-  footerLinkSize
-  footerLinkFont
   footerSocialColor
   categories
   portfolio {
@@ -218,24 +194,19 @@ export const SettingsPartsFragmentDoc = gql`
     label
     labelColor
     labelSize
-    labelFont
     title
     titleColor
     titleSize
-    titleFont
     subtitle
     subtitleColor
     subtitleSize
-    subtitleFont
     sectionBg
   }
   header {
     __typename
-    logoImage
     logoText
     logoColor
     logoEnSize
-    logoFont
     logoAr
     logoArColor
     logoArSize
@@ -246,14 +217,13 @@ export const SettingsPartsFragmentDoc = gql`
     }
     navLinkColor
     navLinkSize
-    navLinkFont
+    headerBg
     ctaLabel
     ctaBg
     ctaTextColor
     ctaFontSize
-    ctaFont
-    headerBg
   }
+  customFont
 }
     `;
 export const HomepageDocument = gql`
